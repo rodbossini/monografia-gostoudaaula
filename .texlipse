@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Sat Jan 09 10:42:06 BRST 2016
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=monografia_ic_unifieo_alex_viera.tex
+outputFile=monografia_ic_unifieo_alex_viera.pdf
+langSpell=en
+markDer=true
+srcDir=

@@ -1,0 +1,83 @@
+%% ------------------------------------------------------------------------- %%
+\chapter{Conceitos e Tecnologia}
+\label{cap:conceitos_e_tecnologia}
+
+Neste capítulo abordamos os principais conceitos envolvidos durante o
+desenvolvimento do projeto proposto. Além disso, um conjunto amplo de
+tecnologias utilizadas atualmente no mercado foi empregado, o qual também é
+descrito.
+
+%% ------------------------------------------------------------------------- %%
+\section{Conceitos}
+\label{sec:conceitos}
+
+Esta seção é dedicada a descrições detalhadas independentes de implementação
+ou tecnologia sobre os principais conceitos envolvidos durant a elaboração
+do projeto.\\ 
+
+
+
+\subsection{Modelagem de Dados Conceitual}
+\label{subsec:modelagem_de_dados_conceitual}
+
+O desenvolvimento de um sistema computacional que utiliza armazenamento de dados
+em meio persistente pode ocorrer de diversas formas. Uma possível abordagem, 
+muito utilizada no mercado atualmente, consiste na elaboração de uma descrição 
+sobre os dados com os quais a aplicação irá trabalhar. Essa descrição pode 
+ser textual ou gráfica e ela é elaborada de forma independente de qualquer 
+tecnologia. Em geral, ela é conhecida como modelo conceitual. A modelagem 
+conceitual realizada neste trabalho é descrita no Capítulo~\ref{cap:projeto_tecnico}.
+
+\subsection{Modelagem de Dados Relacional}
+\label{subsec:modelagem_de_dados_relacional}
+Uma vez obtida a descrição conceitual dos dados, a sua implementação pode ser
+realizada de diferentes formas. Entre as mais utilizadas no mercado atual está 
+a modelagem relacional, que consiste no uso de tabelas para o armazemamento dos
+dados, além de diferentes restrições, como chaves primárias e estrangeiras.
+
+
+Criar subseções para os seguintes itens: 
+linguagem SQL e álgebra relacional (é só para descrever o que é, sem mostrar
+código)
+orientação a objetos
+Mapeamento Objeto Relacional
+Web Services
+Dispositivos Móveis e aplicações
+
+
+\section{Tecnologia empregada}
+\label{sec:tecnologia_empregada}
+
+Aqui teremos uma subseção para cada item de tecnologia utilizado, cada API, cada
+linguagem etc. Conforme você descreve cada item, vá citando eles e adicionando à
+bibliografia (arquivo bibliografia.bib). Siga o exemplo do JDK abaixo. Para cada
+item basta escrver 3 ou 4 linhas.
+
+\subsection{JDK - Java Development Kit}
+\label{subsec:jdk}
+
+O desenvolvimento de aplicações usando a linguagem Java requer o uso do
+conhecido \emph{JDK - Java Development Kit}~\cite{jdk}, o qual pode ser obtido
+gratuitamente a partir do link disponibilizado na bibliografia. Ele engloba,
+entre outras coisas, uma implementação da linguagem Java, um compilador, um
+ambiente de interpretação conhecido como máquina virtual Java etc. 
+
+\subsection{Maven}
+\label{subsec:maven}
+
+A aplicação foi baseada na estrutura de um projeto maven. O maven é uma API para
+gerenciamento de projetos Java, com a finalidade de fazer o \emph{build}
+(construção) do projeto resolvendo os problemas de: gerenciamento de
+dependência, deploy, modularização de projeto, testes e controle de versão do
+projeto. O ciclo de vida de um projeto Maven se baseia 
+
+\subsection{Gerenciamento de dependência}
+\label{subsec:gerenciamento_de_dependência}
+
+Durante o desenvolvimento da aplicação, utilizamos outras APIs
+para resolver determinados problemas, como por exemplo, o Spring, Hibernate,
+Jackson entre outros. Todas as essas APIs são arquivos .jar que precisam ser
+baixadas e adicionadas ao projeto, porém, quando fazemos isso manualmente, nem
+sempre é uma terá simples e tende apresentar problemas, como por exemplo o
+Hibernate que, além de precisar das bibliotecas próprias, precisa da API da JPA.
+O Maven resolve todos esses problemas de uma 

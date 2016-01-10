@@ -1,0 +1,57 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bates e Sierra (2005)]{head_sierra:05}{\bf Bates e Sierra (2005)}
+Bert Bates e Kathy Sierra.
+\newblock \emph{Use a Cabeça! Java}.
+\newblock Altabooks Editora, 2º ed.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Deitel e Deitel (2010)]{deitel_java:10}{\bf Deitel e Deitel (2010)}
+Paul Deitel e Harvey Deitel.
+\newblock \emph{Java Como Programar}.
+\newblock Pearson Education, 8º ed.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Deitel {\rm{\em et~al.}} (2012{\natexlab{a}})Deitel, Deitel, Deitel, e
+  Morgano]{deitel_english:12}{\bf Deitel {\rm{\em et~al.}}
+  (2012{\natexlab{a}})}
+Paul Deitel, Harvey Deitel, Abbey Deitel e Michael Morgano.
+\newblock \emph{Android For Programmers An App Driven Approach}.
+\newblock Pearson Education, 1º ed.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Deitel {\rm{\em et~al.}} (2012{\natexlab{b}})Deitel, Deitel, Deitel, e
+  Morgano]{deitel_port:12}{\bf Deitel {\rm{\em et~al.}} (2012{\natexlab{b}})}
+Paul Deitel, Harvey Deitel, Abbey Deitel e Michael Morgano.
+\newblock \emph{Android Para Programadores Uma Abordagem baseada em
+  aplicativos}.
+\newblock Bookman, 1º ed.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Google (2015)]{android_developers}{\bf Google (2015)}
+Google.
+\newblock Android developers.
+\newblock \url{http://developer.android.com/index.html}, Maio 2015.
+\newblock Último acesso em 05/05/2015.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Lecheta (2013)]{lecheta:13}{\bf Lecheta (2013)}
+Ricardo Lecheta.
+\newblock \emph{Google Android Aprenda a criar aplicações para dispositivos
+  móveis com o Android SDK}.
+\newblock Novatec, 3º ed.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Oracle (2015)]{jdk}{\bf Oracle (2015)}
+Oracle.
+\newblock Java se - downloads | oracle technology network | oracle.
+\newblock
+  \url{http://www.oracle.com/technetwork/pt/java/javase/downloads/index.html},
+  2015.
+\newblock Último acesso em 05/01/2016.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Sanderson (2012)]{sanderson:12}{\bf Sanderson (2012)}
+Daniel Sanderson.
+\newblock \emph{Programming Google App Engine}.
+\newblock O'Reilly Media, 2º ed.   {\scriptsize Citado na p\'{a}g.}
+
+\end{thebibliography}
