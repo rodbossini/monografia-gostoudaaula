@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.5)  10 JAN 2016 18:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.5)  11 JAN 2016 20:55
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -756,7 +756,13 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 65.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 74.
+(babel)             in language  on input line 79.
+
+
+Package caption Warning: \captionsetup{type*=...} or \captionof
+(caption)                outside box or environment on input line 107.
+See the caption package documentation for explanation.
+
 ) (./cap-projeto-tecnico.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -883,30 +889,33 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 332.
  ) 
 Here is how much of TeX's memory you used:
- 10637 strings out of 494976
- 158051 string characters out of 6180335
- 286445 words of memory out of 5000000
- 13637 multiletter control sequences out of 15000+600000
- 17975 words of font info for 41 fonts, out of 8000000 for 9000
+ 11002 strings out of 494976
+ 161195 string characters out of 6180335
+ 311445 words of memory out of 5000000
+ 13980 multiletter control sequences out of 15000+600000
+ 22246 words of font info for 50 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 36i,12n,43p,342b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,43p,342b,1179s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/a
-lexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/alexf/.texmf
--var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/alexf/.texmf-var/fonts/
-pk/ljfour/jknappen/ec/ecrm0900.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecti1095.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/
-ecbx1095.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.60
-0pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home
-/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1440.600pk> </home/alexf/.tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/alexf/.texmf-var/font
-s/pk/ljfour/jknappen/ec/ecbx1440.600pk></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb>
-Output written on monografia_ic_unifieo_alex_viera.pdf (31 pages, 183892 bytes)
+lexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/alexf/.texmf
+-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/alexf/.texmf-var/fonts/
+pk/ljfour/jknappen/ec/ecti0900.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecbx1200.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/
+ecbx2074.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.60
+0pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home
+/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/alexf/.tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/alexf/.texmf-var/font
+s/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour
+/jknappen/ec/eccc1440.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/ecrm1440.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.
+600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on monografia_ic_unifieo_alex_viera.pdf (31 pages, 217549 bytes)
 .
 PDF statistics:
- 757 PDF objects out of 1000 (max. 8388607)
- 304 compressed objects within 4 object streams
- 63 named destinations out of 1000 (max. 500000)
+ 877 PDF objects out of 1000 (max. 8388607)
+ 337 compressed objects within 4 object streams
+ 78 named destinations out of 1000 (max. 500000)
  185 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -65,11 +65,16 @@ ambiente de interpretação conhecido como máquina virtual Java etc.
 \subsection{Maven}
 \label{subsec:maven}
 
-A aplicação foi baseada na estrutura de um projeto maven. O maven é uma API para
-gerenciamento de projetos Java, com a finalidade de fazer o \emph{build}
-(construção) do projeto resolvendo os problemas de: gerenciamento de
+A aplicação foi baseada na estrutura de um projeto maven. O maven é uma
+biblioteca capaz de gerenciar projetos Java, com a finalidade de fazer
+o \emph{build} (construção) do projeto resolvendo os problemas de: gerenciamento de
 dependência, deploy, modularização de projeto, testes e controle de versão do
-projeto. O ciclo de vida de um projeto Maven se baseia 
+projeto. O Maven permite o build do projeto utilizando o \emph{Project Object
+Model} (POM). O POM é um arquivo XML que descreve todas as informaçõees que o
+projeto Maven possui, como por exemplo, lista de dependências, configurações de
+plugins, profiles entre outras iformações que o projeto possa ter. A partir do
+pom.xml, podemos configurar todas as propriedades para indicar como o Maven se
+comportará.
 
 \subsection{Gerenciamento de dependência}
 \label{subsec:gerenciamento_de_dependência}
@@ -80,4 +85,26 @@ Jackson entre outros. Todas as essas APIs são arquivos .jar que precisam ser
 baixadas e adicionadas ao projeto, porém, quando fazemos isso manualmente, nem
 sempre é uma terá simples e tende apresentar problemas, como por exemplo o
 Hibernate que, além de precisar das bibliotecas próprias, precisa da API da JPA.
-O Maven resolve todos esses problemas de uma 
+O Maven resolve todos esses problemas simplesmente adicionando a dependência por
+meio da tag <denpendency>: 
+
+\begin {lstlisting}
+<properties>
+	//outras propriedades
+	<hibernate.version>4.3.11.Final</hibernate.version>
+</properties>
+
+<dependencies>
+	//outras dependências
+	<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+	</dependency>
+<dependencies>
+
+\end{lstlisting}
+\captionof{lstlisting}{Adicionando o hibernate para a o projeto usando o
+pom.xml}
+
+
