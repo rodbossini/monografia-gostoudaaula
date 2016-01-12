@@ -170,6 +170,7 @@ uma configuração para ambiente de desenvolvimento e para ambiente de produção:
 \captionof{lstlisting}{Criando profiles para ambiente de desenvolvimento e
 ambiente de produção no pom.xml}
 
+
 Além de configurar diferentes perfis da aplicação, o Maven também executa uma
 rotina em que verifica se todo o projeto está funcionando da maneira correta,
 por exemplo, verifica se todas as bibliotecas e APIs que foram descritas no
@@ -178,5 +179,55 @@ no projeto para garantir se todos funcioram e também gera os arquivos de deploy,
 ou seja, arquivos .jar para aplicações Java e arquivos .war para aplicações
 Java Web.
 
+\subsection{Modularização de projeto}
+\label{subsec:modularização_de_projeto}
 
+O desenvolvimento da aplicação foi baseado em módulos, isso significa que
+existe mais de um projeto que resolve um problema em específico, por exemplo,
+existe o projeto gostoudaaula-core que possui todas as classes modelos da
+aplicação, o projeto gostoudaaula-db que possui todas as classes que cuidam da
+lógica de banco de dados e o projeto gostoudaaula-web que é a aplicação web em
+si. Podemos fazer uso desse tipo de arquitetura por meio dos módulos do Maven. 
+Para criarmos módulos no Maven precisamos primeiro criar um projeto do Maven que
+chamando de parent, esse projeto será o projeto principal da aplicação, ou seja,
+iremos incluir todos os demais projetos dentro dele. Na aplicação foi criado o
+projeto gostoudaaula-parent. A figure 2.1 demonstra a estrutura do projeto
+parent:
 
+\begin{figure}
+\includegraphics{projeto-parent.png}
+\caption{Estrutura do projeto parent}
+\end{figure}
+
+Para adicionar módulos para esse projeto, precisaremos criar novos projetos
+Maven dentro desse projeto e então precisamos incluir o nome desses na tag <module>:
+
+\begin{lstlisting}
+	<modules>
+		<module>
+			gostoudaaula-core
+		</module>
+		<module>
+			gostoudaaula-web
+		</module>
+		<module>
+			gostoudaaula-db
+		</module>
+	</modules>
+\end{lstlisting}
+\captionof{lstlisting}{Exemplo para associar os projetos como módulos no
+pom.xml}
+
+Nesse exemplo estamos indicando que os projetos citados serão os módulos do
+projeto parent, porém ainda precisamos especificar aos módulos quem será o
+parent, então adicionamos a tag <parent> no pom.xml:
+
+\begin{lstlisting}
+	<parent>
+		<groupId>br.com.gostoudaaula</groupId>
+		<artifactId>gostoudaaula-parent</artifactId>
+		<version>//versão</version>
+	</parent>
+\end{lstlisting}
+\captionof{lstlisting}{Exemplo de como informar qual é o parent do modulo no
+pom.xml}
