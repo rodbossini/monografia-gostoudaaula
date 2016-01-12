@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.5)  11 JAN 2016 20:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.5)  12 JAN 2016 19:09
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -763,12 +763,28 @@ Package caption Warning: \captionsetup{type*=...} or \captionof
 (caption)                outside box or environment on input line 107.
 See the caption package documentation for explanation.
 
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 110.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 134.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 134.
+[4]
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 138.
 ) (./cap-projeto-tecnico.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [4]
+ [5]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 1.
+ [6
+
+]
 Cap\'{\i }tulo 3.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -777,14 +793,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [5
-
-]
+ [7]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [6
+ [8
 
 ]
 Cap\'{\i }tulo 4.
@@ -795,12 +809,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
- [7]
+ [9]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
- [8
+ [10
 
 ]
 Cap\'{\i }tulo 5.
@@ -811,12 +825,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [9]
+ [11]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [10
+ [12
 
 ]
 Cap\'{\i }tulo 6.
@@ -827,7 +841,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 320.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 320.
- [11]
+ [13]
 \openout2 = `ape-dicionario-dados.aux'.
 
  (./ape-dicionario-dados.tex
@@ -835,7 +849,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [12
+ [14
 
 
 ]
@@ -847,12 +861,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 320.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 320.
- [13]
+ [15]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 325.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 325.
- [14
+ [16
 
 
 ] (./monografia_ic_unifieo_alex_viera.bbl
@@ -868,7 +882,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 332.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 332.
- [15
+ [17
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 332.
@@ -878,7 +892,7 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 332.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 332.
 Package rerunfilecheck Info: File `monografia_ic_unifieo_alex_viera.out' has no
 t changed.
-(rerunfilecheck)             Checksum: 665C08AE3FFBE0407EDF325BF9659B89;1505.
+(rerunfilecheck)             Checksum: 42B3C063F0849C7DAA3E7CDCBEAE97BA;1564.
 Package rerunfilecheck Info: File `monografia_ic_unifieo_alex_viera.brf' has no
 t changed.
 (rerunfilecheck)             Checksum: B06AC46ED43296ED778277A54EF48920;46.
@@ -889,33 +903,34 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 332.
  ) 
 Here is how much of TeX's memory you used:
- 11002 strings out of 494976
- 161195 string characters out of 6180335
- 311445 words of memory out of 5000000
- 13980 multiletter control sequences out of 15000+600000
- 22246 words of font info for 50 fonts, out of 8000000 for 9000
+ 11071 strings out of 494976
+ 162171 string characters out of 6180335
+ 355445 words of memory out of 5000000
+ 14004 multiletter control sequences out of 15000+600000
+ 23022 words of font info for 51 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 36i,12n,43p,342b,1179s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,13n,43p,342b,1844s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/a
-lexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/alexf/.texmf
--var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/alexf/.texmf-var/fonts/
-pk/ljfour/jknappen/ec/ecti0900.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecbx1200.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/
-ecbx2074.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.60
-0pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home
-/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/alexf/.tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/alexf/.texmf-var/font
-s/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour
-/jknappen/ec/eccc1440.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/e
-c/ecrm1440.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.
-600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on monografia_ic_unifieo_alex_viera.pdf (31 pages, 217549 bytes)
+lexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/alexf/.texmf
+-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/alexf/.texmf-var/fonts/
+pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecti0900.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/
+ecbx1200.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.60
+0pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </home
+/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/alexf/.tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/alexf/.texmf-var/font
+s/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecrm1095.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/eccc1440.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.
+600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on monografia_ic_unifieo_alex_viera.pdf (33 pages, 232693 bytes)
 .
 PDF statistics:
- 877 PDF objects out of 1000 (max. 8388607)
- 337 compressed objects within 4 object streams
- 78 named destinations out of 1000 (max. 500000)
- 185 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 972 PDF objects out of 1000 (max. 8388607)
+ 402 compressed objects within 5 object streams
+ 122 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 

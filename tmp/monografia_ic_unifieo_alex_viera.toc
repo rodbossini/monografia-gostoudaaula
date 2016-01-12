@@ -16,10 +16,11 @@
 \contentsline {subsection}{\numberline {2.2.1}JDK - Java Development Kit}{3}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Maven}{4}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Gerenciamento de depend\^encia}{4}{subsection.2.2.3}
-\contentsline {chapter}{\numberline {3}Projeto T\'ecnico}{5}{chapter.3}
-\contentsline {chapter}{\numberline {4}Rela\c c\~ao com disciplinas do curso de Ci\^encia da Computa\c c\~ao do UNIFIEO}{7}{chapter.4}
-\contentsline {chapter}{\numberline {5}Conclus\~oes}{9}{chapter.5}
-\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{11}{chapter.6}
-\contentsline {chapter}{\numberline {A}Dicion\'ario de Dados}{13}{appendix.A}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{15}{appendix*.7}
+\contentsline {subsection}{\numberline {2.2.4}Deploy}{4}{subsection.2.2.4}
+\contentsline {chapter}{\numberline {3}Projeto T\'ecnico}{7}{chapter.3}
+\contentsline {chapter}{\numberline {4}Rela\c c\~ao com disciplinas do curso de Ci\^encia da Computa\c c\~ao do UNIFIEO}{9}{chapter.4}
+\contentsline {chapter}{\numberline {5}Conclus\~oes}{11}{chapter.5}
+\contentsline {chapter}{\numberline {6}Trabalhos Futuros}{13}{chapter.6}
+\contentsline {chapter}{\numberline {A}Dicion\'ario de Dados}{15}{appendix.A}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{17}{appendix*.7}
 \contentsfinish 

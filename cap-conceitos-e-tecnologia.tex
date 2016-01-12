@@ -107,4 +107,76 @@ meio da tag <denpendency>:
 \captionof{lstlisting}{Adicionando o hibernate para a o projeto usando o
 pom.xml}
 
+\subsection{Deploy}
+\label{subsec:deploy}
+
+Todas as vezes que terminamos uma funcionalidade ou até mesmo finalizamos a
+aplicação, precisamos distribuir essa aplicação para uso, ou seja, publicá-la
+ou, tecnicamente falando, fazer o deploy. Em muito dos casos, fazer o deploy da
+aplicação nem sempre é uma tarefa trivial, pois é necessário se preoculpar com
+ambientes diferentes, por exemplo, em ambiente de desenvolvimento, nós
+podemos utilizar um banco de dados de teste, podemos utilizar qualquer versão do
+JDK entre outras tarefas que não impactam o cliente, porém em um ambiente de
+produção precisamos evitar o máximo possível de bugs, ou seja, tomar cuidado com
+qual tipo de configuração a nossa aplicação está utilizando. Cuidar manualmente
+desse tipo de rotina permite um risco maior de falhas causando problemas que
+poderiam ser evitados, como por exemplo, utilizar um usuário e senha de banco de
+dados que não existe no servidor externo, e é justamente por esses motivos que
+podemos utilizar os \emph{profiles} do Maven que são capazes de criar diferentes
+perfis para cada tipo de ambiente por meio da tag <profile> segue um exemplo de
+uma configuração para ambiente de desenvolvimento e para ambiente de produção:
+
+\begin{lstlisting}
+<profiles>
+
+		<profile>
+			<id>Development</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				/*podemos adicionar todas as 
+				propriedades para ambiente de desenvolvimento*/
+			</properties>
+		</profile>
+
+		<profile>
+			<id>openshift</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				/* podemos adicionar todas as 
+				propriedades para o ambiente de
+				produção, nesse caso o openshift */
+			</properties>
+			<build>
+
+				<finalName>gostoudaaula</finalName>
+				<plugins>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.1.1</version>
+						<configuration>
+							<outputDirectory>webapps</outputDirectory>
+							<warName>ROOT</warName>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+\end{lstlisting}
+\captionof{lstlisting}{Criando profiles para ambiente de desenvolvimento e
+ambiente de produção no pom.xml}
+
+Além de configurar diferentes perfis da aplicação, o Maven também executa uma
+rotina em que verifica se todo o projeto está funcionando da maneira correta,
+por exemplo, verifica se todas as bibliotecas e APIs que foram descritas no
+pom.xml estão funcionando corretamente, faz todos os testes que foram realizados
+no projeto para garantir se todos funcioram e também gera os arquivos de deploy,
+ou seja, arquivos .jar para aplicações Java e arquivos .war para aplicações
+Java Web.
+
+
 
