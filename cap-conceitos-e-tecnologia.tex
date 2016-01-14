@@ -231,3 +231,80 @@ parent, então adicionamos a tag <parent> no pom.xml:
 \end{lstlisting}
 \captionof{lstlisting}{Exemplo de como informar qual é o parent do modulo no
 pom.xml}
+
+\subsection{Testes com TDD}
+\label{subsec:testes_com_TDD}
+
+O desenvolvimento das funcionalidades da aplicação, foi baseado na prática do
+TDD (Test Driven Development) que tem a finalidade de fazer com que o
+desenvolvedor crie primeiro o cenário de teste e então desenvolva a
+funcionalidade, por exemplo, suponhamos que precisamos criar uma funcionalidade
+que precise cadastrar um aluno no banco de dados, quando utilizamos o TDD
+criamos um método responsável por testar essa funcionalidade que a aplicação
+precisa utilizando o JUnit. Esse método precisa ser escrito de uma forma bem
+explícita sobre o que está sendo testado, para esse caso poderíamos escrever o
+seguinte método:
+
+\begin{lstlisting}
+
+	@Test
+	public void deveCadastrarUmAluno(){
+		//implementação que precisa ser testada
+	}
+	
+\end{lstlisting}
+\captionof{lstlisting}{Exemplo de um caso de teste utilizando o JUnit}
+
+E então montamos o cenário para que esse teste seja realizado, como por
+exemplo, chamar todas as classes necessárias para executar o teste. A ideia em
+implementar o TDD, consiste na intenção de gerar uma pilha de testes que serão
+executados constantemente, para garantir que a aplicação está sempre funcionando
+conforme o esperado, mesmo que implemetemos novas funcionalidades, por exemplo,
+se precisarmos adicionar mais uma rotina nova para cadastrar um aluno,
+executamos novamente o teste que fizemos e verificamos se ainda funciona como o
+esperado.
+
+\subsection{Spring framework}
+\label{subsec:spring_framework}
+
+O Spring framework é um conjunto de módulos (projetos) em que tem a finalidade
+de resolver diversos problemas em que são comuns em uma aplicação web, na aplicação foi
+utilizado para resolver as questões de controle de transações e injenção de
+dependência.
+
+\subsection{Injecão de dependência}
+\label{injeção_de_dependência}
+
+Durante o desenvolvimento da aplicação, foi utilizado uma grande quantidade de
+bibliotecas e APIs, porém, em Java, ou em qualquer tipo de aplicação orientada a
+objetos, sempre que queremos utilizar uma classe, precisamos fazer um instância,
+no caso de APIs, além de fazer uma instância, na maioria das vezes,
+precisamos realizar certas configurações para que funcione de acordo com a nossa
+necessidade. O Spring framework fornece para nós um recurso conhecido como
+injenção de dependência, que consiste em, ensinar o Spring a instânciar as
+nossas classes, mesmo que elas exigam uma configuração apropriada para o
+funcionamento, e então fazer com que ele se responsabilize por gerenciar todo
+tipo de instância que ensinarmos, ou seja, inverter o controle da criação dos
+objetos da aplicação. 
+
+\subsection{controle de transações}
+\label{subsec:controle_de_transações}
+
+Para conenctar a aplicação com o banco de dados, foi utilizada a especificação
+JPA (Java Persistence API) que estabalece uma comunição com o banco de dados
+criando transações. Porém, todas as vezes que estamos utilizando uma transação
+precisamos saber o momento em que ela precisa ser iniciada e o momento em ela
+precisa aplicar as ações de commit/rollback e por fechá-las. Perceba que essa
+ações podem ser um pouco repitivas como também perigosas para a nossa aplicação,
+como por exemplo, interagir com o banco por meio de uma transação e não
+realizar o commit, ou então, simplesmente não fechar a conexão. Devido a esses
+detalhes, utilizamos o Spring para fazer a injeção de dependência das classes
+que são responsáveis em lidar com as transações, ou seja, o Spring gerencia
+todas as transações da aplicação, garantindo que todas essas rotinas sejam
+feitas corretamente sem o desenvolvedor precisar se preocupar.
+
+
+
+
+
+
