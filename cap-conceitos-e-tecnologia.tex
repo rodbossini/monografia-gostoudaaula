@@ -241,8 +241,9 @@ desenvolvedor crie primeiro o cenário de teste e então desenvolva a
 funcionalidade, por exemplo, suponhamos que precisamos criar uma funcionalidade
 que precise cadastrar um aluno no banco de dados, quando utilizamos o TDD
 criamos um método responsável por testar essa funcionalidade que a aplicação
-precisa utilizando o JUnit. Esse método precisa ser escrito de uma forma bem
-explícita sobre o que está sendo testado, para esse caso poderíamos escrever o
+precisa, para implementar esses testes utilizamos o framework JUnit que fornece
+anotações específicas para realizar testes no Java.
+Esse método precisa ser escrito de uma forma bem explícita sobre o que está sendo testado, para esse caso poderíamos escrever o
 seguinte método:
 
 \begin{lstlisting}
@@ -268,7 +269,7 @@ esperado.
 \label{subsec:spring_framework}
 
 O Spring framework é um conjunto de módulos (projetos) em que tem a finalidade
-de resolver diversos problemas em que são comuns em uma aplicação web, na aplicação foi
+de resolver diversos problemas que são comuns em uma aplicação web, na aplicação foi
 utilizado para resolver as questões de controle de transações e injenção de
 dependência.
 
@@ -277,20 +278,67 @@ dependência.
 
 Durante o desenvolvimento da aplicação, foi utilizado uma grande quantidade de
 bibliotecas e APIs, porém, em Java, ou em qualquer tipo de aplicação orientada a
-objetos, sempre que queremos utilizar uma classe, precisamos fazer um instância,
-no caso de APIs, além de fazer uma instância, na maioria das vezes,
+objetos, sempre que queremos utilizar uma classe, precisamos fazer uma
+instância, no caso de APIs, além de fazer uma instância, na maioria das vezes,
 precisamos realizar certas configurações para que funcione de acordo com a nossa
 necessidade. O Spring framework fornece para nós um recurso conhecido como
-injenção de dependência, que consiste em, ensinar o Spring a instânciar as
-nossas classes, mesmo que elas exigam uma configuração apropriada para o
-funcionamento, e então fazer com que ele se responsabilize por gerenciar todo
-tipo de instância que ensinarmos, ou seja, inverter o controle da criação dos
-objetos da aplicação. 
+injeção de dependência, que consiste em atribuir uma instância a um
+objeto automaticamente. Quando queremos que um objeto seja injetado, utilizamos
+a anotação @Inject, que indica que o objeto será injetado:
+
+\begin{lstlisting}
+
+	@Inject
+	private Aluno aluno;
+	
+\end{lstlisting}
+
+\subsection{Inversão de controle}
+\label{subsec:inversão_de_controle}
+
+A injeção de dependência atribuirá as instâncias necessárias para os objetos que
+estão anotados com @Inject, porém, para que o Spring consiga injetar esses
+objetos, precisamos ensinar o Spring a criar essas instâncias. Quando ensinamos
+o Spring a criar instâncias, podemos configurar como a instância será criada e
+então o Spring passa a gerenciar todas as classes que estão anotadas com
+@Inject, fazendo com que o programador não precise mais se preocupar em
+instânciar esses objetos, essa abordagem de fazer com que o framework instancie
+os objetos é chamada de Inversão de Controle (IoC).
+
+\subsection{Beans do Spring}
+\label{subsec:beans_do_spring}
+
+Quando ensinamos o Spring a instanciar uma classe, essa classe se tornará um
+\emph{Bean} do Spring. Os Beans do Spring são todas as classes gerenciadas pelo
+ele, ou seja, serão todas as classes que o Spring saberá criar as instâncias.
+Para transformarmos uma interface ou classe em um bean, basta adicionar uma
+tag <bean> no arquivo XML de configuração do spring:
+
+\begin{lstlisting}
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		
+	<bean id="jpaTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	//para adicionar mais beans, adicione mais tags <bean> e ensine como a classe
+	precisa ser instanciada
+
+</beans>
+\end{lstlisting}
 
 \subsection{controle de transações}
 \label{subsec:controle_de_transações}
 
-Para conenctar a aplicação com o banco de dados, foi utilizada a especificação
+Para conectar a aplicação com o banco de dados, foi utilizada a especificação
 JPA (Java Persistence API) que estabalece uma comunição com o banco de dados
 criando transações. Porém, todas as vezes que estamos utilizando uma transação
 precisamos saber o momento em que ela precisa ser iniciada e o momento em ela
