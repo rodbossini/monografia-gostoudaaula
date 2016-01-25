@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.5)  16 JAN 2016 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.5)  24 JAN 2016 23:48
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -970,8 +970,8 @@ LaTeX Font Info:    ... okay on input line 90.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 Overfull \hbox (1792.34366pt too wide) in paragraph at lines 61--13
 [][]\OT1/cmr/m/n/10.95 ^encia2.2.34Gerenciamento de de-pend^enciasubsection.2.2
-.3      []~ao$[]\OML/cmm/m/it/10.95 e[]rojeto[][][][][][][][][][][][]$[][][][] 
-
+.3      []~ao$[]\OML/cmm/m/it/10.95 e[]rojeto[][][][][][][][][][][][][]$[][][][
+] 
  []
 
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1307,7 +1307,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 138.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 182.
- <./figuras/projeto-parent.png, id=291, 184.69pt x 106.3975pt>
+ <./figuras/projeto-parent.png, id=297, 184.69pt x 106.3975pt>
 File: ./figuras/projeto-parent.png Graphic file (type png)
 
 <use ./figuras/projeto-parent.png>
@@ -1456,30 +1456,23 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 332.
 (./monografia_ic_unifieo_alex_viera.aux (./ape-dicionario-dados.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 332.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 332.
-
-
-Package rerunfilecheck Warning: File `monografia_ic_unifieo_alex_viera.out' has
- changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `monografia_ic_unifieo_alex_viera.ou
-t':
-(rerunfilecheck)             Before: 7F9CE0949215B83FEDFC27E67D633683;2091
-(rerunfilecheck)             After:  A293368578563DB84F5F6D21DEA0998A;2145.
+Package rerunfilecheck Info: File `monografia_ic_unifieo_alex_viera.out' has no
+t changed.
+(rerunfilecheck)             Checksum: 2E1F17C25BDCB9B3606E53665DB1026A;2154.
 Package rerunfilecheck Info: File `monografia_ic_unifieo_alex_viera.brf' has no
 t changed.
 (rerunfilecheck)             Checksum: B06AC46ED43296ED778277A54EF48920;46.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 332.
  ) 
 Here is how much of TeX's memory you used:
- 11183 strings out of 494976
- 163887 string characters out of 6180335
+ 11184 strings out of 494976
+ 163915 string characters out of 6180335
  366445 words of memory out of 5000000
- 14052 multiletter control sequences out of 15000+600000
+ 14053 multiletter control sequences out of 15000+600000
  23022 words of font info for 51 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  36i,13n,43p,342b,1844s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1501,11 +1494,11 @@ c/eccc1440.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on monografia_ic_unifieo_alex_viera.pdf (35 pages, 289933 bytes)
+Output written on monografia_ic_unifieo_alex_viera.pdf (35 pages, 290475 bytes)
 .
 PDF statistics:
- 1146 PDF objects out of 1200 (max. 8388607)
- 514 compressed objects within 6 object streams
+ 1151 PDF objects out of 1200 (max. 8388607)
+ 518 compressed objects within 6 object streams
  183 named destinations out of 1000 (max. 500000)
- 254 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 262 words of extra memory for PDF output out of 10000 (max. 10000000)
 
