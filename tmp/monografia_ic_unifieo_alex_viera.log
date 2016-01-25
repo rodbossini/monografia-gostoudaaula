@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.5)  24 JAN 2016 23:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.5)  25 JAN 2016 17:39
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -914,6 +914,258 @@ I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
+! Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 91.
+
+! Please use \mathaccent for accents in math mode.
+<recently read> \accent 
+                        
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 91.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Extra \endcsname.
+\@ifundefined ...dafter \ifx \csname #1\endcsname 
+                                                  \relax \expandafter \@firs...
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 91.
+
+! Please use \mathaccent for accents in math mode.
+<recently read> \accent 
+                        
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 91.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Extra \endcsname.
+\@namedef ...xpandafter \def \csname #1\endcsname 
+                                                  
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 91.
+
+! Please use \mathaccent for accents in math mode.
+<recently read> \accent 
+                        
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 91.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+                                                  
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 93.
+
+! Please use \mathaccent for accents in math mode.
+<recently read> \accent 
+                        
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 93.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Extra \endcsname.
+\@ifundefined ...dafter \ifx \csname #1\endcsname 
+                                                  \relax \expandafter \@firs...
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 93.
+
+! Please use \mathaccent for accents in math mode.
+<recently read> \accent 
+                        
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 93.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Extra \endcsname.
+\@namedef ...xpandafter \def \csname #1\endcsname 
+                                                  
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 93.
+
+! Please use \mathaccent for accents in math mode.
+<recently read> \accent 
+                        
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 93.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+                                                  
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
 (./ape-dicionario-dados.aux))
 ! Missing $ inserted.
 <inserted text> 
@@ -926,6 +1178,12 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
+Missing character: There is no è in font cmex10!
+Missing character: There is no è in font cmex10!
+Missing character: There is no è in font cmex10!
+Missing character: There is no è in font cmex10!
+Missing character: There is no è in font cmex10!
+Missing character: There is no è in font cmex10!
 Missing character: There is no è in font cmex10!
 Missing character: There is no è in font cmex10!
 Missing character: There is no è in font cmex10!
@@ -968,10 +1226,10 @@ LaTeX Font Info:    ... okay on input line 90.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
 LaTeX Font Info:    ... okay on input line 90.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-Overfull \hbox (1792.34366pt too wide) in paragraph at lines 61--13
+Overfull \hbox (2843.14568pt too wide) in paragraph at lines 61--13
 [][]\OT1/cmr/m/n/10.95 ^encia2.2.34Gerenciamento de de-pend^enciasubsection.2.2
-.3      []~ao$[]\OML/cmm/m/it/10.95 e[]rojeto[][][][][][][][][][][][][]$[][][][
-] 
+.3      []~ao$[]\OML/cmm/m/it/10.95 e[]rojeto[][][][][][][][][][][][][][][][][]
+[][]$[][][][] 
  []
 
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1164,9 +1422,9 @@ Package babel Info: Redefining portuges shorthand "|
 
 ] (./monografia_ic_unifieo_alex_viera.toc
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 34.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 34.
  [7])
 \tf@toc=\write5
 \openout5 = `monografia_ic_unifieo_alex_viera.toc'.
@@ -1307,7 +1565,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 138.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 182.
- <./figuras/projeto-parent.png, id=297, 184.69pt x 106.3975pt>
+ <./figuras/projeto-parent.png, id=322, 184.69pt x 106.3975pt>
 File: ./figuras/projeto-parent.png Graphic file (type png)
 
 <use ./figuras/projeto-parent.png>
@@ -1343,12 +1601,34 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 338.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 354.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 362.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 369.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 376.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 386.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 415.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 415.
+ [8]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 416.
 ) (./cap-projeto-tecnico.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [8]
+ [9]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 1.
+ [10
+
+]
 Cap\'{\i }tulo 3.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -1357,14 +1637,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [9
-
-]
+ [11]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [10
+ [12
 
 ]
 Cap\'{\i }tulo 4.
@@ -1375,12 +1653,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
- [11]
+ [13]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
- [12
+ [14
 
 ]
 Cap\'{\i }tulo 5.
@@ -1391,12 +1669,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [13]
+ [15]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [14
+ [16
 
 ]
 Cap\'{\i }tulo 6.
@@ -1407,7 +1685,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 320.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 320.
- [15]
+ [17]
 \openout2 = `ape-dicionario-dados.aux'.
 
  (./ape-dicionario-dados.tex
@@ -1415,7 +1693,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [16
+ [18
 
 
 ]
@@ -1427,12 +1705,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 320.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 320.
- [17]
+ [19]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 325.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 325.
- [18
+ [20
 
 
 ] (./monografia_ic_unifieo_alex_viera.bbl
@@ -1448,7 +1726,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 332.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 332.
- [19
+ [21
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 332.
@@ -1458,7 +1736,7 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 332.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 332.
 Package rerunfilecheck Info: File `monografia_ic_unifieo_alex_viera.out' has no
 t changed.
-(rerunfilecheck)             Checksum: 2E1F17C25BDCB9B3606E53665DB1026A;2154.
+(rerunfilecheck)             Checksum: 67778F83F2C2A7D77C6643E0242F8C02;2536.
 Package rerunfilecheck Info: File `monografia_ic_unifieo_alex_viera.brf' has no
 t changed.
 (rerunfilecheck)             Checksum: B06AC46ED43296ED778277A54EF48920;46.
@@ -1469,10 +1747,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 332.
  ) 
 Here is how much of TeX's memory you used:
- 11184 strings out of 494976
- 163915 string characters out of 6180335
+ 11220 strings out of 494976
+ 164511 string characters out of 6180335
  366445 words of memory out of 5000000
- 14053 multiletter control sequences out of 15000+600000
+ 14073 multiletter control sequences out of 15000+600000
  23022 words of font info for 51 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  36i,13n,43p,342b,1844s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1494,11 +1772,11 @@ c/eccc1440.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on monografia_ic_unifieo_alex_viera.pdf (35 pages, 290475 bytes)
+Output written on monografia_ic_unifieo_alex_viera.pdf (37 pages, 295114 bytes)
 .
 PDF statistics:
- 1151 PDF objects out of 1200 (max. 8388607)
- 518 compressed objects within 6 object streams
- 183 named destinations out of 1000 (max. 500000)
- 262 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1200 PDF objects out of 1200 (max. 8388607)
+ 564 compressed objects within 6 object streams
+ 199 named destinations out of 1000 (max. 500000)
+ 302 words of extra memory for PDF output out of 10000 (max. 10000000)
 

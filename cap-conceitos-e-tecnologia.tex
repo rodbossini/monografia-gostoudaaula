@@ -358,3 +358,71 @@ O openshift é uma plataforma como um serviço, também
 conhecido por PaaS (Platform-as-a-Service), da Red Hat que permite o os
 desenvolvedores a criar um host e fazer o deploy da aplicação em um ambiente na
 nuvem.
+
+\subsection{web console}
+\label{subsec:web_console}
+
+O openshift fornece um web console em uma interface gráfica para criar as
+aplicações desejadas, como por exemplo, criar uma aplicação Java web utilizando
+o tomcat ou o Jboss.
+
+\subsection{configurando o openshift}
+\label{subsec:configurando_o_openshift}
+
+A configuração foi feita no sistema linux e distribuição Ubuntu. Para os
+sistemas operacionais, pode consultar o link do próprio openshift:
+https://developers.openshift.com/en/getting-started-overview.html.
+
+\subsection{instalação via dpkg}
+\label{instalação_via_dpkg}
+
+Para integrar um computador remoto com o ambiente do openshift, precisamos
+instalar o Openshitf client tools (rhc). Utilize o terminal do linux e digite:
+
+\begin{lstlisting}
+$ sudo apt-get install rhc
+\end{lstlisting}
+
+\subsection{instalação do git}
+\label{subsec:instalação_do_git}
+
+O Openshift trabalha com o git para fazer deploy da aplicação, então precisamos
+instalar o git também. Utilize novamente o terminal do linux e digite:
+
+\begin{lstlisting}
+$ sudo apt-get install git-core
+\end{lstlisting}
+
+Após terminar a instalação, verifique a versão do git com o comando:
+
+\begin{lstlisting}
+$ git --version
+\end{lstlisting}
+
+\subsubsection{configurando o Openshift client tools}
+\label{subsec:configurando_o_openshift_client_tools}
+
+Utilizando novamente o terminal do linux digite o comando
+
+\begin{lstlisting}
+$ rhc setup
+\end{lstlisting}
+
+Será solicitado o e-mail e senha cadastro no openshift, digite e aperte enter.
+Na configuração perguntará se é necessário criar uma chave pública para poder
+identificá-lo sem precisar informar o usuário e senha a cada commit, caso quiser
+aceite. 
+
+\subsection{Utilizando o Openshift client}
+\label{subsec:utilizando_o_openshift_client}
+
+Após a instalação do openshift, podemos baixar a aplicação utilizando o git,
+basta fazer o clone da url que será disponibilizada no web console. Por padrão
+será devolvido um arquivo chamado .openshift que tem algumas configurações do
+openshift, basta manter esse arquivo e adicionar a aplicação nesse repositório
+do git e então fazer um push.
+
+
+
+
+
