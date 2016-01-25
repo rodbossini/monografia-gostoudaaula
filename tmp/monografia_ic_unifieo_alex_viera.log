@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.5)  25 JAN 2016 17:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.1.5)  25 JAN 2016 18:01
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -360,7 +360,7 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 ! Missing \endcsname inserted.
 <to be read again> 
                    \unhbox 
-l.61 ...mento de dependência}{subsection.2.2.3}{}}
+l.65 ...mento de dependência}{subsection.2.2.5}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
@@ -371,7 +371,7 @@ LaTeX Warning: Label `subsec:gerenciamento_de_depend\^encia' multiply defined.
 ! Missing \endcsname inserted.
 <to be read again> 
                    \unhbox 
-l.61 ...mento de dependência}{subsection.2.2.3}{}}
+l.65 ...mento de dependência}{subsection.2.2.5}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
@@ -383,7 +383,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.61 ...mento de dependência}{subsection.2.2.3}{}}
+l.65 ...mento de dependência}{subsection.2.2.5}{}}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -391,7 +391,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing number, treated as zero.
 <to be read again> 
                    \accent@spacefactor 
-l.61 ...mento de dependência}{subsection.2.2.3}{}}
+l.65 ...mento de dependência}{subsection.2.2.5}{}}
                                                   
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -400,21 +400,21 @@ look up `weird error' in the index to The TeXbook.)
 ! Bad space factor (0).
 <to be read again> 
                    \accent@spacefactor 
-l.61 ...mento de dependência}{subsection.2.2.3}{}}
+l.65 ...mento de dependência}{subsection.2.2.5}{}}
                                                   
 I allow only values in the range 1..32767 here.
 
 ! Extra \endcsname.
 \@namedef ...xpandafter \def \csname #1\endcsname 
                                                   
-l.61 ...mento de dependência}{subsection.2.2.3}{}}
+l.65 ...mento de dependência}{subsection.2.2.5}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
 ! Extra }, or forgotten \endgroup.
 \@newl@bel ...ined}}\global \@namedef {#1@#2}{#3}}
                                                   
-l.61 ...mento de dependência}{subsection.2.2.3}{}}
+l.65 ...mento de dependência}{subsection.2.2.5}{}}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -425,7 +425,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing \endcsname inserted.
 <to be read again> 
                    \unhbox 
-l.67 ...larização de projeto}{subsection.2.2.5}{}}
+l.71 ...larização de projeto}{subsection.2.2.7}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
@@ -436,7 +436,7 @@ LaTeX Warning: Label `subsec:modulariza\c c\~ao_de_projeto' multiply defined.
 ! Missing \endcsname inserted.
 <to be read again> 
                    \unhbox 
-l.67 ...larização de projeto}{subsection.2.2.5}{}}
+l.71 ...larização de projeto}{subsection.2.2.7}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
@@ -444,7 +444,7 @@ not appear between \csname and \endcsname.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.67 ...larização de projeto}{subsection.2.2.5}{}}
+l.71 ...larização de projeto}{subsection.2.2.7}{}}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -452,28 +452,28 @@ you left one out. Proceed, with fingers crossed.
 ! Extra \endcsname.
 \@namedef ...xpandafter \def \csname #1\endcsname 
                                                   
-l.67 ...larização de projeto}{subsection.2.2.5}{}}
+l.71 ...larização de projeto}{subsection.2.2.7}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 67.
+LaTeX Warning: Command \c invalid in math mode on input line 71.
 
 ! Please use \mathaccent for accents in math mode.
 <recently read> \accent 
                         
-l.67 ...larização de projeto}{subsection.2.2.5}{}}
+l.71 ...larização de projeto}{subsection.2.2.7}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 67.
+LaTeX Warning: Command \~ invalid in math mode on input line 71.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.67 ...larização de projeto}{subsection.2.2.5}{}}
+l.71 ...larização de projeto}{subsection.2.2.7}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -481,7 +481,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.67 ...larização de projeto}{subsection.2.2.5}{}}
+l.71 ...larização de projeto}{subsection.2.2.7}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -491,7 +491,7 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Extra }, or forgotten $.
 \@newl@bel ...ined}}\global \@namedef {#1@#2}{#3}}
                                                   
-l.67 ...larização de projeto}{subsection.2.2.5}{}}
+l.71 ...larização de projeto}{subsection.2.2.7}{}}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -502,29 +502,29 @@ deleted material, e.g., by typing `I$}'.
 ! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 77.
+LaTeX Warning: Command \c invalid in math mode on input line 81.
 
 ! Please use \mathaccent for accents in math mode.
 <recently read> \accent 
                         
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 77.
+LaTeX Warning: Command \~ invalid in math mode on input line 81.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -532,7 +532,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -540,12 +540,12 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-LaTeX Warning: Command \^ invalid in math mode on input line 77.
+LaTeX Warning: Command \^ invalid in math mode on input line 81.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -553,7 +553,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -563,36 +563,36 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Extra \endcsname.
 \@ifundefined ...dafter \ifx \csname #1\endcsname 
                                                   \relax \expandafter \@firs...
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
 ! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 77.
+LaTeX Warning: Command \c invalid in math mode on input line 81.
 
 ! Please use \mathaccent for accents in math mode.
 <recently read> \accent 
                         
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 77.
+LaTeX Warning: Command \~ invalid in math mode on input line 81.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -600,7 +600,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -608,12 +608,12 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-LaTeX Warning: Command \^ invalid in math mode on input line 77.
+LaTeX Warning: Command \^ invalid in math mode on input line 81.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -621,7 +621,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -631,17 +631,17 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Extra \endcsname.
 \@namedef ...xpandafter \def \csname #1\endcsname 
                                                   
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 77.
+LaTeX Warning: Command \~ invalid in math mode on input line 81.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -649,7 +649,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -657,12 +657,12 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-LaTeX Warning: Command \^ invalid in math mode on input line 77.
+LaTeX Warning: Command \^ invalid in math mode on input line 81.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -670,7 +670,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.77 ...jecão de dependência}{subsection.2.2.8}{}}
+l.81 ...ecão de dependência}{subsection.2.2.10}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -680,132 +680,10 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 79.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ...@spacefactor \spacefactor }\accent 
-                                                  #1 #2\egroup \spacefactor ...
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! You can't use `\spacefactor' in math mode.
-\add@accent ...}\accent #1 #2\egroup \spacefactor 
-                                                  \accent@spacefactor 
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! Extra \endcsname.
-\@ifundefined ...dafter \ifx \csname #1\endcsname 
-                                                  \relax \expandafter \@firs...
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-! Missing \endcsname inserted.
-<to be read again> 
-                   \protect 
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 79.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ...@spacefactor \spacefactor }\accent 
-                                                  #1 #2\egroup \spacefactor ...
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! You can't use `\spacefactor' in math mode.
-\add@accent ...}\accent #1 #2\egroup \spacefactor 
-                                                  \accent@spacefactor 
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ...@spacefactor \spacefactor }\accent 
-                                                  #1 #2\egroup \spacefactor ...
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! You can't use `\spacefactor' in math mode.
-\add@accent ...}\accent #1 #2\egroup \spacefactor 
-                                                  \accent@spacefactor 
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! Extra \endcsname.
-\@namedef ...xpandafter \def \csname #1\endcsname 
-                                                  
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-I'm ignoring this, since I wasn't doing a \csname.
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 79.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ...@spacefactor \spacefactor }\accent 
-                                                  #1 #2\egroup \spacefactor ...
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! You can't use `\spacefactor' in math mode.
-\add@accent ...}\accent #1 #2\egroup \spacefactor 
-                                                  \accent@spacefactor 
-l.79 ...Inversão de controle}{subsection.2.2.9}{}}
-                                                  
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-! Missing \endcsname inserted.
-<to be read again> 
-                   \protect 
-l.83 ...trole de transações}{subsection.2.2.11}{}}
-                                                  
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-
-LaTeX Warning: Command \c invalid in math mode on input line 83.
-
-! Please use \mathaccent for accents in math mode.
-<recently read> \accent 
-                        
-l.83 ...trole de transações}{subsection.2.2.11}{}}
-                                                  
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
 
 
 LaTeX Warning: Command \~ invalid in math mode on input line 83.
@@ -813,7 +691,7 @@ LaTeX Warning: Command \~ invalid in math mode on input line 83.
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.83 ...trole de transações}{subsection.2.2.11}{}}
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -821,7 +699,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.83 ...trole de transações}{subsection.2.2.11}{}}
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -831,28 +709,17 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Extra \endcsname.
 \@ifundefined ...dafter \ifx \csname #1\endcsname 
                                                   \relax \expandafter \@firs...
-l.83 ...trole de transações}{subsection.2.2.11}{}}
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
 ! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
-l.83 ...trole de transações}{subsection.2.2.11}{}}
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
-
-
-LaTeX Warning: Command \c invalid in math mode on input line 83.
-
-! Please use \mathaccent for accents in math mode.
-<recently read> \accent 
-                        
-l.83 ...trole de transações}{subsection.2.2.11}{}}
-                                                  
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
 
 
 LaTeX Warning: Command \~ invalid in math mode on input line 83.
@@ -860,7 +727,7 @@ LaTeX Warning: Command \~ invalid in math mode on input line 83.
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.83 ...trole de transações}{subsection.2.2.11}{}}
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -868,7 +735,25 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.83 ...trole de transações}{subsection.2.2.11}{}}
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
+                                                  
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -878,20 +763,9 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Extra \endcsname.
 \@namedef ...xpandafter \def \csname #1\endcsname 
                                                   
-l.83 ...trole de transações}{subsection.2.2.11}{}}
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
-
-
-LaTeX Warning: Command \c invalid in math mode on input line 83.
-
-! Please use \mathaccent for accents in math mode.
-<recently read> \accent 
-                        
-l.83 ...trole de transações}{subsection.2.2.11}{}}
-                                                  
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
 
 
 LaTeX Warning: Command \~ invalid in math mode on input line 83.
@@ -899,7 +773,7 @@ LaTeX Warning: Command \~ invalid in math mode on input line 83.
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.83 ...trole de transações}{subsection.2.2.11}{}}
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -907,7 +781,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.83 ...trole de transações}{subsection.2.2.11}{}}
+l.83 ...nversão de controle}{subsection.2.2.11}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -917,29 +791,29 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 91.
+LaTeX Warning: Command \c invalid in math mode on input line 87.
 
 ! Please use \mathaccent for accents in math mode.
 <recently read> \accent 
                         
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 91.
+LaTeX Warning: Command \~ invalid in math mode on input line 87.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -947,7 +821,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -957,36 +831,36 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Extra \endcsname.
 \@ifundefined ...dafter \ifx \csname #1\endcsname 
                                                   \relax \expandafter \@firs...
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
 ! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 91.
+LaTeX Warning: Command \c invalid in math mode on input line 87.
 
 ! Please use \mathaccent for accents in math mode.
 <recently read> \accent 
                         
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 91.
+LaTeX Warning: Command \~ invalid in math mode on input line 87.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -994,7 +868,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1004,28 +878,28 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Extra \endcsname.
 \@namedef ...xpandafter \def \csname #1\endcsname 
                                                   
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 91.
+LaTeX Warning: Command \c invalid in math mode on input line 87.
 
 ! Please use \mathaccent for accents in math mode.
 <recently read> \accent 
                         
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 91.
+LaTeX Warning: Command \~ invalid in math mode on input line 87.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -1033,7 +907,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.91 ...instalação via dpkg}{subsection.2.2.15}{}}
+l.87 ...trole de transações}{subsection.2.2.13}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1043,29 +917,29 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 93.
+LaTeX Warning: Command \c invalid in math mode on input line 95.
 
 ! Please use \mathaccent for accents in math mode.
 <recently read> \accent 
                         
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 93.
+LaTeX Warning: Command \~ invalid in math mode on input line 95.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -1073,7 +947,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1083,36 +957,36 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Extra \endcsname.
 \@ifundefined ...dafter \ifx \csname #1\endcsname 
                                                   \relax \expandafter \@firs...
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
 ! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 93.
+LaTeX Warning: Command \c invalid in math mode on input line 95.
 
 ! Please use \mathaccent for accents in math mode.
 <recently read> \accent 
                         
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 93.
+LaTeX Warning: Command \~ invalid in math mode on input line 95.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -1120,7 +994,7 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1130,28 +1004,28 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 ! Extra \endcsname.
 \@namedef ...xpandafter \def \csname #1\endcsname 
                                                   
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 93.
+LaTeX Warning: Command \c invalid in math mode on input line 95.
 
 ! Please use \mathaccent for accents in math mode.
 <recently read> \accent 
                         
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 93.
+LaTeX Warning: Command \~ invalid in math mode on input line 95.
 
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
                                                   
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
@@ -1159,7 +1033,133 @@ I'm changing \accent to \mathaccent here; wish me luck.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.93 ...}{instalação do git}{subsection.2.2.16}{}}
+l.95 ...instalação via dpkg}{subsection.2.2.17}{}}
+                                                  
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 97.
+
+! Please use \mathaccent for accents in math mode.
+<recently read> \accent 
+                        
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 97.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Extra \endcsname.
+\@ifundefined ...dafter \ifx \csname #1\endcsname 
+                                                  \relax \expandafter \@firs...
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \protect 
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 97.
+
+! Please use \mathaccent for accents in math mode.
+<recently read> \accent 
+                        
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 97.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Extra \endcsname.
+\@namedef ...xpandafter \def \csname #1\endcsname 
+                                                  
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 97.
+
+! Please use \mathaccent for accents in math mode.
+<recently read> \accent 
+                        
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 97.
+
+! Please use \mathaccent for accents in math mode.
+\add@accent ...@spacefactor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
+                                                  
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in math mode.
+\add@accent ...}\accent #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.97 ...}{instalação do git}{subsection.2.2.18}{}}
                                                   
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1226,9 +1226,9 @@ LaTeX Font Info:    ... okay on input line 90.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
 LaTeX Font Info:    ... okay on input line 90.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-Overfull \hbox (2843.14568pt too wide) in paragraph at lines 61--13
-[][]\OT1/cmr/m/n/10.95 ^encia2.2.34Gerenciamento de de-pend^enciasubsection.2.2
-.3      []~ao$[]\OML/cmm/m/it/10.95 e[]rojeto[][][][][][][][][][][][][][][][][]
+Overfull \hbox (2865.0457pt too wide) in paragraph at lines 65--13
+[][]\OT1/cmr/m/n/10.95 ^encia2.2.54Gerenciamento de de-pend^enciasubsection.2.2
+.5      []~ao$[]\OML/cmm/m/it/10.95 e[]rojeto[][][][][][][][][][][][][][][][][]
 [][]$[][][][] 
  []
 
@@ -1422,9 +1422,9 @@ Package babel Info: Redefining portuges shorthand "|
 
 ] (./monografia_ic_unifieo_alex_viera.toc
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 34.
+(babel)             in language  on input line 36.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 34.
+(babel)             in language  on input line 36.
  [7])
 \tf@toc=\write5
 \openout5 = `monografia_ic_unifieo_alex_viera.toc'.
@@ -1547,75 +1547,78 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 65.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 79.
+(babel)             in language  on input line 71.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 77.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 91.
 
 
 Package caption Warning: \captionsetup{type*=...} or \captionof
-(caption)                outside box or environment on input line 107.
+(caption)                outside box or environment on input line 119.
 See the caption package documentation for explanation.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 122.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 134.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 134.
+(babel)             in language  on input line 140.
 [4]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 138.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 150.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 182.
- <./figuras/projeto-parent.png, id=322, 184.69pt x 106.3975pt>
+(babel)             in language  on input line 194.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 208.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 208.
+ [5] <./figuras/projeto-parent.png, id=375, 184.69pt x 106.3975pt>
 File: ./figuras/projeto-parent.png Graphic file (type png)
 
 <use ./figuras/projeto-parent.png>
-Package pdftex.def Info: ./figuras/projeto-parent.png used on input line 198.
+Package pdftex.def Info: ./figuras/projeto-parent.png used on input line 210.
 (pdftex.def)             Requested size: 184.68953pt x 106.39723pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 247.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 208.
- [5]
+(babel)             in language  on input line 265.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 235.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 267.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 267.
+(babel)             in language  on input line 265.
  [6 <./figuras/projeto-parent.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 268.
+(babel)             in language  on input line 280.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 276.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 296.
+(babel)             in language  on input line 288.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 308.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 335.
+(babel)             in language  on input line 320.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 335.
+(babel)             in language  on input line 337.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 337.
+ [7]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 350.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 366.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 374.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 381.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 388.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 398.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 405.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 405.
 
-[7]
+[8]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 338.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 354.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 362.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 369.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 376.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 386.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 415.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 415.
- [8]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 416.
+(babel)             in language  on input line 428.
 ) (./cap-projeto-tecnico.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -1736,7 +1739,7 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 332.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 332.
 Package rerunfilecheck Info: File `monografia_ic_unifieo_alex_viera.out' has no
 t changed.
-(rerunfilecheck)             Checksum: 67778F83F2C2A7D77C6643E0242F8C02;2536.
+(rerunfilecheck)             Checksum: A896527BDCCA28655FA8F54F8219AF4C;2701.
 Package rerunfilecheck Info: File `monografia_ic_unifieo_alex_viera.brf' has no
 t changed.
 (rerunfilecheck)             Checksum: B06AC46ED43296ED778277A54EF48920;46.
@@ -1747,13 +1750,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 332.
  ) 
 Here is how much of TeX's memory you used:
- 11220 strings out of 494976
- 164511 string characters out of 6180335
- 366445 words of memory out of 5000000
- 14073 multiletter control sequences out of 15000+600000
+ 11226 strings out of 494976
+ 164607 string characters out of 6180335
+ 359445 words of memory out of 5000000
+ 14077 multiletter control sequences out of 15000+600000
  23022 words of font info for 51 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 36i,13n,43p,342b,1844s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,13n,43p,342b,1850s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/a
 lexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/alexf/.texmf
 -var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/alexf/.texmf-var/fonts/
@@ -1772,11 +1775,11 @@ c/eccc1440.600pk> </home/alexf/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on monografia_ic_unifieo_alex_viera.pdf (37 pages, 295114 bytes)
+Output written on monografia_ic_unifieo_alex_viera.pdf (37 pages, 296546 bytes)
 .
 PDF statistics:
- 1200 PDF objects out of 1200 (max. 8388607)
- 564 compressed objects within 6 object streams
- 199 named destinations out of 1000 (max. 500000)
- 302 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1212 PDF objects out of 1440 (max. 8388607)
+ 574 compressed objects within 6 object streams
+ 201 named destinations out of 1000 (max. 500000)
+ 318 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -14,23 +14,25 @@
 \contentsline {subsection}{\numberline {2.1.2}Modelagem de Dados Relacional}{3}{subsection.2.1.2}
 \contentsline {section}{\numberline {2.2}Tecnologia empregada}{3}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}JDK - Java Development Kit}{3}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Maven}{4}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Gerenciamento de depend\^encia}{4}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Deploy}{4}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Modulariza\c c\~ao de projeto}{5}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}Testes com TDD}{6}{subsection.2.2.6}
-\contentsline {subsection}{\numberline {2.2.7}Spring framework}{7}{subsection.2.2.7}
-\contentsline {subsection}{\numberline {2.2.8}Injec\~ao de depend\^encia}{7}{subsection.2.2.8}
-\contentsline {subsection}{\numberline {2.2.9}Invers\~ao de controle}{7}{subsection.2.2.9}
-\contentsline {subsection}{\numberline {2.2.10}Beans do Spring}{7}{subsection.2.2.10}
-\contentsline {subsection}{\numberline {2.2.11}controle de transa\c c\~oes}{8}{subsection.2.2.11}
-\contentsline {subsection}{\numberline {2.2.12}openshift}{8}{subsection.2.2.12}
-\contentsline {subsection}{\numberline {2.2.13}web console}{8}{subsection.2.2.13}
-\contentsline {subsection}{\numberline {2.2.14}configurando o openshift}{8}{subsection.2.2.14}
-\contentsline {subsection}{\numberline {2.2.15}instala\c c\~ao via dpkg}{8}{subsection.2.2.15}
-\contentsline {subsection}{\numberline {2.2.16}instala\c c\~ao do git}{8}{subsection.2.2.16}
+\contentsline {subsection}{\numberline {2.2.2}JPA - Java Persistence API}{4}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}ORM - Object-Relational Mapping}{4}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Maven}{4}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Gerenciamento de depend\^encia}{4}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Deploy}{4}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}Modulariza\c c\~ao de projeto}{5}{subsection.2.2.7}
+\contentsline {subsection}{\numberline {2.2.8}Testes com TDD}{6}{subsection.2.2.8}
+\contentsline {subsection}{\numberline {2.2.9}Spring framework}{7}{subsection.2.2.9}
+\contentsline {subsection}{\numberline {2.2.10}Injec\~ao de depend\^encia}{7}{subsection.2.2.10}
+\contentsline {subsection}{\numberline {2.2.11}Invers\~ao de controle}{7}{subsection.2.2.11}
+\contentsline {subsection}{\numberline {2.2.12}Beans do Spring}{7}{subsection.2.2.12}
+\contentsline {subsection}{\numberline {2.2.13}controle de transa\c c\~oes}{8}{subsection.2.2.13}
+\contentsline {subsection}{\numberline {2.2.14}openshift}{8}{subsection.2.2.14}
+\contentsline {subsection}{\numberline {2.2.15}web console}{8}{subsection.2.2.15}
+\contentsline {subsection}{\numberline {2.2.16}configurando o openshift}{8}{subsection.2.2.16}
+\contentsline {subsection}{\numberline {2.2.17}instala\c c\~ao via dpkg}{8}{subsection.2.2.17}
+\contentsline {subsection}{\numberline {2.2.18}instala\c c\~ao do git}{8}{subsection.2.2.18}
 \contentsline {subsubsection}{configurando o Openshift client tools}{9}{section*.8}
-\contentsline {subsection}{\numberline {2.2.17}Utilizando o Openshift client}{9}{subsection.2.2.17}
+\contentsline {subsection}{\numberline {2.2.19}Utilizando o Openshift client}{9}{subsection.2.2.19}
 \contentsline {chapter}{\numberline {3}Projeto T\'ecnico}{11}{chapter.3}
 \contentsline {chapter}{\numberline {4}Rela\c c\~ao com disciplinas do curso de Ci\^encia da Computa\c c\~ao do UNIFIEO}{13}{chapter.4}
 \contentsline {chapter}{\numberline {5}Conclus\~oes}{15}{chapter.5}
