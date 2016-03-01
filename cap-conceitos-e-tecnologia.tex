@@ -44,6 +44,41 @@ Mapeamento Objeto Relacional
 Web Services
 Dispositivos Móveis e aplicações
 
+\section{SQL e álgebra relacional}
+\label{sec:sql_e_algebra_relacional}
+
+Structured Query Language (linguagem de consulta estruturada) é uma linguagem de
+pesquisa padrão para banco de dados relacionais, onde permite a comunicação com
+um banco de dados para a realização de consultas simples ou com álgebra
+relacional. A álgebra relacional é uma teoria de como podemos manipular as
+consultas realizadas utilizando o SQL, como por exemplo, mencionar quais são os
+atributos e filtros que necessários com o intuito de devolver o resultado
+esperado.
+
+\section{Orientação a objetos}
+\label{sec:orientacao_a_objetos}
+
+O paradigma de programação orientada a objetos é um modelo para o
+desenvolvimento de software ao qual utilizamos unidades chamadas de
+objetos. Esse paradigma nos permite modelar um sistema
+computacional por meio desses objetos que representam todas as entidades
+contidas no sistema que, por sua vez, refletem as abstrações de um objeto da
+vida real para a aplicação, como por exemplo, na modelagem para essa aplicação,
+foi necessário modelar a entidade aula que representa uma aula da vida real que compoe um aluno, 
+um professor e qualquer outra informação que seja necessária para essa entidade.
+Os objetos dessas entidades são identificadas como classes que possuem estados
+(atributos) e comportamentos (métodos) que definem suas responsabilidades e
+razão de existir.
+
+\section{Mapeamento Objeto Relacional}
+\label{sec:mapeamento_objeto_relacional}
+
+\section{Web Services}
+\label{sec:web_services}
+
+\section{Dispositivos Móveis e Aplicações}
+\label{sec:dispositivos_movei_e_aplicacoes}
+
 
 \section{Tecnologia empregada}
 \label{sec:tecnologia_empregada}
@@ -306,7 +341,7 @@ a anotação @Inject, que indica que o objeto será injetado:
 \end{lstlisting}
 
 \subsection{Inversão de controle}
-\label{subsec:inversão_de_controle}
+\label{subsec:inversao_de_controle}
 
 A injeção de dependência atribuirá as instâncias necessárias para os objetos que
 estão anotados com @Inject, porém, para que o Spring consiga injetar esses
@@ -348,7 +383,7 @@ tag <bean> no arquivo XML de configuração do spring:
 \end{lstlisting}
 
 \subsection{controle de transações}
-\label{subsec:controle_de_transações}
+\label{subsec:controle_de_transacoes}
 
 Para conectar a aplicação com o banco de dados, foi utilizada a especificação
 JPA (Java Persistence API) que estabalece uma comunição com o banco de dados
@@ -396,7 +431,7 @@ $ sudo apt-get install rhc
 \end{lstlisting}
 
 \subsection{instalação do git}
-\label{subsec:instalação_do_git}
+\label{subsec:instalacao_do_git}
 
 O Openshift trabalha com o git para fazer deploy da aplicação, então precisamos
 instalar o git também. Utilize novamente o terminal do linux e digite:
