@@ -15,8 +15,6 @@ Esta seção é dedicada a descrições detalhadas independentes de implementação
 ou tecnologia sobre os principais conceitos envolvidos durante a elaboração
 do projeto.\\ 
 
-
-
 \subsection{Modelagem de Dados Conceitual}
 \label{subsec:modelagem_de_dados_conceitual}
 
@@ -99,6 +97,7 @@ são acessíveis por meio de endereços públicos da aplicação.
 \section{Dispositivos Móveis e Aplicações}
 \label{sec:dispositivos_movei_e_aplicacoes}
 
+% pesquisar depois sobre o uso de dispositivos móveis
 
 \section{Tecnologia empregada}
 \label{sec:tecnologia_empregada}
@@ -106,7 +105,7 @@ são acessíveis por meio de endereços públicos da aplicação.
 Aqui teremos uma subseção para cada item de tecnologia utilizado, cada API, cada
 linguagem etc. Conforme você descreve cada item, vá citando eles e adicionando à
 bibliografia (arquivo bibliografia.bib). Siga o exemplo do JDK abaixo. Para cada
-item basta escrver 3 ou 4 linhas.
+item basta escrever 3 ou 4 linhas.
 
 \subsection{JDK - Java Development Kit}
 \label{subsec:jdk}
@@ -120,16 +119,16 @@ ambiente de interpretação conhecido como máquina virtual Java etc.
 \subsection{JPA - Java Persistence API}
 \label{subsec:jpa}
 
-Java Persistence API é uma especificação Java EE que fornece uma solução ORM
-(Object-Relational Mapping) para persistência de dados em uma aplicação Java.
+JPA (Java Persistence API) é uma especificação Java EE que determina tudo que
+uma implementação de ORM (Object-Relational Mapping) para Java, precisa
+implementar para que seja uma biblioteca funcional de persistência de dados
+utilizando ORM. 
 	
-
 \subsection{Maven}
 \label{subsec:maven}
 
-A aplicação foi baseada na estrutura de um projeto maven. O maven é uma
-biblioteca capaz de gerenciar projetos Java, com a finalidade de fazer
-o \emph{build} (construção) do projeto resolvendo os problemas de: gerenciamento de
+O maven é uma biblioteca capaz de gerenciar projetos Java, com a finalidade de
+fazer o \emph{build} (construção) do projeto resolvendo os problemas de: gerenciamento de
 dependência, deploy, modularização de projeto, testes e controle de versão do
 projeto. O Maven permite o build do projeto utilizando o \emph{Project Object
 Model} (POM). O POM é um arquivo XML que descreve todas as informaçõees que o
@@ -305,8 +304,8 @@ que precise cadastrar um aluno no banco de dados, quando utilizamos o TDD
 criamos um método responsável por testar essa funcionalidade que a aplicação
 precisa, para implementar esses testes utilizamos o framework JUnit que fornece
 anotações específicas para realizar testes no Java.
-Esse método precisa ser escrito de uma forma bem explícita sobre o que está sendo testado, para esse caso poderíamos escrever o
-seguinte método:
+Esse método precisa ser escrito de uma forma bem explícita sobre o que está sendo testado, 
+para esse caso poderíamos escrever o seguinte método:
 
 \begin{lstlisting}
 
