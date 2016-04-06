@@ -13,7 +13,7 @@ descrito.
 
 Esta seção é dedicada a descrições detalhadas independentes de implementação
 ou tecnologia sobre os principais conceitos envolvidos durante a elaboração
-do projeto.\\ 
+do projeto. 
 
 \subsection{Modelagem de Dados Conceitual}
 \label{subsec:modelagem_de_dados_conceitual}
@@ -24,7 +24,8 @@ muito utilizada no mercado atualmente, consiste na elaboração de uma descrição
 sobre os dados com os quais a aplicação irá trabalhar. Essa descrição pode 
 ser textual ou gráfica e ela é elaborada de forma independente de qualquer 
 tecnologia. Em geral, ela é conhecida como modelo conceitual. A modelagem 
-conceitual realizada neste trabalho é descrita no Capítulo~\ref{cap:projeto_tecnico}.
+conceitual realizada neste trabalho é descrita no Capítulo
+\ref{cap:projeto_tecnico}.
 
 \subsection{Modelagem de Dados Relacional}
 \label{subsec:modelagem_de_dados_relacional}
@@ -56,31 +57,252 @@ esperado.
 \section{Orientação a objetos}
 \label{sec:orientacao_a_objetos}
 
-O paradigma de programação orientada a objetos é um modelo para o
+O paradigma de POO (programação orientada a objetos) é um modelo para o
 desenvolvimento de software ao qual utilizamos unidades chamadas de
 objetos. Esse paradigma nos permite modelar um sistema
 computacional por meio desses objetos que representam todas as entidades
 contidas no sistema que, por sua vez, refletem as abstrações de um objeto da
 vida real para a aplicação, como por exemplo, na modelagem para essa aplicação,
-foi necessário modelar a entidade aula que representa uma aula da vida real que compoe um aluno, 
-um professor e qualquer outra informação que seja necessária para essa entidade.
+foi necessário modelar a entidade aula que representa uma aula da vida real que
+compõe um aluno, um professor e qualquer outra informação que seja necessária
+para essa entidade.
+
 Os objetos dessas entidades são identificadas como classes que possuem estados
 (atributos) e comportamentos (métodos) que definem suas responsabilidades e
-razão de existir.
+razão de existir. 
+
+\begin {lstlisting}
+class Aula {
+	
+	Aluno aluno;
+	Professor professor;
+	
+	//atributos e métodos
+	
+}
+
+class Professor {
+	
+	List<Aula> aulas;
+	
+	//atributos e métodos
+	
+}
+
+class Aluno {
+	
+	List<Aula> aulas;
+	
+	//atributos e métodos
+	
+}
+\end{lstlisting}
+
+\captionof{lstlisting}{Exemplo de como podemos criar 3 classes e adicionar seus
+atributos}
+
+Além disso, na POO, temos grandes benefícios devido aos
+recursos de encapsulamento, herança, polimorfismo que permitem o
+desenvolvimento de um sistema mais coerente, seguro e manutenível. 
+
+\subsection{Encapsulamento}
+\label{subsec:encapsulamento}
+
+O encapsulamento é um recurso que tem o objeto de esconder todos os passos que
+são realizados para apenas uma chamada de método. Podemos verificar um pequeno
+exemplo de encapsulamento durante uma chamada 
+
+\begin{lstlisting}
+class CalculadorDeBonus {
+
+	double calcularBonus(double salario){
+		if(salario < 1000){
+			return salario * 0.15;
+		} else {
+			return salario * 0.10;
+		}
+	}
+	
+	//atributos e métodos
+
+}
+
+class Funcionario {
+
+	double salario;
+	double bonus;
+	
+	double getBonus(){
+		bonus = new CalculadorDeBonus().calcularBonus(this.salario);
+		return bonus;
+	}
+
+}
+
+\end{lstlisting}
+\captionof{lstlisting}{Exemplo de utilização do encapsulamento para calcular um
+bonus}
+
+Observe que a classe \lstinline{Funcionario} possui os atributos
+\lstinline{salario} e \lstinline{bonus} e o método \lstinline{getBonus()}.
+Quando alguém, que não seja a classe \lstinline{Funcionario} chamar o método
+\lstinline{getBonus()}, saberá como esse bonus é calculado? A resposta é não!
+Pois todos os passos, procedimentos ou qualquer que seja a rotina realizada para
+calcular o bonus está escondida! Além disso, observe que a classe
+\lstinline{Funcionario} faz uma chamada ao método \lstinline{calcularBonus(double salario)} que também possui seus procedimentos, ou seja, passos que nem mesmo a
+classe \lstinline{Funcionario} sabe, ou seja, outro exemplo de encapsulamento! É
+fácil compreender que o encapsulamento é justamente esconder o código para que
+todos que o chamem, não precisem saber como funciona por de trás dos panos,
+porém, quais são os benefícios que temos ao utilizá-lá? 
+
+
+\begin{itemize}
+\item Segurança.
+\begin{itemize}
+\item Não exibir como tudo é feito por de trás dos panos.
+\item Não permitir que alterem qualquer valor que esteja dentro do método.
+\end{itemize}
+\item Manutenabilidade.
+\begin{itemize}
+\item Se um dia os procedimentos, passos ou qualquer parte do código
+encapsulada precisarem ser alterados(as), basta apenas alterar dentro de um
+único método.
+\end{itemize}
+\item Reutilização de código.
+\begin{itemize}
+\item Permite a possibilidade e reutilizar o mesmo código, exigindo apenas uma
+chama à função que encapsulou todo algoritmo.
+\end{itemize}
+\end{itemize}
+
+\subsection{Herança}
+\label{subsec:heranca}
+
+A herança é um dos principais recursos da orientação a objetos, pois, por meio
+dela, podemos criar classes filhas de uma classe. Quando dizemos que uma classe
+é uma filha de outra, significa que a classe filha herda todos os atributos e
+métodos da classe mãe, ou seja, ela possuirá o mesmo comportamento que sua
+classe mãe, porém, ela também terá os seus próprios comportamentos. Por exemplo,
+na aplicação, fizemos uma abstração de um usuário qualquer no sistema, o
+resultado obtido dessa abstração foi a classe \lstinline{Usuario}:
+
+\begin{lstlisting}
+public class Usuario {
+	
+	long id;
+	String senha;
+	String nome;
+	String sobrenome;
+	
+	//métodos e atributos
+	
+}
+\end{lstlisting}
+\captionof{lstlisting}{Exemplo de uma classe que representa um usuário no
+sistema}
+
+Essa classe, como podemos ver, pode representar qualquer usuário dentro da
+aplicação, porém, nessa aplicação, existem 2 tipos de usuários, que são os
+alunos e professores, que consequentemente, possuem comportamentos diferentes no
+sistema, mas, além de suas diferenças, eles possuem semelhanças que são os
+atributos id, senha, nome, sobrenome ou qualquer outro tipo de comportamento ou
+estado que é esperado de qualquer usuário. 
+
+Temos diversas formas de resolver essa distinção dentro de um sistema
+computacional, porém, uma das soluções possíveis e sofisticada dentro da orientação a objetos, é fazer com que a classe
+\lstinline{Professor} e \lstinline{Aluno} herdem da classe \lstinline{Usuario},
+pois, dessa forma, faremos com que ambas possuam os mesmo comportamentos de um
+usuário qualquer, mas, que cada uma tenha o seu próprio comportamento dentro da
+aplicação. Para fazer com que uma classe herde de outra, basta utilizar a
+instrução \lstinline{extends}:
+
+\begin{lstlisting}
+public class Usuario {
+	
+	long id;
+	String senha;
+	String nome;
+	String sobrenome;
+	
+	//métodos e atributos
+	
+}
+
+public class Aluno extends {
+
+	//atributos, métodos
+	 
+}
+
+public class Professor extends {
+
+	//atributos, métodos
+	 
+}
+\end{lstlisting}
+\captionof{lstlisting}{Exemplo de como criamos classes filhas utilizando a
+herança do Java}
+
+A partir do momento em que as classes \lstinline{Aluno} e \lstinline{Professor}
+estendem da classe \lstinline{Usuario}, significa que, além de representarem
+elas mesmos dentro da aplicação, elas também são um usuário, ou seja, a partir
+desse momento, qualquer comportamento e estado que estiver na classe
+\lstinline{Usuario}, serão herdados por essas classes.
+
+\subsection{Polimorfismo} 
+\label{subsec:polimorfismo}
+
+Um dos principais pontos da herança em orientação a objetos, é a questão em que,
+uma classe filha reutilize um comportamento herdado, porém, que precise de
+alguma moficação peculiar daquela classe, por exemplo, imaginemos que a classe
+\lstinline{Usuario} contenha o método \lstinline{cadastrarSenha(String senha)},
+esse método, dentro da classe \lstinline{Usuario} possui um processo de
+criptografia padrão, e para a classe professor, precisa utilizar um padrão
+diferente ao qual um usuário qualquer use, pra permitimos que isso seja possível
+utilizando a mesma assinatura de método, reescrevemos o método da classe
+\lstinline{Usuario} dentro da classe \lstinline{Professor} e adicionamos o
+comportamento específico e esperado daquele método para a classe
+\lstinline{Professor}:
+
+\begin{lstlisting}
+class Ùsuario {
+
+	public cadastrarSenha(String senha){
+		//passos e rotinas da classe Usuario
+	}
+
+}
+
+class Professor extends {
+
+	@Override
+	public cadastrarSenha(String senha){
+		//passos e rotinas da classe Professor
+	}
+
+}
+\end{lstlisting}
+\captionof{lstlisting}{Exemplo de polimorfismo da classe filha Professor e
+classe mãe Usuario}
+
+Note que foi utilizada uma \textit{annotation} do Java que indica que o método
+pertence a uma classe mãe, porém ele está sendo sobrescrito, ou seja, ele terá
+um comportamento diferente do padrão.
 
 \section{Mapeamento Objeto Relacional}
 \label{sec:mapeamento_objeto_relacional}
 
-
 Mapeamento Objeto Relacional (ORM - Object-Relational Mapping) é uma técnica que
 permite a persistência em um banco de dados utilizando o paradigma orientado a
-objeto. Isso significa que as entidades de um banco de dados pode ser
-representada por meio de uma classe e seus atributos. A utilização dessa técnica
-para o desenvolvimento de um sistema computacional deve-se à facilidade de um
-programador desenvolver um sistema, pois ele não precisa obter um alto
-conhecimento de SQL ou banco de dados para conseguir realizar consultas,
-persistências, alterações ou qualquer tipo de ação com o banco de dados e
-aplicação.
+objeto. Isso significa que as entidades de um banco de dados podem ser
+representadas por meio de classes e seus atributos. A utilização dessa
+técnica para o desenvolvimento de um sistema computacional deve-se à facilidade
+que um programador tem ao desenvolver um sistema que exija uma comunicação
+constante com o banco de dados, pois ele não precisa obter um alto conhecimento
+de SQL ou banco de dados para conseguir realizar consultas, persistências,
+alterações dados ou qualquer tipo de ação que o banco de dados e a aplicação
+terão. A aplicação desse conceito no Java, é descrita com mais na seção \ref{JPA
+- Java Persistence API}.
 
 \section{Web Services}
 \label{sec:web_services}
@@ -92,10 +314,10 @@ por exemplo o HTTP. Essa comunicação é permitida devido ao tipo de
 mensagem/documento que é processado para enviar e receber os dados, como por
 exemplo, arquivos XML ou documentos JSON. Além de permitir a comunicação entre
 diversas aplicações, o web services tem o intuito de disponibilizar serviços que
-são acessíveis por meio de endereços públicos da aplicação.
+são acessíveis por meio de endereços públicos da aplicação. 
 
 \section{Dispositivos Móveis e Aplicações}
-\label{sec:dispositivos_movei_e_aplicacoes}
+\label{sec:dispositivos_moveis_e_aplicacoes}
 
 % pesquisar depois sobre o uso de dispositivos móveis
 
@@ -138,7 +360,7 @@ pom.xml, podemos configurar todas as propriedades para indicar como o Maven se
 comportará.
 
 \subsection{Gerenciamento de dependência}
-\label{subsec:gerenciamento_de_dependência}
+\label{subsec:gerenciamento_de_dependencia}
 
 Durante o desenvolvimento da aplicação, utilizamos outras APIs
 para resolver determinados problemas, como por exemplo, o Spring, Hibernate,
@@ -241,7 +463,7 @@ ou seja, arquivos .jar para aplicações Java e arquivos .war para aplicações
 Java Web.
 
 \subsection{Modularização de projeto}
-\label{subsec:modularização_de_projeto}
+\label{subsec:modularizacao_de_projeto}
 
 O desenvolvimento da aplicação foi baseado em módulos, isso significa que
 existe mais de um projeto que resolve um problema em específico, por exemplo,
@@ -256,8 +478,7 @@ projeto gostoudaaula-parent. A figure 2.1 demonstra a estrutura do projeto
 parent:
 
 \begin{figure}
-\includegraphics{projeto-parent.png}
-\caption{Estrutura do projeto parent}
+\captionof{figure}{Estrutura do projeto parent}
 \end{figure}
 
 Para adicionar módulos para esse projeto, precisaremos criar novos projetos
@@ -294,7 +515,7 @@ parent, então adicionamos a tag <parent> no pom.xml:
 pom.xml}
 
 \subsection{Testes com TDD}
-\label{subsec:testes_com_TDD}
+\label{subsec:testes_com_tdd}
 
 O desenvolvimento das funcionalidades da aplicação, foi baseado na prática do
 TDD (Test Driven Development) que tem a finalidade de fazer com que o
@@ -335,7 +556,7 @@ utilizado para resolver as questões de controle de transações e injenção de
 dependência.
 
 \subsection{Injecão de dependência}
-\label{injeção_de_dependência}
+\label{subsec:injecao_de_dependencia}
 
 Durante o desenvolvimento da aplicação, foi utilizado uma grande quantidade de
 bibliotecas e APIs, porém, em Java, ou em qualquer tipo de aplicação orientada a
@@ -435,7 +656,7 @@ sistemas operacionais, pode consultar o link do próprio openshift:
 https://developers.openshift.com/en/getting-started-overview.html.
 
 \subsection{instalação via dpkg}
-\label{instalação_via_dpkg}
+\label{subsec:instalacao_via_dpkg}
 
 Para integrar um computador remoto com o ambiente do openshift, precisamos
 instalar o Openshitf client tools (rhc). Utilize o terminal do linux e digite:
@@ -482,8 +703,3 @@ basta fazer o clone da url que será disponibilizada no web console. Por padrão
 será devolvido um arquivo chamado .openshift que tem algumas configurações do
 openshift, basta manter esse arquivo e adicionar a aplicação nesse repositório
 do git e então fazer um push.
-
-
-
-
-

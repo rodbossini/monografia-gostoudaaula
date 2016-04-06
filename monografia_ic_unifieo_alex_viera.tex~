@@ -82,15 +82,8 @@ extendedchars=true,
 xleftmargin=10pt,
 xrightmargin=10pt,
 framexleftmargin=10pt,
-framexrightmargin=10pt,
-aboveskip=1.5em
+framexrightmargin=10pt
 }
-
-% ---------------------------------------------------------------------------- %
-
-\captionsetup[table]{belowskip=1em}
-\captionsetup[lstlisting]{belowskip=1em}
-\captionsetup[figure]{belowskip=1em}
 
 % ---------------------------------------------------------------------------- %
 % Corpo do texto
