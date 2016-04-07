@@ -24,8 +24,8 @@ muito utilizada no mercado atualmente, consiste na elaboração de uma descrição
 sobre os dados com os quais a aplicação irá trabalhar. Essa descrição pode 
 ser textual ou gráfica e ela é elaborada de forma independente de qualquer 
 tecnologia. Em geral, ela é conhecida como modelo conceitual. A modelagem 
-conceitual realizada neste trabalho é descrita no Capítulo
-\ref{cap:projeto_tecnico}.
+conceitual realizada neste trabalho é descrita no capítulo
+~\ref{subsec:jpa_java_persistence_api}.
 
 \subsection{Modelagem de Dados Relacional}
 \label{subsec:modelagem_de_dados_relacional}
@@ -43,8 +43,8 @@ Mapeamento Objeto Relacional
 Web Services
 Dispositivos Móveis e aplicações
 
-\section{SQL e álgebra relacional}
-\label{sec:sql_e_algebra_relacional}
+\subsection{SQL e álgebra relacional}
+\label{subsec:sql_e_algebra_relacional}
 
 Structured Query Language (linguagem de consulta estruturada) é uma linguagem de
 pesquisa padrão para banco de dados relacionais, onde permite a comunicação com
@@ -54,8 +54,8 @@ consultas realizadas utilizando o SQL, como por exemplo, mencionar quais são os
 atributos e filtros que necessários com o intuito de devolver o resultado
 esperado.
 
-\section{Orientação a objetos}
-\label{sec:orientacao_a_objetos}
+\subsection{Orientação a objetos}
+\label{subsec:orientacao_a_objetos}
 
 O paradigma de POO (programação orientada a objetos) é um modelo para o
 desenvolvimento de software ao qual utilizamos unidades chamadas de
@@ -97,7 +97,6 @@ class Aluno {
 	
 }
 \end{lstlisting}
-
 \captionof{lstlisting}{Exemplo de como podemos criar 3 classes e adicionar seus
 atributos}
 
@@ -105,8 +104,8 @@ Além disso, na POO, temos grandes benefícios devido aos
 recursos de encapsulamento, herança, polimorfismo que permitem o
 desenvolvimento de um sistema mais coerente, seguro e manutenível. 
 
-\subsection{Encapsulamento}
-\label{subsec:encapsulamento}
+\subsubsection{Encapsulamento}
+\label{subsubsec:encapsulamento}
 
 O encapsulamento é um recurso que tem o objeto de esconder todos os passos que
 são realizados para apenas uma chamada de método. Podemos verificar um pequeno
@@ -175,8 +174,8 @@ chama à função que encapsulou todo algoritmo.
 \end{itemize}
 \end{itemize}
 
-\subsection{Herança}
-\label{subsec:heranca}
+\subsubsection{Herança}
+\label{subsubsec:heranca}
 
 A herança é um dos principais recursos da orientação a objetos, pois, por meio
 dela, podemos criar classes filhas de uma classe. Quando dizemos que uma classe
@@ -249,8 +248,8 @@ elas mesmos dentro da aplicação, elas também são um usuário, ou seja, a partir
 desse momento, qualquer comportamento e estado que estiver na classe
 \lstinline{Usuario}, serão herdados por essas classes.
 
-\subsection{Polimorfismo} 
-\label{subsec:polimorfismo}
+\subsubsection{Polimorfismo} 
+\label{subsubsec:polimorfismo}
 
 Um dos principais pontos da herança em orientação a objetos, é a questão em que,
 uma classe filha reutilize um comportamento herdado, porém, que precise de
@@ -265,7 +264,7 @@ comportamento específico e esperado daquele método para a classe
 \lstinline{Professor}:
 
 \begin{lstlisting}
-class Ùsuario {
+class Usuario {
 
 	public cadastrarSenha(String senha){
 		//passos e rotinas da classe Usuario
@@ -289,10 +288,10 @@ Note que foi utilizada uma \textit{annotation} do Java que indica que o método
 pertence a uma classe mãe, porém ele está sendo sobrescrito, ou seja, ele terá
 um comportamento diferente do padrão.
 
-\section{Mapeamento Objeto Relacional}
-\label{sec:mapeamento_objeto_relacional}
+\subsection{ORM - Object Relational Mapping}
+\label{subsec:orm_object_relational_mapping}
 
-Mapeamento Objeto Relacional (ORM - Object-Relational Mapping) é uma técnica que
+Mapeamento Objeto Relacional (ORM - Object Relational Mapping) é uma técnica que
 permite a persistência em um banco de dados utilizando o paradigma orientado a
 objeto. Isso significa que as entidades de um banco de dados podem ser
 representadas por meio de classes e seus atributos. A utilização dessa
@@ -304,8 +303,8 @@ alterações dados ou qualquer tipo de ação que o banco de dados e a aplicação
 terão. A aplicação desse conceito no Java, é descrita com mais na seção \ref{JPA
 - Java Persistence API}.
 
-\section{Web Services}
-\label{sec:web_services}
+\subsection{Web Services}
+\label{subsec:web_services}
 
 Os serviços na web é uma solução muito utilizada no mercado para permitir que
 diversas aplicações, independentemente da plataforma em que foram desenvolvidas,
@@ -316,18 +315,83 @@ exemplo, arquivos XML ou documentos JSON. Além de permitir a comunicação entre
 diversas aplicações, o web services tem o intuito de disponibilizar serviços que
 são acessíveis por meio de endereços públicos da aplicação. 
 
-\section{Dispositivos Móveis e Aplicações}
-\label{sec:dispositivos_moveis_e_aplicacoes}
+\subsection{Dispositivos Móveis e Aplicações}
+\label{subsec:dispositivos_moveis_e_aplicacoes}
 
-% pesquisar depois sobre o uso de dispositivos móveis
+Segundo o relatório do International Data Corporation (IDC) publicado
+em maio de 2012, o Android possui 59\% do mercado de smartphones e soma
+a quantia de 89,9 milhões de aparelhos distribuídos apenas no primeiro tri-
+mestre deste ano (2012), em todo o mundo. Em segundo lugar, aparece o iOS
+que é o sistema operacional do Apple iPhone. O gráfico 1.1 demonstra a par-
+ticipação no mercado dos principais sistemas operacionais e a quantidade de
+aparelhos distribuídos.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{grafico_android_2012.png}
+  \caption{Participação no mercado. Fonte: IDC}
+  \label{fig:grafico_android_2012}.
+\end{figure}
+
+O IDC também prevê que, em 2016, o Android ainda possuirá a maior
+fatia do mercado, com 52,9\%. A disputa pelo segundo lugar será acirrada
+entre iOS e Windows Phone 7. A ~\ref{fig:grafico_android_2012} ilustra a
+previsão realizada pelo IDC.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{grafico_android_2016.png}
+  \caption{Previsão do mercado para 2016. Fonte: IDC}
+  \label{fig:grafico_android_2016}
+\end{figure}
+
+Já no mercado de tablets, o iPad detém o trono com 68\% , enquanto o
+Google aposta em seu primeiro tablet, o Nexus 7 ao preço US\$199,00, para
+ga- nhar terreno tentando repetir o sucesso do Amazon Kindle Fire, que também
+utiliza Android.
+
+\subsection{MVC - Model View Controller}
+\label{subsed:mvc_model_view_controller}
+
+A arquitetura MVC consiste em dividir a aplicação em camadas:
+\begin{itemize}
+  \item \textit{\textbf{Model:}} Representa toda a regra de negócio da
+  aplicação, ou seja, todas as classes, configuração, acessos À base de dados ou qualquer recurso
+  que esteja do lado do servidor e que o usuário final não tenha acesso.
+  \item \textit{\textbf{View:}} Todo conteúdo que representa a parte visual da
+  aplicação, ou seja, qualquer interface com o usuário.
+  \item \textit{\textbf{Controller:}} É o responsável em receber todas as
+  requisições do usuário (\emph{View}) direcionar à aplicação o que foi solicitado
+  (\emph{Model}) e por fim, enviar uma resposta ao usuário.
+\end{itemize}
+
+A partir dessa arquitetura, podemos desenvolver uma aplicação de uma forma mais
+organizada e segura, pois além de dividirmos todo o conteúdo de acesso ao
+usuário (páginas em HTML ou qualquer interface direta ao usuário) e a regra de
+negócio (classes, configurações, acesso aos dados ou qualquer parte interna do
+sistema) deixamos transparente como tudo funciona internamente, ou seja, o
+usuário enxerga apenas o que ele precisa saber sem ter noção alguma de como é o
+sistema internamente.
+
+\subsection{TDD - Test Driven Development}
+\label{subsec:tdd_test_driven_development}
+
+O desenvolvimento das funcionalidades da aplicação, foi baseado na prática do
+TDD (Test Driven Development) que tem a finalidade de fazer com que o
+desenvolvedor crie primeiro o cenário de teste e então desenvolva a
+funcionalidade, por exemplo, suponhamos que precisamos criar uma funcionalidade
+que precise cadastrar um aluno no banco de dados, quando utilizamos o TDD
+criamos um método responsável por testar essa funcionalidade que a aplicação
+precisa.\\
+
+O principal objetivo da utilização do TDD é garantir que a aplicação contenha
+menos bugs, pois ao invés de criar a aplicação toda para depois testá-la, 
 
 \section{Tecnologia empregada}
 \label{sec:tecnologia_empregada}
 
-Aqui teremos uma subseção para cada item de tecnologia utilizado, cada API, cada
-linguagem etc. Conforme você descreve cada item, vá citando eles e adicionando à
-bibliografia (arquivo bibliografia.bib). Siga o exemplo do JDK abaixo. Para cada
-item basta escrever 3 ou 4 linhas.
+Está seção especifica todas as tecnologias que foram utilizadas para o
+desenvolvimento da aplicação, incluíndo APIs, bibliotecas e frameworks.
 
 \subsection{JDK - Java Development Kit}
 \label{subsec:jdk}
@@ -339,7 +403,7 @@ entre outras coisas, uma implementação da linguagem Java, um compilador, um
 ambiente de interpretação conhecido como máquina virtual Java etc.
 
 \subsection{JPA - Java Persistence API}
-\label{subsec:jpa}
+\label{subsec:jpa_java_persistence_api}
 
 JPA (Java Persistence API) é uma especificação Java EE que determina tudo que
 uma implementação de ORM (Object-Relational Mapping) para Java, precisa
@@ -514,16 +578,10 @@ parent, então adicionamos a tag <parent> no pom.xml:
 \captionof{lstlisting}{Exemplo de como informar qual é o parent do modulo no
 pom.xml}
 
-\subsection{Testes com TDD}
-\label{subsec:testes_com_tdd}
+\subsection{Testes - Junit}
+\label{subsec:testes_junit}
 
-O desenvolvimento das funcionalidades da aplicação, foi baseado na prática do
-TDD (Test Driven Development) que tem a finalidade de fazer com que o
-desenvolvedor crie primeiro o cenário de teste e então desenvolva a
-funcionalidade, por exemplo, suponhamos que precisamos criar uma funcionalidade
-que precise cadastrar um aluno no banco de dados, quando utilizamos o TDD
-criamos um método responsável por testar essa funcionalidade que a aplicação
-precisa, para implementar esses testes utilizamos o framework JUnit que fornece
+para implementar esses testes utilizamos o framework JUnit que fornece
 anotações específicas para realizar testes no Java.
 Esse método precisa ser escrito de uma forma bem explícita sobre o que está sendo testado, 
 para esse caso poderíamos escrever o seguinte método:

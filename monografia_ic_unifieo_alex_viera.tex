@@ -24,6 +24,7 @@
 \usepackage{type1cm}                    % fontes realmente escaláveis
 \usepackage{listings}                   % para formatar código-fonte (ex. em Java)
 \usepackage{titletoc}
+\usepackage{float} % for the H specifier
 %\usepackage[bf,small,compact]{titlesec} % cabeçalhos dos títulos: menores e compactos
 \usepackage[fixlanguage]{babelbib}
 \usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
@@ -99,6 +100,7 @@ aboveskip=1.5em
 % cabeçalho para as páginas das seções anteriores ao capítulo 1 (frontmatter)
 \fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
 \setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
 \fancyhead[LE]{\thepage\hspace{2em}\footnotesize{\leftmark}}
 \fancyhead[RE,LO]{}
 \fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
