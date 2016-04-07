@@ -71,7 +71,8 @@ Os objetos dessas entidades são identificadas como classes que possuem estados
 (atributos) e comportamentos (métodos) que definem suas responsabilidades e
 razão de existir. 
 
-\begin {lstlisting}
+\begin {lstlisting}[caption={Exemplo de como podemos criar 3 classes e adicionar seus
+atributos}]
 class Aula {
 	
 	Aluno aluno;
@@ -97,8 +98,6 @@ class Aluno {
 	
 }
 \end{lstlisting}
-\captionof{lstlisting}{Exemplo de como podemos criar 3 classes e adicionar seus
-atributos}
 
 Além disso, na POO, temos grandes benefícios devido aos
 recursos de encapsulamento, herança, polimorfismo que permitem o
@@ -111,7 +110,8 @@ O encapsulamento é um recurso que tem o objeto de esconder todos os passos que
 são realizados para apenas uma chamada de método. Podemos verificar um pequeno
 exemplo de encapsulamento durante uma chamada 
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Exemplo de utilização do encapsulamento para
+calcular um bonus}]
 class CalculadorDeBonus {
 
 	double calcularBonus(double salario){
@@ -139,8 +139,6 @@ class Funcionario {
 }
 
 \end{lstlisting}
-\captionof{lstlisting}{Exemplo de utilização do encapsulamento para calcular um
-bonus}
 
 Observe que a classe \lstinline{Funcionario} possui os atributos
 \lstinline{salario} e \lstinline{bonus} e o método \lstinline{getBonus()}.
@@ -185,7 +183,8 @@ classe mãe, porém, ela também terá os seus próprios comportamentos. Por exemplo,
 na aplicação, fizemos uma abstração de um usuário qualquer no sistema, o
 resultado obtido dessa abstração foi a classe \lstinline{Usuario}:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Exemplo de uma classe que representa um usuário no
+sistema}]
 public class Usuario {
 	
 	long id;
@@ -197,8 +196,6 @@ public class Usuario {
 	
 }
 \end{lstlisting}
-\captionof{lstlisting}{Exemplo de uma classe que representa um usuário no
-sistema}
 
 Essa classe, como podemos ver, pode representar qualquer usuário dentro da
 aplicação, porém, nessa aplicação, existem 2 tipos de usuários, que são os
@@ -215,7 +212,8 @@ usuário qualquer, mas, que cada uma tenha o seu próprio comportamento dentro da
 aplicação. Para fazer com que uma classe herde de outra, basta utilizar a
 instrução \lstinline{extends}:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Exemplo de como criamos classes filhas utilizando a
+herança do Java}]
 public class Usuario {
 	
 	long id;
@@ -239,8 +237,6 @@ public class Professor extends {
 	 
 }
 \end{lstlisting}
-\captionof{lstlisting}{Exemplo de como criamos classes filhas utilizando a
-herança do Java}
 
 A partir do momento em que as classes \lstinline{Aluno} e \lstinline{Professor}
 estendem da classe \lstinline{Usuario}, significa que, além de representarem
@@ -263,7 +259,8 @@ utilizando a mesma assinatura de método, reescrevemos o método da classe
 comportamento específico e esperado daquele método para a classe
 \lstinline{Professor}:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Exemplo de polimorfismo da classe filha Professor e
+classe mãe Usuario}]
 class Usuario {
 
 	public cadastrarSenha(String senha){
@@ -281,8 +278,6 @@ class Professor extends {
 
 }
 \end{lstlisting}
-\captionof{lstlisting}{Exemplo de polimorfismo da classe filha Professor e
-classe mãe Usuario}
 
 Note que foi utilizada uma \textit{annotation} do Java que indica que o método
 pertence a uma classe mãe, porém ele está sendo sobrescrito, ou seja, ele terá
@@ -300,8 +295,8 @@ que um programador tem ao desenvolver um sistema que exija uma comunicação
 constante com o banco de dados, pois ele não precisa obter um alto conhecimento
 de SQL ou banco de dados para conseguir realizar consultas, persistências,
 alterações dados ou qualquer tipo de ação que o banco de dados e a aplicação
-terão. A aplicação desse conceito no Java, é descrita com mais na seção \ref{JPA
-- Java Persistence API}.
+terão. A aplicação desse conceito no Java, é descrita com mais na seção
+~\ref{subsec:jpa_java_persistence_api}.
 
 \subsection{Web Services}
 \label{subsec:web_services}
@@ -365,8 +360,8 @@ A arquitetura MVC consiste em dividir a aplicação em camadas:
   (\emph{Model}) e por fim, enviar uma resposta ao usuário.
 \end{itemize}
 
-A partir dessa arquitetura, podemos desenvolver uma aplicação de uma forma mais
-organizada e segura, pois além de dividirmos todo o conteúdo de acesso ao
+A partir dessa arquitetura, podemos desenvolver uma aplicação de uma
+forma mais organizada e segura, pois além de dividirmos todo o conteúdo de acesso ao
 usuário (páginas em HTML ou qualquer interface direta ao usuário) e a regra de
 negócio (classes, configurações, acesso aos dados ou qualquer parte interna do
 sistema) deixamos transparente como tudo funciona internamente, ou seja, o
@@ -435,7 +430,8 @@ Hibernate que, além de precisar das bibliotecas próprias, precisa da API da JPA.
 O Maven resolve todos esses problemas simplesmente adicionando a dependência por
 meio da tag <denpendency>: 
 
-\begin {lstlisting}
+\begin {lstlisting}[caption={Adicionando o hibernate para a o projeto usando o
+pom.xml}]
 <properties>
 	//outras propriedades
 	<hibernate.version>4.3.11.Final</hibernate.version>
@@ -451,8 +447,6 @@ meio da tag <denpendency>:
 <dependencies>
 
 \end{lstlisting}
-\captionof{lstlisting}{Adicionando o hibernate para a o projeto usando o
-pom.xml}
 
 \subsection{Deploy}
 \label{subsec:deploy}
@@ -473,7 +467,8 @@ podemos utilizar os \emph{profiles} do Maven que são capazes de criar diferentes
 perfis para cada tipo de ambiente por meio da tag <profile> segue um exemplo de
 uma configuração para ambiente de desenvolvimento e para ambiente de produção:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Criando profiles para ambiente de desenvolvimento e
+ambiente de produção no pom.xml}]
 <profiles>
 
 		<profile>
@@ -514,8 +509,6 @@ uma configuração para ambiente de desenvolvimento e para ambiente de produção:
 		</profile>
 	</profiles>
 \end{lstlisting}
-\captionof{lstlisting}{Criando profiles para ambiente de desenvolvimento e
-ambiente de produção no pom.xml}
 
 
 Além de configurar diferentes perfis da aplicação, o Maven também executa uma
@@ -548,7 +541,8 @@ parent:
 Para adicionar módulos para esse projeto, precisaremos criar novos projetos
 Maven dentro desse projeto e então precisamos incluir o nome desses na tag <module>:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Exemplo para associar os projetos como módulos no
+pom.xml}]
 	<modules>
 		<module>
 			gostoudaaula-core
@@ -561,22 +555,19 @@ Maven dentro desse projeto e então precisamos incluir o nome desses na tag <modu
 		</module>
 	</modules>
 \end{lstlisting}
-\captionof{lstlisting}{Exemplo para associar os projetos como módulos no
-pom.xml}
 
 Nesse exemplo estamos indicando que os projetos citados serão os módulos do
 projeto parent, porém ainda precisamos especificar aos módulos quem será o
 parent, então adicionamos a tag <parent> no pom.xml:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={Exemplo de como informar qual é o parent do modulo no
+pom.xml}]
 	<parent>
 		<groupId>br.com.gostoudaaula</groupId>
 		<artifactId>gostoudaaula-parent</artifactId>
 		<version>//versão</version>
 	</parent>
 \end{lstlisting}
-\captionof{lstlisting}{Exemplo de como informar qual é o parent do modulo no
-pom.xml}
 
 \subsection{Testes - Junit}
 \label{subsec:testes_junit}
@@ -586,15 +577,13 @@ anotações específicas para realizar testes no Java.
 Esse método precisa ser escrito de uma forma bem explícita sobre o que está sendo testado, 
 para esse caso poderíamos escrever o seguinte método:
 
-\begin{lstlisting}
-
+\begin{lstlisting}[caption={Exemplo de um caso de teste utilizando o JUnit}]
 	@Test
 	public void deveCadastrarUmAluno(){
 		//implementação que precisa ser testada
 	}
 	
 \end{lstlisting}
-\captionof{lstlisting}{Exemplo de um caso de teste utilizando o JUnit}
 
 E então montamos o cenário para que esse teste seja realizado, como por
 exemplo, chamar todas as classes necessárias para executar o teste. A ideia em
@@ -627,10 +616,8 @@ objeto automaticamente. Quando queremos que um objeto seja injetado, utilizamos
 a anotação @Inject, que indica que o objeto será injetado:
 
 \begin{lstlisting}
-
 	@Inject
 	private Aluno aluno;
-	
 \end{lstlisting}
 
 \subsection{Inversão de controle}
