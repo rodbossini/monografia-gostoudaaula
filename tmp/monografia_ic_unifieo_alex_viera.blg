@@ -5,46 +5,46 @@ A level-1 auxiliary file: ape-dicionario-dados.aux
 The style file: plainnat-ime.bst
 Database file #1: bibliografia.bib
 Warning--string name "january" is undefined
---line 62 of file bibliografia.bib
-You've used 8 entries,
+--line 89 of file bibliografia.bib
+You've used 11 entries,
             2750 wiz_defined-function locations,
-            643 strings with 5913 characters,
-and the built_in function-call counts, 2763 in all, are:
-= -- 228
-> -- 160
-< -- 6
-+ -- 57
-- -- 48
-* -- 174
-:= -- 458
-add.period$ -- 26
-call.type$ -- 8
-change.case$ -- 32
-chr.to.int$ -- 7
-cite$ -- 16
-duplicate$ -- 132
-empty$ -- 233
-format.name$ -- 60
-if$ -- 569
+            654 strings with 6068 characters,
+and the built_in function-call counts, 3597 in all, are:
+= -- 297
+> -- 190
+< -- 9
++ -- 69
+- -- 57
+* -- 213
+:= -- 599
+add.period$ -- 35
+call.type$ -- 11
+change.case$ -- 41
+chr.to.int$ -- 10
+cite$ -- 22
+duplicate$ -- 183
+empty$ -- 317
+format.name$ -- 72
+if$ -- 743
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 12
-newline$ -- 50
-num.names$ -- 32
-pop$ -- 102
+missing$ -- 18
+newline$ -- 65
+num.names$ -- 44
+pop$ -- 135
 preamble$ -- 1
-purify$ -- 24
+purify$ -- 30
 quote$ -- 0
-skip$ -- 85
+skip$ -- 112
 stack$ -- 0
-substring$ -- 16
-swap$ -- 11
+substring$ -- 22
+swap$ -- 14
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 58
+type$ -- 76
 warning$ -- 0
-while$ -- 24
+while$ -- 33
 width$ -- 0
-write$ -- 131
+write$ -- 176
 (There was 1 warning)

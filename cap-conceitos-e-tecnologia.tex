@@ -24,8 +24,8 @@ muito utilizada no mercado atualmente, consiste na elaboração de uma descrição
 sobre os dados com os quais a aplicação irá trabalhar. Essa descrição pode 
 ser textual ou gráfica e ela é elaborada de forma independente de qualquer 
 tecnologia. Em geral, ela é conhecida como modelo conceitual. A modelagem 
-conceitual realizada neste trabalho é descrita no capítulo
-~\ref{subsec:jpa_java_persistence_api}.
+conceitual realizada neste trabalho é descrita no
+capítulo~\ref{subsec:jpa_java_persistence_api}.
 
 \subsection{Modelagem de Dados Relacional}
 \label{subsec:modelagem_de_dados_relacional}
@@ -53,7 +53,9 @@ relacional. A álgebra relacional é uma teoria de como podemos manipular as
 consultas realizadas utilizando o SQL, como por exemplo, mencionar quais são os
 atributos e filtros que necessários com o intuito de devolver o resultado
 esperado.
-
+\begin{equation}
+	\sigma_{id = 1} (Empregado)
+\end{equation}
 \subsection{Orientação a objetos}
 \label{subsec:orientacao_a_objetos}
 
@@ -279,7 +281,7 @@ class Professor extends {
 }
 \end{lstlisting}
 
-Note que foi utilizada uma \textit{annotation} do Java que indica que o método
+Note que foi utilizada uma \emph{annotation} do Java que indica que o método
 pertence a uma classe mãe, porém ele está sendo sobrescrito, ou seja, ele terá
 um comportamento diferente do padrão.
 
@@ -324,7 +326,7 @@ aparelhos distribuídos.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{grafico_android_2012.png}
-  \caption{Participação no mercado. Fonte: IDC}
+  \caption{Participação no mercado. Fonte: IDC ~\cite{jbmonteiro:12}}
   \label{fig:grafico_android_2012}.
 \end{figure}
 
@@ -336,7 +338,8 @@ previsão realizada pelo IDC.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{grafico_android_2016.png}
-  \caption{Previsão do mercado para 2016. Fonte: IDC}
+  \caption{Previsão do mercado para 2016. Fonte: IDC
+  ~\cite{jbmonteiro:12}}
   \label{fig:grafico_android_2016}
 \end{figure}
 
@@ -380,7 +383,37 @@ criamos um método responsável por testar essa funcionalidade que a aplicação
 precisa.\\
 
 O principal objetivo da utilização do TDD é garantir que a aplicação contenha
-menos bugs, pois ao invés de criar a aplicação toda para depois testá-la, 
+menos bugs, pois ao invés de implementar a aplicação toda para depois testá-la,
+implementamos ``pedaços'' da aplicação e então testamos esses pedaços, ou seja, 
+implementamos o código necessário para realizar o teste que precisamos, por
+exemplo, se precisamos cadastrar um aluno no sistema ou verificar se o login
+funciona como o esperado, implementamos cada uma dessas funcionalidades da forma
+mais simples possível apenas para serem testadas. A diferença entre testar
+pedaços da aplicação ao invés da aplicação num todo, é que permitimos que a nossa aplicação seja mais coerente, 
+segura e flexível, pois implementaremos métodos pequenos e com apenas uma
+responsabilidade, dessa forma garantimos que a funcionalidade esteja funcionando
+e então, permitimos que ela seja reutilizada em qualquer parte do código sem
+preocupações de falhas. Além disso, se um dia precisarmos realizar alguma
+alteração de uma funcionalidade, alteraremos apenas em um ponto do sistema. \\
+
+Como podemos ver, a prática do TDD, além de nos ajudar a garantir um sistema
+mais confiável, tende a criar diversos cenários dentro da aplicação, aumentando
+muito mais o desenvolvimento do sistema. A princípio parece uma prática que mais atrapalha do que ajuda o desenvolvimento, porém,
+quando estamos desenvolvendo, é muito comum que ocorra muitas mudanças no código
+e nem sempre conseguimos prever o quão impactante foi a alteração, ou seja, se
+ainda funciona ou se não quebrou o nosso sistema. Para verificar
+esse detalhe, inicialmente, pensamos em \textbf{testar manualmente tudo
+novamente} para verificar se ocorreu algum problema. Além de ser trabalhoso,
+provavelmente, esqueceremos de testar todas as funcionalidades do sistema, ou
+seja, a chance de não garantir que tudo esteja funcionando como o esperado, é
+muito grande. Quando utilizamos o TDD, todos os cenários de testes que criamos
+são testados automaticamente, como uma \emph{pilha de processos}, dessa forma,
+evitamos perder tempo em verificar manualmente cada cenário e, se algum teste falhar, a
+nossa própria aplicação mostratará o que e onde falhou com muito mais precisão.
+\\
+
+Para utizarmos o conceito de TDD em Java, podemos utilizar a API do JUnit que é
+descrita com mais detalhes no capítulo ~\ref{subsec:testes_JUnit}.
 
 \section{Tecnologia empregada}
 \label{sec:tecnologia_empregada}
@@ -448,8 +481,8 @@ pom.xml}]
 
 \end{lstlisting}
 
-\subsection{Deploy}
-\label{subsec:deploy}
+\subsection{distribuição da aplicação - Deploy}
+\label{subsec:distribuicao_da_aplicacao_deploy}
 
 Todas as vezes que terminamos uma funcionalidade ou até mesmo finalizamos a
 aplicação, precisamos distribuir essa aplicação para uso, ou seja, publicá-la
@@ -569,13 +602,15 @@ pom.xml}]
 	</parent>
 \end{lstlisting}
 
-\subsection{Testes - Junit}
-\label{subsec:testes_junit}
+\subsection{Testes - JUnit}
+\label{subsec:testes_JUnit}
 
-para implementar esses testes utilizamos o framework JUnit que fornece
-anotações específicas para realizar testes no Java.
-Esse método precisa ser escrito de uma forma bem explícita sobre o que está sendo testado, 
-para esse caso poderíamos escrever o seguinte método:
+Como visto no capítulo ~\ref{subsec:tdd_test_driven_development}, para
+implementarmos os testes em Java, utilizamos a biblioteca do JUnit que fornece
+anotações específicas para criarmos os cenários de teste e testá-los. Os
+cenários de teste são métodos com uma assinatura que descreve de uma forma bem
+explícita o que está sendo testado, por exemplo, um cenário de teste que
+verifica se a funcionalidade de cadastrar um aluno está funcionando:
 
 \begin{lstlisting}[caption={Exemplo de um caso de teste utilizando o JUnit}]
 	@Test
@@ -585,14 +620,73 @@ para esse caso poderíamos escrever o seguinte método:
 	
 \end{lstlisting}
 
-E então montamos o cenário para que esse teste seja realizado, como por
-exemplo, chamar todas as classes necessárias para executar o teste. A ideia em
-implementar o TDD, consiste na intenção de gerar uma pilha de testes que serão
-executados constantemente, para garantir que a aplicação está sempre funcionando
-conforme o esperado, mesmo que implemetemos novas funcionalidades, por exemplo,
-se precisarmos adicionar mais uma rotina nova para cadastrar um aluno,
-executamos novamente o teste que fizemos e verificamos se ainda funciona como o
-esperado.
+Observe que esse método possui a anotação
+\lstinline{@Test}. Essa anotação indica que esse método é testável, ou seja, no
+momento em que rodar o JUnit, ele fará parte da pilha de testes. Porém, para
+verificar o resultado de alguma funcionalidade, precisamos fazer uso dos métodos
+da classe \lstinline{Assert} do próprio JUnit que nos fornece alguns métodos
+como o \lstinline{assertTrue} que recebe um método com retorno \emph{booleano},
+e se caso o retorno for verdadeiro passará, caso o contrário, falhará. Podemos
+ver claramente nos seguintes exemplos:
+
+\begin{lstlisting}[caption={Exemplo não real de como utilizar o JUnit}]
+import org.junit.Assert;
+import org.junit.Test;
+
+public class AlunoTest {
+
+	@Test
+	public void deveCadastrarUmAluno() {
+		//código para realizar o teste
+		Assert.assertTrue(cadastrarAluno());
+	}
+	
+	public boolean cadastrarAluno(){
+		//implementação qualquer
+		return true;
+	}
+	
+}
+\end{lstlisting}
+
+Observe que foi utilizado um método em que sempre retornará \lstinline{true}, ou
+seja, o teste sempre passará, justamente para exibir a figura
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{resultado_sucesso_junit.png}
+  \caption{Resultado de um teste que passou utilizando o eclipse}
+  \label{fig:teste_com_sucesso}.
+\end{figure}
+
+Caso o teste falhasse, o JUnit exibiria uma informação um pouco diferente, além,
+de mudar a cor da barra de testes, mostraria o ponto que falhou. Podemos
+verificar um dos casos simplesmente alterando o método para devolver
+\lstinline{false}:
+
+\begin{lstlisting}[caption={Alteração do resultado de \lstinline{true} para
+\lstinline{false}}]
+	//restante do código
+	
+	public boolean cadastrarAluno(){
+		//implementação qualquer
+		return false;
+	}
+	
+}
+\end{lstlisting}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{resultado_falho_junit.png}
+  \caption{Resultado de um teste que falhou utilizando o eclipse}
+  \label{fig:teste_com_sucesso}.
+\end{figure}
+
+Perceba que além de mudar a cor para vermelho, ao clicarmos no teste
+\emph{deveCadastrarUmAluno}, aparece uma informação precisa onde o testou
+falhou. Além disso, vemos que é mostrado o nome da classe que foi testada, o
+tempo que o teste levou e a quantidade de testes que foram executados.
 
 \subsection{Spring framework}
 \label{subsec:spring_framework}
