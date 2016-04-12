@@ -1,4 +1,4 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -42,8 +42,16 @@ Paul Deitel, Harvey Deitel, Abbey Deitel e Michael Morgano.
 \bibitem[Google (2015)]{android_developers}{\bf Google (2015)}
 Google.
 \newblock Android developers.
-\newblock \url{http://developer.android.com/index.html}, Maio 2015.
+\newblock \url{http://developer.android.com/index.html}, May 2015.
 \newblock Último acesso em 05/05/2015.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[IDE (2016)]{eclipsejavaee}{\bf IDE (2016)}
+Eclipse IDE.
+\newblock Eclipse ide for java ee.
+\newblock
+  \url{http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/mars2},
+  April 2016.
+\newblock Último acesso em 12/04/2016.   {\scriptsize Citado na p\'{a}g.}
 
 \bibitem[Lecheta (2013)]{lecheta:13}{\bf Lecheta (2013)}
 Ricardo Lecheta.
@@ -56,17 +64,44 @@ João~Bosco Monteiro.
 \newblock \emph{Google Android}.
 \newblock Casa do Código, 1º ed.   {\scriptsize Citado na p\'{a}g.}
 
+\bibitem[Openshift (2016)]{openshift}{\bf Openshift (2016)}
+Openshift.
+\newblock Openshift red hat.
+\newblock \url{https://www.openshift.com/}, April 2016.
+\newblock Último acesso em 11/04/2016.   {\scriptsize Citado na p\'{a}g.}
+
 \bibitem[Oracle (2015)]{jdk}{\bf Oracle (2015)}
 Oracle.
 \newblock Java se - downloads | oracle technology network | oracle.
 \newblock
   \url{http://www.oracle.com/technetwork/pt/java/javase/downloads/index.html},
-  2015.
+  January 2015.
 \newblock Último acesso em 05/01/2016.   {\scriptsize Citado na p\'{a}g.}
 
 \bibitem[Sanderson (2012)]{sanderson:12}{\bf Sanderson (2012)}
 Daniel Sanderson.
 \newblock \emph{Programming Google App Engine}.
 \newblock O'Reilly Media, 2º ed.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Servlet (2016)]{Servlet}{\bf Servlet (2016)}
+Servlet.
+\newblock Servlet api 3.0.
+\newblock
+  \url{http://download.oracle.com/otndocs/jcp/servlet-3.0-fr-eval-oth-JSpec/},
+  April 2016.
+\newblock Último acesso em 11/04/2016.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Spring (2016)]{spring}{\bf Spring (2016)}
+Spring.
+\newblock Spring projects.
+\newblock \url{https://spring.io/projects}, April 2016.
+\newblock Último acesso em 10/04/2016.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Studio (2016)]{androidstudio}{\bf Studio (2016)}
+Android Studio.
+\newblock Android studio.
+\newblock \url{http://developer.android.com/intl/pt-br/sdk/index.html}, April
+  2016.
+\newblock Último acesso em 12/04/2016.   {\scriptsize Citado na p\'{a}g.}
 
 \end{thebibliography}

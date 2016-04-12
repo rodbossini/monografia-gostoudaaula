@@ -1,22 +1,55 @@
 \chapter{Projeto Técnico}
 \label{cap:projet/home/alex-felipe/git/monografia-gostoudaaula/cap-conceitos-e-tecnologia.texo_tecnico}
 
-Esse é o capítulo mais importante do trabalho. É onde o desenvolvimento da
-aplicação é detalhado. Quem lê esse capítulo deve ser capaz de seguir os passos
-aqui descritos e implementar a aplicação que você fez novamente. Coloque o
-máximo de detalhes que conseguir sobre cada parte desenvolvida. Um bom começo
-pode ser parecido com o texto a seguir:
-
-
+\section{Modelagem de banco de dados}
+\label{sec:modelagem_de_banco_de_dados}
 
 A aplicação \emph{Gostou da Aula?} teve seu desenvolvimento iniciado pela
 modelagem conceitual dos dados. Após análise detalhada, obtivemos um Diagrama
-Entidade Relacionamento, o qual é exibido pela Figura citar figura aqui. Coloque
-um caption bastante completo sobre a figura.
+Entidade Relacionamento, o qual é exibido pela figura ~\ref{fig:der}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{DER.jpg}
+  \caption{Diagrama Entidade Relacionamento - DER}
+  \label{fig:der}.
+\end{figure}
+
+Cada entitidade e relacionamento possui determinadas peculiaridades que são
+descritas a seguir:
+
+\begin{itemize}
+  \item \textbf{Usuário}: Refere a uma representação de um usuário qualquer no
+  sistema, essa é uma entidade abstrata, ou seja, exige uma especilização entre
+  a entidade \textbf{Professor} e \textbf{Aluno} que são os 2 tipos de usuários
+  existentes na aplicação.
+  \item \textbf{Professor}: Representa um professor dentro da aplicação.
+  \item \textbf{Aluno}: Representa um aluno dentro da aplicação.
+  \item \textbf{Aula}: Representa uma aula dentro da aplicação, é constituída
+  por \textbf{Aluno(os)}, um \textbf{Professor} e um \textbf{Periodo}.
+  \item \textbf{Periodo}: Representa um período letivo dentro da instituição, é
+  constituído por uma \textbf{Disciplina} e uma \textbf{Turma}.
+  \item \textbf{Turma}: Representa uma turma da instituição.
+  \item \textbf{Disciplina}: Representa uma disciplina da instituição.
+  \item \textbf{Avaliacao}: Representa uma avaliação dentro da aplicação, é
+  constituída por uma \textbf{Aula}, um \textbf{Projeto} e
+  \textbf{Resposta(as)}.
+  \item \textbf{Projeto}: Representa um projeto dentro da aplicação constituído
+  por \textbf{Questoes} das avaliações.
+  \item \textbf{Questoes}: Representa todas as questões de um determinado
+  \textbf{Projeto}.
+  \textbf{Respostas}: Representa todas as respostas de \textbf{Questoes} e
+  \textbf{Avaliacao}.
+\end{itemize} 
+
+\section{Criação do projeto via Maven}
+\label{sec:cricao_do_projeto_via_maven}
+
+Para a criação do projeto, foi utilizada a biblioteca do
+Maven~\ref{subsec:maven}. Para criarmos um projeto utilizando o maven, podemos
+utilizar o Eclipse IDE for Java EE.
 
 
 
-A seguir, detalhe a implementação de cada entidade e relacionamento no modelo
-relacional.
 
-Depois vamos falar das outras coisas.
+

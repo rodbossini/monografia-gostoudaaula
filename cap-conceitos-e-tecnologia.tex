@@ -415,6 +415,26 @@ nossa própria aplicação mostratará o que e onde falhou com muito mais precisão.
 Para utizarmos o conceito de TDD em Java, podemos utilizar a API do JUnit que é
 descrita com mais detalhes no capítulo ~\ref{subsec:testes_JUnit}.
 
+\subsection{cliente e servidor}
+\label{subsec:cliente_e_servidor}
+
+Em aplicações Web, como por exemplo websites, é muito comum encontrarmos a
+arquitetura de aplicação conhecida como \emph{cliente e servidor}, que é
+justamente uma aplicação autônoma (servidor) que recebe diversas requisições de
+diversos usuários (cliente) e responde de acordo com o que cada cliente
+requisitou, como por exemplo, se um cliente solicita uma página de cadastro, o
+servidor entende recebe essa requisição, executa os passos necessários e
+responde com a página solicitada.
+
+\subsection{Servidor de aplicação}
+\label{subsec:servidor_de_aplicacao}
+
+Em aplicações Web, é muito comum utilizarmos um servidor que será responsável em
+manter a aplicação ativa. Esses servidores são conhecidos como servidores de
+aplicação e, uma de suas principais responsabilidades, é manter as aplicações
+disponíveis para receber requisições e respondê-las
+~\ref{subsec:cliente_e_servidor}.
+
 \section{Tecnologia empregada}
 \label{sec:tecnologia_empregada}
 
@@ -437,6 +457,17 @@ JPA (Java Persistence API) é uma especificação Java EE que determina tudo que
 uma implementação de ORM (Object-Relational Mapping) para Java, precisa
 implementar para que seja uma biblioteca funcional de persistência de dados
 utilizando ORM. 
+
+\subsection{Hibernate}
+\label{subsec:hibernate}
+
+O hibernate é uma das implementações da
+JPA~\ref{subsec:jpa_java_persistence_api} para o desenvolvimento de aplicações
+utilizando o conceito de ORM~\ref{subsec:orm_object_relational_mapping}. Dentre
+as diversas implementações existentes no mercado, o hibernate é a que mais se
+destaca pela quantidade de desenvolvedores que o utilizam, ou seja, uma
+biblioteca mais estável, com maior suporte e atualizações para novas
+funcionalidades com mais frequência.
 	
 \subsection{Maven}
 \label{subsec:maven}
@@ -606,8 +637,8 @@ pom.xml}]
 \label{subsec:testes_JUnit}
 
 Como visto no capítulo ~\ref{subsec:tdd_test_driven_development}, para
-implementarmos os testes em Java, utilizamos a biblioteca do JUnit que fornece
-anotações específicas para criarmos os cenários de teste e testá-los. Os
+implementarmos os testes em Java utilizando o conceito de TDD, utilizamos a
+biblioteca do JUnit que fornece anotações específicas para criarmos os cenários de teste e testá-los. Os
 cenários de teste são métodos com uma assinatura que descreve de uma forma bem
 explícita o que está sendo testado, por exemplo, um cenário de teste que
 verifica se a funcionalidade de cadastrar um aluno está funcionando:
@@ -688,11 +719,22 @@ Perceba que além de mudar a cor para vermelho, ao clicarmos no teste
 falhou. Além disso, vemos que é mostrado o nome da classe que foi testada, o
 tempo que o teste levou e a quantidade de testes que foram executados.
 
+\subsection{Servlet API}
+\label{subsec:servlet_api}
+
+Servlet (servidorzinho) é uma API fonercida pelo Java que permite
+configurarmos uma aplicação como um servidor utilizando a linguagem Java. Essas
+aplicações permitem uma comunicação entre cliente e aplicação utilizando o
+protocolo HTTP. A partir das Servlets podemos criar aplicações com o conceito de
+cliente e servidor~\ref{subsec:cliente_e_servidor}. A API de Servlet, pode ser
+adquirida, gratuitamente, no site do próprio Java~\cite{Servlet}, atualmente na
+versão 3.0.
+
 \subsection{Spring framework}
 \label{subsec:spring_framework}
 
-O Spring framework é um conjunto de módulos (projetos) em que tem a finalidade
-de resolver diversos problemas que são comuns em uma aplicação web, na aplicação foi
+O Spring framework é um conjunto de módulos (projetos)~\cite{spring} em que
+tem a finalidade de resolver diversos problemas que são comuns em uma aplicação web, na aplicação foi
 utilizado para resolver as questões de controle de transações e injenção de
 dependência.
 
@@ -756,7 +798,7 @@ tag <bean> no arquivo XML de configuração do spring:
 </beans>
 \end{lstlisting}
 
-\subsection{controle de transações}
+\subsection{Controle de transações}
 \label{subsec:controle_de_transacoes}
 
 Para conectar a aplicação com o banco de dados, foi utilizada a especificação
@@ -772,73 +814,48 @@ que são responsáveis em lidar com as transações, ou seja, o Spring gerencia
 todas as transações da aplicação, garantindo que todas essas rotinas sejam
 feitas corretamente sem o desenvolvedor precisar se preocupar.
 
-\subsection{openshift}
+\subsection{Jackson}
+\label{subsec:jackson}
+
+Em uma comunicação entre aplicação utilizando Web
+Services~\ref{subsec:web_services}, é muito comum convertemos classes para um
+formato em que qualquer aplicação, independemente da implementação, ou seja,
+linguagem de programação, entenda, como por exemplo, XML e JSON. Porém, uma
+conversão manual de uma classe passar o formato desejado, nem sempre é um
+trabalho fácil e por isso não é recomendável esse tipo de prática. Para
+facilitarmos essa tarefa, utilizamos a biblioteca do jackson que, com poucas
+configurações, consegue realizar essas conversões de forma automática.
+
+\subsection{Openshift}
 \label{subsec:openshift}
 
 O openshift é uma plataforma como um serviço, também
-conhecido por PaaS (Platform-as-a-Service), da Red Hat que permite o os
-desenvolvedores a criar um host e fazer o deploy da aplicação em um ambiente na
-nuvem.
+conhecido como PaaS (Platform-as-a-Service), da Red Hat que permite o os
+desenvolvedores a criar aplicações em uma infraestrutura na nuvem. Para mais
+imformações da plataforma consulte o web site~\cite{openshift}.
 
-\subsection{web console}
-\label{subsec:web_console}
+\subsection{Eclipse IDE for Java EE}
+\label{subsec:eclipse_ide_for_java_ee}
 
-O openshift fornece um web console em uma interface gráfica para criar as
-aplicações desejadas, como por exemplo, criar uma aplicação Java web utilizando
-o tomcat ou o Jboss.
+Integrated Development Environment (ambiente de desenvolvimento integrado) são
+ferramentas que auxiliam o desenvolvedor durante o desenvolvimento de uma
+aplicação. O propósito das IDEs é justamente minimizar o tempo de
+desenvolvimento de um projeto, como por exemplo, auto preenchimento de código,
+busca de recursos, compilação instantânia, sugestão para melhores
+implementações, realização de testes entre outras características comuns entre
+as principais IDEs do mercado. O Eclipse é uma IDE ~\cite{eclipsejavaee} gratuita e pode ser
+adquirida no link disponibilizado na bibliografia. Existem diversas versões para
+diversos fins, porém, para essa aplicação, foi utilizada a versão for Java EE
+que é justamente predefinida para o desenvolvimento de aplicações Java Web.
 
-\subsection{configurando o openshift}
-\label{subsec:configurando_o_openshift}
+\subsection{Android Studio}
+\label{subsec:android_studio}
 
-A configuração foi feita no sistema linux e distribuição Ubuntu. Para os
-sistemas operacionais, pode consultar o link do próprio openshift:
-https://developers.openshift.com/en/getting-started-overview.html.
+Assim como o Eclipse IDE~\ref{subsec:eclipse_ide_for_java_ee}, o Android Studio
+é uma IDE, porém a sua finalidade é justamente facilitar o desenvolvimento de
+aplicações para Android. Com diversas características, funcionalidades e
+recursos para facilitar o desenvolvimento de uma app. Da mesma forma que o
+Eclipse IDE, o Android Studio~\cite{androidstudio} é gratuito e pode ser
+adquirido no link disponibilizado na bibliografia.
 
-\subsection{instalação via dpkg}
-\label{subsec:instalacao_via_dpkg}
-
-Para integrar um computador remoto com o ambiente do openshift, precisamos
-instalar o Openshitf client tools (rhc). Utilize o terminal do linux e digite:
-
-\begin{lstlisting}
-$ sudo apt-get install rhc
-\end{lstlisting}
-
-\subsection{instalação do git}
-\label{subsec:instalacao_do_git}
-
-O Openshift trabalha com o git para fazer deploy da aplicação, então precisamos
-instalar o git também. Utilize novamente o terminal do linux e digite:
-
-\begin{lstlisting}
-$ sudo apt-get install git-core
-\end{lstlisting}
-
-Após terminar a instalação, verifique a versão do git com o comando:
-
-\begin{lstlisting}
-$ git --version
-\end{lstlisting}
-
-\subsubsection{configurando o Openshift client tools}
-\label{subsec:configurando_o_openshift_client_tools}
-
-Utilizando novamente o terminal do linux digite o comando
-
-\begin{lstlisting}
-$ rhc setup
-\end{lstlisting}
-
-Será solicitado o e-mail e senha cadastro no openshift, digite e aperte enter.
-Na configuração perguntará se é necessário criar uma chave pública para poder
-identificá-lo sem precisar informar o usuário e senha a cada commit, caso quiser
-aceite. 
-
-\subsection{Utilizando o Openshift client}
-\label{subsec:utilizando_o_openshift_client}
-
-Após a instalação do openshift, podemos baixar a aplicação utilizando o git,
-basta fazer o clone da url que será disponibilizada no web console. Por padrão
-será devolvido um arquivo chamado .openshift que tem algumas configurações do
-openshift, basta manter esse arquivo e adicionar a aplicação nesse repositório
-do git e então fazer um push.
+  

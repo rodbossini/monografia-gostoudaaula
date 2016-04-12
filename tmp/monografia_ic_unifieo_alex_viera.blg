@@ -4,47 +4,44 @@ The top-level auxiliary file: monografia_ic_unifieo_alex_viera.aux
 A level-1 auxiliary file: ape-dicionario-dados.aux
 The style file: plainnat-ime.bst
 Database file #1: bibliografia.bib
-Warning--string name "january" is undefined
---line 89 of file bibliografia.bib
-You've used 11 entries,
+You've used 16 entries,
             2750 wiz_defined-function locations,
-            654 strings with 6068 characters,
-and the built_in function-call counts, 3597 in all, are:
-= -- 297
-> -- 190
-< -- 9
-+ -- 69
-- -- 57
-* -- 213
-:= -- 599
-add.period$ -- 35
-call.type$ -- 11
-change.case$ -- 41
-chr.to.int$ -- 10
-cite$ -- 22
-duplicate$ -- 183
-empty$ -- 317
-format.name$ -- 72
-if$ -- 743
+            680 strings with 6616 characters,
+and the built_in function-call counts, 5099 in all, are:
+= -- 437
+> -- 240
+< -- 14
++ -- 89
+- -- 72
+* -- 280
+:= -- 834
+add.period$ -- 55
+call.type$ -- 16
+change.case$ -- 56
+chr.to.int$ -- 15
+cite$ -- 32
+duplicate$ -- 253
+empty$ -- 472
+format.name$ -- 92
+if$ -- 1068
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 18
-newline$ -- 65
-num.names$ -- 44
-pop$ -- 135
+newline$ -- 95
+num.names$ -- 64
+pop$ -- 195
 preamble$ -- 1
-purify$ -- 30
+purify$ -- 40
 quote$ -- 0
-skip$ -- 112
+skip$ -- 161
 stack$ -- 0
-substring$ -- 22
-swap$ -- 14
+substring$ -- 32
+swap$ -- 25
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
+type$ -- 131
 warning$ -- 0
-while$ -- 33
+while$ -- 48
 width$ -- 0
-write$ -- 176
-(There was 1 warning)
+write$ -- 261
