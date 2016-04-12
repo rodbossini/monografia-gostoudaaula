@@ -1,5 +1,5 @@
 #TeXlipse project settings
-#Mon Apr 04 13:05:18 BRT 2016
+#Tue Apr 12 19:47:03 BRT 2016
 markTmpDer=true
 builderNum=2
 outputDir=
@@ -7,8 +7,8 @@ makeIndSty=
 bibrefDir=
 outputFormat=pdf
 tempDir=tmp
-mainTexFile=monografia_ic_unifieo_alex_viera.tex
-outputFile=monografia_ic_unifieo_alex_viera.pdf
+mainTexFile=monografia.tex
+outputFile=monografia.pdf
 langSpell=en
 markDer=true
 srcDir=
