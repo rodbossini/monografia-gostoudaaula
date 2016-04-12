@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,6 +9,12 @@
 Maurício Aniche.
 \newblock \emph{Test-Driven Development}.
 \newblock Casa do Código, 1º ed.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Apache (2016)]{maven}{\bf Apache (2016)}
+Apache.
+\newblock Apache maven project.
+\newblock \url{https://maven.apache.org/}, April 2016.
+\newblock Último acesso em 12/04/2016.   {\scriptsize Citado na p\'{a}g.}
 
 \bibitem[Bates e Sierra (2005)]{head_sierra:05}{\bf Bates e Sierra (2005)}
 Bert Bates e Kathy Sierra.
@@ -45,8 +51,8 @@ Google.
 \newblock \url{http://developer.android.com/index.html}, May 2015.
 \newblock Último acesso em 05/05/2015.   {\scriptsize Citado na p\'{a}g.}
 
-\bibitem[IDE (2016)]{eclipsejavaee}{\bf IDE (2016)}
-Eclipse IDE.
+\bibitem[IBM (2016)]{eclipsejavaee}{\bf IBM (2016)}
+IBM.
 \newblock Eclipse ide for java ee.
 \newblock
   \url{http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/mars2},

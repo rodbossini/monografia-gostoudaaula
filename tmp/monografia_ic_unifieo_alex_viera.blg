@@ -4,44 +4,44 @@ The top-level auxiliary file: monografia_ic_unifieo_alex_viera.aux
 A level-1 auxiliary file: ape-dicionario-dados.aux
 The style file: plainnat-ime.bst
 Database file #1: bibliografia.bib
-You've used 16 entries,
+You've used 17 entries,
             2750 wiz_defined-function locations,
-            680 strings with 6616 characters,
-and the built_in function-call counts, 5099 in all, are:
-= -- 437
-> -- 240
-< -- 14
-+ -- 89
-- -- 72
-* -- 280
-:= -- 834
-add.period$ -- 55
-call.type$ -- 16
-change.case$ -- 56
-chr.to.int$ -- 15
-cite$ -- 32
-duplicate$ -- 253
-empty$ -- 472
-format.name$ -- 92
-if$ -- 1068
+            684 strings with 6670 characters,
+and the built_in function-call counts, 5399 in all, are:
+= -- 465
+> -- 250
+< -- 15
++ -- 93
+- -- 75
+* -- 293
+:= -- 881
+add.period$ -- 59
+call.type$ -- 17
+change.case$ -- 59
+chr.to.int$ -- 16
+cite$ -- 34
+duplicate$ -- 267
+empty$ -- 503
+format.name$ -- 96
+if$ -- 1133
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 18
-newline$ -- 95
-num.names$ -- 64
-pop$ -- 195
+newline$ -- 101
+num.names$ -- 68
+pop$ -- 207
 preamble$ -- 1
-purify$ -- 40
+purify$ -- 42
 quote$ -- 0
-skip$ -- 161
+skip$ -- 171
 stack$ -- 0
-substring$ -- 32
-swap$ -- 25
+substring$ -- 34
+swap$ -- 27
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 131
+type$ -- 142
 warning$ -- 0
-while$ -- 48
+while$ -- 51
 width$ -- 0
-write$ -- 261
+write$ -- 278
