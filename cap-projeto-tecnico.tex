@@ -90,7 +90,463 @@ a figura~\ref{fig:projeto_informacoes_maven} :
 Observe que agora é necessário adicionar algumas informações do Maven, que é
 justamente o \textit{\textbf{Group Id}}, \textit{\textbf{Artifact Id}},
 \textit{\textbf{Version}} e \textit{\textbf{Package}}. Cada uma das informações
-referessem.
+possuem uma grande importante para aplicação. As descrições de cada um desses
+itens estão disponíveis com detalhes no link disponibilizado na
+bibliografia~\cite{namingmaven}.
+
+Após a criação, o projeto Maven padrão criado pelo Eclipse contém a estrutura de
+acordo com a figura~\ref{fig:projeto_maven_padrao}.
+
+\begin{figure}[H]
+  \centering 
+  \includegraphics[width=0.7\textwidth]{project_explorer_for_maven.png}
+  \caption{Estrutura do projeto Maven padrão criado pelo Eclipse}
+  \label{fig:projeto_maven_padrao}.
+\end{figure}
+
+Basicamente, o diretório \textbf{src} é o local onde colocaremos todos os
+arquivos fonte do projeto, como por exemplo, código, properties ou
+qualquer arquivo de recurso da aplicação. Podemos observar que a estrutura
+desse diretório contém mais dois subdiretórios: \textbf{main} e
+\textbf{test}. Cada um desses subdiretório possuem objetivos e escopos
+diferentes, que são descritos a seguir:
+
+\begin{itemize}
+  \item \textbf{main}: Todos os arquivos principais da aplicação, isto é,
+  qualquer implementação destinada à aplicação, serão adicionados dentro desse
+  diretório.
+  \item \textbf{test}: Todos os arquivos de teste da aplicação, em outras
+  palavras, qualquer tipo de código para realizar os testes da aplicação.
+\end{itemize}
+
+Além desses dois diretórios, para cada um deles, existem os subdiretórios
+\textbf{java} e \textbf{resources} com os seguintes objetos:
+
+\begin{itemize}
+  \item \textbf{java}: Todos os arquivos de extensão .java, em outras palavras,
+  todo código relacionado à classes Java, serão adicionados dentro desse
+  diretório.
+  \item \textbf{resources}: Todos os recursos da aplicação, como por exemplo,
+  configurações em XML, .properties ou qualquer tipo de recurso para a aplicação
+  que seja diferente de um arquivo de extensão .java, será adicionado nesse
+  diretório.
+\end{itemize}
+
+\subsection{Utilizando modulos com Maven}
+\label{subsec:utilizando_modulos_com_maven}
+
+A arquitetura para o desenvolvimento da aplicação, foi planejado com a ideia da
+criação de módulos~\ref{subsubsec:modularizacao_de_projeto}. Para essa aplicação
+foram criados 3 módulos:
+
+\begin{itemize}
+  \item \textbf{core}: Adicionar as classes de regra de negócio representadas
+  no diagrama de classes~\ref{sec:diagrama_de_classes}.
+  \item \textbf{db}: Todas as classes para conexão com o banco de dados.
+  \item \textbf{web}: Todas as classes e configuração para aplicação Web e
+  configuração de conexão ao banco de dados.
+\end{itemize}
+
+Tendo conhecimento que cada projeto é independente um do outro, um dos pontos
+importantes é saber como eles se comunicam entre eles. No Maven, utilizamos o
+conceito Parent e childs descritos~\ref{subsec:parent_e_childs_com_maven}.
+
+\subsection{Parent e childs com Maven}
+\label{subsec:parent_e_childs_com_maven}
+
+O conceito de parent e childs do Maven é justamente criar um projeto pai
+(parent) e seus filhos (childs). O projeto pai, é um projeto genérico que não
+possui código fonto ou qualquer arquivo de configuração. Ele é utilizado como
+\textit{container} de seus filhos que de fato, são os módulos da aplicação.
+Paara essa aplicação utilizamos também o mesmo nome de projeto para o parent,
+porém com o sufixo \textbf{parent}.\\
+
+Para configurar um projeto parent, simplesmente adicionamos os módulos no
+pom.xml conforme o código~\ref{lst:adicao_de_modulos}:
+
+\begin{lstlisting}[caption = {Adicionando módulos no projeto parent}, label
+={lst:adicao_de_modulos}] 
+	<modules>
+		<module>
+			gostoudaaula-core
+		</module>
+		<module>
+			gostoudaaula-web
+		</module>
+		<module>gostoudaaula-db</module>
+	</modules>
+\end{lstlisting}
+
+Além de informar ao parent quais são os seus módulos, todos os filhos precisam
+também informar quem é o pai deles dentro do pom.xml adicionando o código:
+
+\begin{lstlisting}[caption = {Adicionando o parent dentro de um módulo},
+label={lst:adicao_de_parent}]
+	<parent>
+		<groupId>br.com.gostoudaaula</groupId>
+		<artifactId>gostoudaaula-parent</artifactId>
+		<version>0.1.9-SNAPSHOT</version>
+	</parent>
+\end{lstlisting}
+
+A partir do momento em que um projeto Maven declara quem é o seu pai, todos os
+recursos e dependências do pai são herdados a ele, ou seja, suas dependências e
+arquivos de configurações. Porém, mesmo os modulos sendo filhos do mesmo pai,
+não significa que cada um tem acesso direto ao outro, para resolver isso basta
+adicionar os módulos necessários em cada projeto como uma
+dependência~\ref{subsubsec:gerenciamento_de_dependencia}.
+
+
+
+
+\section{Dependências de todos os módulos}
+\label{sec:dependencias_de_todos_os_modulos}
+
+Uma das grandes vantagens em utilizar o Maven é justamente pelo gerenciamento de
+dependência~\ref{subsubsec:gerenciamento_de_dependencia}. Visto na
+subseção~\ref{subsec:utilizando_modulos_com_maven}, a aplicação é baseada em
+módulos que representam um projeto independemente, logo, cada um desses projetos possuem
+suas respectivas dependências, e serão disponibilizadas a seguir:
+
+\begin{itemize}
+  \item \textbf{parent}~\ref{lst:dependencias_parent}:
+  \begin{lstlisting}[caption = {Dependências do parent}, label =
+  {lst:dependencias_parent}] 
+  	<dependencies>
+		<!-- Teste -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Bean Validation -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.1.Final</version>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- data -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.9</version>
+		</dependency>
+
+	</dependencies>
+  \end{lstlisting}
+  \item \textbf{core}~\ref{lst:dependencias_core}: 
+  \begin{lstlisting}[caption = {Dependências do core}, label =
+  {lst:dependencias_core}]
+  	<dependencies>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+			<optional>true</optional>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.6.3</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+			<optional>true</optional>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+
+	</dependencies>  
+  \end{lstlisting}
+  \item \textbf{db}~\ref{lst:dependencias_db}:
+  \begin{lstlisting}[caption = {Dependências do db}, label =
+  {lst:dependencias_db}]
+  	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+		<!-- Banco de dados -->
+		<!-- Migration -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<!-- ORM -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- Connection Provider -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-hikaricp</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>gostoudaaula-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Spring data -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.9.2.RELEASE</version>
+		</dependency>
+
+	</dependencies>
+  \end{lstlisting}
+  \item \textbf{web}~\ref{lst:dependencias_web}:
+  \begin{lstlisting}[caption = {Dependências do web}, label = {lst:dependencias_web}] 
+  	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>gostoudaaula-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>gostoudaaula-db</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.2-1003-jdbc4</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.25</version>
+		</dependency>
+
+		<!-- Básicas -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>1.4.01</version>
+		</dependency>
+
+		<!-- Banco de dados -->
+		<!-- Migration -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<!-- ORM -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- Connection Provider -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-hikaricp</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+
+		<!-- Bean Validation -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.1.Final</version>
+		</dependency>
+
+		<!-- Spring MVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+		<!-- Gerais -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sargue</groupId>
+			<artifactId>java-time-jsptags</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.6.3</version>
+		</dependency>
+	</dependencies>  
+  \end{lstlisting}
+\end{itemize}
+
+\section{Diagramas de UML utilizados} 
+\label{sec:diagramas_de_uml_utilizados}
+
+No planejamento para a implementação da aplicação, utilizamos a
+UML~\ref{subsec:uml} para representar de uma forma mais clara o que tinha que
+ser implementado dentro da aplicação. Dentre os diversos diagramas existentes da
+UML, foram utilizados apenas os diagramas de
+\textbf{classes}~\ref{subsec:diagrama_de_classes_utilizado},\textbf{caso de
+uso}~\ref{subsec:diagrama_de_caso_de_uso_utilizado} e de \textbf{sequência}.
+
+\subsection{Diagrama de classes utilizado}
+\label{subsec:diagrama_de_classes_utilizado}
+
+Em projetos de aplicações orientadas a objetos, antes mesmo de começar a
+implementar as classes, é muito comum utilizarmos o diagrama de
+classes~\ref{subsubsec:diagrama_de_classes} para uma visibilidade estática de
+como devemos implementar as classes.
+Para essa aplicação utilizamos o diagrama de classe conforme a figura~\ref{fig:diagrama_de_classes}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{diagrama_de_classes.png}
+  \caption{Diagrama de classes}
+  \label{fig:diagrama_de_classes}.
+\end{figure}
+
+\subsection{Diagrama de caso de uso utilizado}
+\label{subsec:diagrama_de_caso_de_uso_utilizado}
+
+Além do diagrama de classe~\ref{subsec:diagrama_de_classes_utilizado}, é de
+grande importância utilizarmos o diagrama de caso de
+uso~\ref{subsubsec:diagrama_de_caso_de_uso} para obtermos uma visão macro sobre
+as principais funcionalidades. Para essa aplicação, utilizamos o diagrama
+conforme a figura~\ref{fig:diagrama_de_caso_de_uso}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{diagrama_de_caso_de_uso.png}
+  \caption{Diagrama de caso de uso}
+  \label{fig:diagrama_de_caso_de_uso}.
+\end{figure}
+
+\subsection{Diagrama de sequência utilizado}
+\label{subsec:diagrama_de_sequencia_utilizado}
 
 
 

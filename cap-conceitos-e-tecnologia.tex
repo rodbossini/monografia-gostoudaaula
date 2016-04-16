@@ -435,6 +435,48 @@ aplicação e, uma de suas principais responsabilidades, é manter as aplicações
 disponíveis para receber requisições e respondê-las
 ~\ref{subsec:cliente_e_servidor}.
 
+\subsection{UML - Unified Modeling Language}
+\label{subsec:uml}
+
+O UML - Unified Modeling Language, na tradução, Linguagem Unificada de
+Modelagem, é uma linguagem de modelagem que permite representarmos um sistema de
+forma padronizada utilizando o conceito de orientação a objetos. A importância
+da utilização da UML é justamente para esclarecer o comportamento da aplicação
+tanto para a equipe de desenvolvimento quanto para o cliente. 
+
+\subsubsection{Diagrama de classes}
+\label{subsubsec:diagrama_de_classes}
+
+Utilizamos o diagrama de classes para representar todas as principais
+classes do nosso sistema, com seus nomes, atributos e métodos e relacionamentos, em
+outras palavras, quando utilizamos o diagrama de classes, exibimos de uma forma
+mais ampla, ou seja, sem uma especificação independemente da implementação,
+linguagem de programação, que será utilizada. 
+
+\subsubsection{Diagrama de caso de uso}
+\label{subsubsec:diagrama_de_caso_de_uso}
+
+No diagrama de caso de uso, podemos demonstrar as principais funcionalidades e
+seus atores dentro da aplicação, por exemplo, dentro da
+aplicação, \textbf{realizar o login} pode ser feito tanto por um
+\textbf{professor}, quanto para um \textbf{aluno}. Seguindo esse pequeno
+exemplo, identificamos que, realizar o login é uma funcionalidade da aplicação,
+e que os atores são o aluno e o professor. 
+
+\subsubsection{Diagrama de sequência}
+\label{subsubsec:diagrama_de_sequencia}
+
+O diagrama de sequência é utilizado para descrever com mais detalhes o fluxo de
+uma funcionalidade, por exemplo, a funcionalidade \textbf{realizar o login} dos
+autores \textbf{aluno} ou \textbf{professor}, ambos enviam suas credenciais para
+o servidor, o servidor consulta as credenciais no banco de dados e, se tudo
+estiver ok, ele responde com as informações do aluno/professor junto com o um
+token identificador. O diagrama de sequência não é utilizado em todas as
+funcionalidade, em outras palavras, a intenção do diagrama de sequência é
+justamente dar mais atenção às funcionalidades mais peculiares da aplicação e
+que exigem uma certa atenção tanto para o cliente quanto para os
+desenvolvedores.
+
 \section{Tecnologia empregada}
 \label{sec:tecnologia_empregada}
 
@@ -473,27 +515,32 @@ funcionalidades com mais frequência.
 \label{subsec:maven}
 
 O Maven~\cite{maven} é uma biblioteca capaz de gerenciar projetos Java, com a
-finalidade de fazer o \emph{build} (construção) do projeto resolvendo os problemas de: gerenciamento de
-dependência, deploy, modularização de projeto, testes e controle de versão do
-projeto. O Maven permite o build do projeto utilizando o \emph{Project Object
-Model} (POM). O POM é um arquivo XML que descreve todas as informaçõees que o
-projeto Maven possui, como por exemplo, lista de dependências, configurações de
-plugins, profiles entre outras iformações que o projeto possa ter. A partir do
-pom.xml, podemos configurar todas as propriedades para indicar como o Maven se
-comportará. A biblioteca do Maven é gratuita e pode ser
-adquirida conforme o link disponibilizado na bibliografia.
+finalidade de fazer o \textbf{build} (construção) do projeto resolvendo os
+problemas de: \textbf{gerenciamento de dependência}, \textbf{deploy},
+\textbf{modularização de projeto}, \textbf{testes} e \textbf{controle de versão do
+projeto}. O Maven permite o build do projeto utilizando o \emph{Project Object
+Model} (POM).
 
-\subsection{Gerenciamento de dependência}
-\label{subsec:gerenciamento_de_dependencia}
+\subsubsection{POM - Project Object Model}
+\label{subsubsec:pom_project_object_model}
+
+O POM é um arquivo XML que permite a configuração de toda estrutura de um
+projeto Maven. A partir do pom.xml, temos a capacidade de configurar qualquer
+tipo de detalhe do projeto, como por exemplo, qual será o nome, pacote, versão
+do java que será compilado e executado, quais dependências entre outras
+possíveis configurações.
+
+\subsubsection{Gerenciamento de dependência}
+\label{subsubsec:gerenciamento_de_dependencia}
 
 Durante o desenvolvimento da aplicação, utilizamos outras APIs
 para resolver determinados problemas, como por exemplo, o Spring, Hibernate,
-Jackson entre outros. Todas as essas APIs são arquivos .jar que precisam ser
-baixadas e adicionadas ao projeto, porém, quando fazemos isso manualmente, nem
-sempre é uma terá simples e tende apresentar problemas, como por exemplo o
-Hibernate que, além de precisar das bibliotecas próprias, precisa da API da JPA.
-O Maven resolve todos esses problemas simplesmente adicionando a dependência por
-meio da tag <denpendency>: 
+Jackson entre outros. Essas APIs são arquivos .jar que precisam ser
+baixados e adicionados dentro do projeto, porém, quando fazemos isso
+manualmente, nem sempre é uma tarefa simples e tende a apresentar problemas,
+como por exemplo o Hibernate que, além de precisar das bibliotecas próprias,
+ele necessita da API da JPA. O Maven resolve todos esses problemas simplesmente
+adicionando a dependência por meio da tag <denpendency>: 
 
 \begin {lstlisting}[caption={Adicionando o hibernate para a o projeto usando o
 pom.xml}]
@@ -513,24 +560,26 @@ pom.xml}]
 
 \end{lstlisting}
 
-\subsection{distribuição da aplicação - Deploy}
-\label{subsec:distribuicao_da_aplicacao_deploy}
+\subsubsection{distribuição da aplicação - Deploy}
+\label{subsubsec:distribuicao_da_aplicacao_deploy}
 
 Todas as vezes que terminamos uma funcionalidade ou até mesmo finalizamos a
 aplicação, precisamos distribuir essa aplicação para uso, ou seja, publicá-la
-ou, tecnicamente falando, fazer o deploy. Em muito dos casos, fazer o deploy da
-aplicação nem sempre é uma tarefa trivial, pois é necessário se preoculpar com
+ou, tecnicamente falando, fazer o \textit{deploy}. Em muito dos casos, fazer o
+deploy da aplicação nem sempre é uma tarefa trivial, pois é necessário se preoculpar com
 ambientes diferentes, por exemplo, em ambiente de desenvolvimento, nós
-podemos utilizar um banco de dados de teste, podemos utilizar qualquer versão do
-JDK entre outras tarefas que não impactam o cliente, porém em um ambiente de
-produção precisamos evitar o máximo possível de bugs, ou seja, tomar cuidado com
-qual tipo de configuração a nossa aplicação está utilizando. Cuidar manualmente
-desse tipo de rotina permite um risco maior de falhas causando problemas que
-poderiam ser evitados, como por exemplo, utilizar um usuário e senha de banco de
-dados que não existe no servidor externo, e é justamente por esses motivos que
-podemos utilizar os \emph{profiles} do Maven que são capazes de criar diferentes
-perfis para cada tipo de ambiente por meio da tag <profile> segue um exemplo de
-uma configuração para ambiente de desenvolvimento e para ambiente de produção:
+podemos utilizar um banco de dados de teste ou então uma versão qualquer
+do JDK. Porém em um ambiente, como por exemplo, de produção, precisamos evitar o
+máximo possível de \textit{bugs}, ou seja, tomar alguns cuidadoa com qual tipo
+de configuração a nossa aplicação está utilizando, pois elas são diferentes, ou
+seja, consequentemente teremos um erro. \\
+
+Cuidar manualmente desse tipo de rotina, permite um risco maior de falhas
+causando problemas que poderiam ser evitados, como por exemplo, utilizar um usuário 
+e senha de banco de dados que não existe no servidor externo, e é justamente por
+esses motivos que utilizamos os \emph{profiles} do Maven que são capazes de
+criar diferentes perfis para cada tipo de ambiente por meio da tag <profile> 
+segue um exemplo de uma configuração para ambiente de desenvolvimento e para ambiente de produção:
 
 \begin{lstlisting}[caption={Criando profiles para ambiente de desenvolvimento e
 ambiente de produção no pom.xml}]
@@ -575,7 +624,6 @@ ambiente de produção no pom.xml}]
 	</profiles>
 \end{lstlisting}
 
-
 Além de configurar diferentes perfis da aplicação, o Maven também executa uma
 rotina em que verifica se todo o projeto está funcionando da maneira correta,
 por exemplo, verifica se todas as bibliotecas e APIs que foram descritas no
@@ -584,55 +632,20 @@ no projeto para garantir se todos funcioram e também gera os arquivos de deploy,
 ou seja, arquivos .jar para aplicações Java e arquivos .war para aplicações
 Java Web.
 
-\subsection{Modularização de projeto}
-\label{subsec:modularizacao_de_projeto}
+\subsubsection{Modularização de projeto}
+\label{subsubsec:modularizacao_de_projeto}
 
-O desenvolvimento da aplicação foi baseado em módulos, isso significa que
-existe mais de um projeto que resolve um problema em específico, por exemplo,
-existe o projeto gostoudaaula-core que possui todas as classes modelos da
-aplicação, o projeto gostoudaaula-db que possui todas as classes que cuidam da
-lógica de banco de dados e o projeto gostoudaaula-web que é a aplicação web em
-si. Podemos fazer uso desse tipo de arquitetura por meio dos módulos do Maven. 
-Para criarmos módulos no Maven precisamos primeiro criar um projeto do Maven que
-chamando de parent, esse projeto será o projeto principal da aplicação, ou seja,
-iremos incluir todos os demais projetos dentro dele. Na aplicação foi criado o
-projeto gostoudaaula-parent. A figure 2.1 demonstra a estrutura do projeto
-parent:
+Durante o desenvolvimento da aplicação, utilizamos a arquitetura de módulos, em
+outras palavras, o projeto foi divido em módulos. Cada módulo representa um
+projeto distinto que tem a apenas uma única finalidade, por exemplo, para
+representar todas as classes principais, ou seja, as classes modelos referentes
+à regra de negócio, criamos o módulo \textbf{core}, para o acesso de banco de
+dados criamos o módulo \textbf{db} e assim por diante. \\
 
-\begin{figure}
-\captionof{figure}{Estrutura do projeto parent}
-\end{figure}
-
-Para adicionar módulos para esse projeto, precisaremos criar novos projetos
-Maven dentro desse projeto e então precisamos incluir o nome desses na tag <module>:
-
-\begin{lstlisting}[caption={Exemplo para associar os projetos como módulos no
-pom.xml}]
-	<modules>
-		<module>
-			gostoudaaula-core
-		</module>
-		<module>
-			gostoudaaula-web
-		</module>
-		<module>
-			gostoudaaula-db
-		</module>
-	</modules>
-\end{lstlisting}
-
-Nesse exemplo estamos indicando que os projetos citados serão os módulos do
-projeto parent, porém ainda precisamos especificar aos módulos quem será o
-parent, então adicionamos a tag <parent> no pom.xml:
-
-\begin{lstlisting}[caption={Exemplo de como informar qual é o parent do modulo no
-pom.xml}]
-	<parent>
-		<groupId>br.com.gostoudaaula</groupId>
-		<artifactId>gostoudaaula-parent</artifactId>
-		<version>//versão</version>
-	</parent>
-\end{lstlisting}
+Cada módulo possui o mesmo nome, porém, para diferenciar um do outro, adicionamos os prefixos que os
+identifica, por exemplo, o nome da aplicação é gostoudaaula, para o projeto
+core, nomeamos como \textit{gostoudaaula-core} e para o banco de dados
+\textit{gostoudaaula-db}.
 
 \subsection{Testes - JUnit}
 \label{subsec:testes_JUnit}
@@ -728,7 +741,7 @@ configurarmos uma aplicação como um servidor utilizando a linguagem Java. Essas
 aplicações permitem uma comunicação entre cliente e aplicação utilizando o
 protocolo HTTP. A partir das Servlets podemos criar aplicações com o conceito de
 cliente e servidor~\ref{subsec:cliente_e_servidor}. A API de Servlet, pode ser
-adquirida, gratuitamente, no site do próprio Java~\cite{Servlet}, atualmente na
+adquirida, gratuitamente, no site do próprio Java~\cite{servlet}, atualmente na
 versão 3.0.
 
 \subsection{Spring framework}
