@@ -14,3 +14,6 @@
 \contentsline {lstlisting}{\numberline {3.4}Depend\^encias do core}{23}{lstlisting.3.4}
 \contentsline {lstlisting}{\numberline {3.5}Depend\^encias do db}{24}{lstlisting.3.5}
 \contentsline {lstlisting}{\numberline {3.6}Depend\^encias do web}{25}{lstlisting.3.6}
+\contentsline {lstlisting}{\numberline {3.7}web.xml completo da aplica\c c\~ao web}{30}{lstlisting.3.7}
+\contentsline {lstlisting}{\numberline {3.8}spring-mvc.xml completo da aplica\c c\~ao web}{31}{lstlisting.3.8}
+\contentsline {lstlisting}{\numberline {3.9}configura\c c\~ao para o Spring mapear e acessar as p\'aginas web com extens\~oes .jsp~\cite {jsp}}{31}{lstlisting.3.9}

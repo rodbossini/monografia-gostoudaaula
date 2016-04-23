@@ -8,7 +8,7 @@
 %  
 % Obs: Leia previamente o texto do arquivo README.txt
 
-\documentclass[11pt,twoside,a4paper]{book}
+\documentclass[11pt,twoside,a4paper]{book} 
 
 % ---------------------------------------------------------------------------- %
 % Pacotes 
@@ -58,6 +58,15 @@
 \normalsize
 
 % ---------------------------------------------------------------------------- %
+
+\usepackage{color}
+
+\definecolor{pdarkmagenta}{rgb}{0.545098,0,0.545098}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pblue}{rgb}{0,0,0.9}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+% ---------------------------------------------------------------------------- %
 % Opções de listing usados para o código fonte
 % Ref: http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
 \lstset{ %
@@ -84,7 +93,10 @@ xleftmargin=10pt,
 xrightmargin=10pt,
 framexleftmargin=10pt,
 framexrightmargin=10pt,
-aboveskip=1.5em
+aboveskip=1.5em,
+commentstyle=\color{pgreen},
+keywordstyle=\color{pdarkmagenta},
+stringstyle=\color{pblue}
 }
 
 \renewcommand{\lstlistingname}{Código} % Listing -> Algorithm

@@ -1,5 +1,6 @@
 \backcite {jbmonteiro:12}{{ix}{(document)}{Doc-Start}}
 \backcite {jbmonteiro:12}{{ix}{(document)}{Doc-Start}}
+\backcite {jsp}{{xiii}{(document)}{Doc-Start}}
 \backcite {jbmonteiro:12}{{8}{2.1}{figure.caption.8}}
 \backcite {jbmonteiro:12}{{8}{2.2}{figure.caption.9}}
 \backcite {jdk}{{10}{2.2.1}{subsection.2.2.1}}
@@ -11,3 +12,4 @@
 \backcite {androidstudio}{{16}{2.2.15}{subsection.2.2.15}}
 \backcite {archetype}{{19}{3.2}{figure.caption.14}}
 \backcite {namingmaven}{{20}{3.2}{figure.caption.15}}
+\backcite {jsp}{{31}{6}{lstnumber.3.9.5}}
