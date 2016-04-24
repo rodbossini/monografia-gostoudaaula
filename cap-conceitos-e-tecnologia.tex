@@ -840,6 +840,17 @@ trabalho fácil e por isso não é recomendável esse tipo de prática. Para
 facilitarmos essa tarefa, utilizamos a biblioteca do jackson que, com poucas
 configurações, consegue realizar essas conversões de forma automática.
 
+\subsection{HikariCP}
+\label{subsec:hikari_cp}
+
+O HikariCP é uma biblioteca para melhorar o desempenho das conexões realizadas
+entre a aplicação e o banco de dados, por meio de implementações modificadas de
+pool de conexões justamente para minimizar o máximo possível de sobrecarga
+(\textit{overload}). Isso permite que, em um ambiente de produção, a aplicação 
+tenha um desempenho melhor. Nesse projeto não será detalhado informações sobre
+connection pool ou o HikariCP, para mais informações, verifique a página web do
+próprio HikariCP~\cite{hikaricp} que está disponibilizada na bibliografia.
+
 \subsection{Openshift}
 \label{subsec:openshift}
 

@@ -8,12 +8,13 @@
 \contentsline {lstlisting}{\numberline {2.8}Exemplo de um caso de teste utilizando o JUnit}{13}{lstlisting.2.8}
 \contentsline {lstlisting}{\numberline {2.9}Exemplo n\~ao real de como utilizar o JUnit}{13}{lstlisting.2.9}
 \contentsline {lstlisting}{\numberline {2.10}Altera\c c\~ao do resultado de \lstinline {true} para \lstinline {false}}{14}{lstlisting.2.10}
-\contentsline {lstlisting}{\numberline {3.1}Adicionando m\'odulos no projeto parent}{22}{lstlisting.3.1}
-\contentsline {lstlisting}{\numberline {3.2}Adicionando o parent dentro de um m\'odulo}{22}{lstlisting.3.2}
-\contentsline {lstlisting}{\numberline {3.3}Depend\^encias do parent}{23}{lstlisting.3.3}
-\contentsline {lstlisting}{\numberline {3.4}Depend\^encias do core}{23}{lstlisting.3.4}
-\contentsline {lstlisting}{\numberline {3.5}Depend\^encias do db}{24}{lstlisting.3.5}
-\contentsline {lstlisting}{\numberline {3.6}Depend\^encias do web}{25}{lstlisting.3.6}
-\contentsline {lstlisting}{\numberline {3.7}web.xml completo da aplica\c c\~ao web}{30}{lstlisting.3.7}
-\contentsline {lstlisting}{\numberline {3.8}spring-mvc.xml completo da aplica\c c\~ao web}{31}{lstlisting.3.8}
-\contentsline {lstlisting}{\numberline {3.9}configura\c c\~ao para o Spring mapear e acessar as p\'aginas web com extens\~oes .jsp~\cite {jsp}}{31}{lstlisting.3.9}
+\contentsline {lstlisting}{\numberline {3.1}Adicionando m\'odulos no projeto parent}{24}{lstlisting.3.1}
+\contentsline {lstlisting}{\numberline {3.2}Adicionando o parent dentro de um m\'odulo}{24}{lstlisting.3.2}
+\contentsline {lstlisting}{\numberline {3.3}Depend\^encias do parent}{25}{lstlisting.3.3}
+\contentsline {lstlisting}{\numberline {3.4}Depend\^encias do core}{25}{lstlisting.3.4}
+\contentsline {lstlisting}{\numberline {3.5}Depend\^encias do db}{26}{lstlisting.3.5}
+\contentsline {lstlisting}{\numberline {3.6}Depend\^encias do web}{27}{lstlisting.3.6}
+\contentsline {lstlisting}{\numberline {3.7}web.xml completo da aplica\c c\~ao web}{32}{lstlisting.3.7}
+\contentsline {lstlisting}{\numberline {3.8}spring-mvc.xml completo da aplica\c c\~ao web}{33}{lstlisting.3.8}
+\contentsline {lstlisting}{\numberline {3.9}configura\c c\~ao para o Spring mapear e acessar as p\'aginas web com extens\~oes .jsp~\cite {jsp}}{33}{lstlisting.3.9}
+\contentsline {lstlisting}{\numberline {3.10}spring-jpa-config.xml completo da aplica\c c\~ao web}{34}{lstlisting.3.10}
