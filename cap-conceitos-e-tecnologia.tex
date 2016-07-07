@@ -281,8 +281,8 @@ class Professor extends {
 }
 \end{lstlisting}
 
-Note que foi utilizada uma \emph{annotation} do Java que indica que o método
-pertence a uma classe mãe, porém ele está sendo sobrescrito, ou seja, ele terá
+Note que foi utilizada uma \emph{annotation} do Java~\cite{annotations} que
+indica que o método pertence a uma classe mãe, porém ele está sendo sobrescrito, ou seja, ele terá
 um comportamento diferente do padrão.
 
 \subsection{ORM - Object Relational Mapping}
@@ -349,7 +349,7 @@ ga- nhar terreno tentando repetir o sucesso do Amazon Kindle Fire, que também
 utiliza Android.
 
 \subsection{MVC - Model View Controller}
-\label{subsed:mvc_model_view_controller}
+\label{subsec:mvc_model_view_controller}
 
 A arquitetura MVC consiste em dividir a aplicação em camadas:
 \begin{itemize}
@@ -476,6 +476,24 @@ funcionalidade, em outras palavras, a intenção do diagrama de sequência é
 justamente dar mais atenção às funcionalidades mais peculiares da aplicação e
 que exigem uma certa atenção tanto para o cliente quanto para os
 desenvolvedores.
+
+\subsection{Migration de banco de dados}
+\label{subsec:migration_de_banco_de_dados}
+
+Quando desenvolvemos uma aplicação, em alguns momentos temos a necessidade de
+realizar algumas alterações em sua estrutura, como por exemplo a adição ou
+alteração ou, em casos mais delicados, a exclusão de uma coluna ou tabela. Tais
+modificações precisam ser gerenciadas e mantidas para todas as versões de
+desenvolvimento do banco de dados antes mesmo de realizar o
+deploy~\ref{subsubsec:distribuicao_da_aplicacao_deploy}, pois se uma versão for
+diferente, o desenvolvedor que realizar o deploy com a versão diferente pode
+causar diversos problemas inesperados em um ambiente de produção.\\
+
+Gerenciar esses eventos dentro de um projeto, isto é, a realização do controle
+para que todos mantenham a mesma versão do banco atual com as existentes em
+diversas ramificações do projeto, tecnicamente é chamado de \textit{migration}.
+Nesse projeto, todo o processo de migration de banco de dados para esse projeto, 
+foram gerenciadas a partir da biblioteca flyway~\ref{subsec:flyway}.
 
 \section{Tecnologia empregada}
 \label{sec:tecnologia_empregada}
@@ -752,6 +770,14 @@ tem a finalidade de resolver diversos problemas que são comuns em uma aplicação 
 utilizado para resolver as questões de controle de transações e injenção de
 dependência.
 
+\subsection{Spring Data}
+\label{subsec:spring_data}
+
+O Spring Data~\cite{springdata} faz parte de um dos módulos do Spring
+framework~\cite{subsec:spring_framework}. O objetivo desse módulo é justamente
+facilitar a maneira como persistimos os dados em um banco de dados utilizando o
+Spring.
+
 \subsection{Injecão de dependência}
 \label{subsec:injecao_de_dependencia}
 
@@ -827,6 +853,15 @@ detalhes, utilizamos o Spring para fazer a injeção de dependência das classes
 que são responsáveis em lidar com as transações, ou seja, o Spring gerencia
 todas as transações da aplicação, garantindo que todas essas rotinas sejam
 feitas corretamente sem o desenvolvedor precisar se preocupar.
+
+\subsection{Flyway DB}
+\label{subsec:flyway}
+
+Devido a necessidade de manter a
+migration~\ref{subsec:migration_de_banco_de_dados} do banco de dados de uma
+forma mais organizada e com menos intervensão humana, nesse projeto, utilizamos
+o flyway~\cite{flyway} que é uma farramenta simples e poderosa, capaz de
+realizar a migration de uma maneira bem simplicada.
 
 \subsection{Jackson}
 \label{subsec:jackson}

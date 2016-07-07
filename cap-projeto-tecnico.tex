@@ -565,13 +565,16 @@ figura~\ref{fig:diagrama_de_sequencia}
 \section{Configurando projeto web}
 \label{sec:configurando_projeto_web}
 
+\subsection{Configurando o Spring MVC}
+\label{subsec:configura_o_spring_mvc}
+
 O projeto web foi baseado na estrutura do Spring
 MVC~\ref{subsec:spring_framework}, porém, a configuração inicial é realizada
 dentro do arquivo ``src/main/webapp/views/web.xml'' que refere-se ao arquivo de
 configuração da estrutura de um projeto Java Web. Dentro desse arquivo temos a
 capacidade de configurar diversos comportamentos da aplicação, como por exemplo,
 quais Servlets~\ref{subsec:servlet_api} serão utilizadas, qual endereço HTTP
-será atendido dentre outras recursos. Para esse projeto foi utilizado o seguinte
+será atendido dentre outros recursos. Para esse projeto foi utilizado o seguinte
 XML~\ref{lst:web.xml_app_web} de configuração:
 
 \begin{lstlisting}[caption={web.xml completo da aplicação web},
@@ -666,7 +669,6 @@ label={lst:spring-mvc.xml_completo_da_app}]
 	<import resource="spring-jpa-config.xml" />
 	<import resource="spring-flyway-config.xml" />
 	<import resource="spring-ioc.xml" />
-	<import resource="spring-i18n-config.xml" />
 </beans>
 \end{lstlisting}
 
@@ -683,15 +685,14 @@ label={lst:configurando_mapeamento_de_paginas}]
 	</bean>
 \end{lstlisting}
  
-Além das configurações do Spring MVC, foram adicionadas as demais condigurações,
-como injeção de dependência~\ref{subsec:injecao_de_dependencia} do Spring
+Além das configurações do Spring MVC, foram adicionadas as configurações de injeção de dependência~\ref{subsec:injecao_de_dependencia} do Spring
 Framework, JPA~\ref{subsec:jpa_java_persistence_api} e
 Hibernate~\ref{subsec:hibernate} e mensageria. Cada configuração está contida em
 arquivos distintos que dentro do mesmo diretório do arquivo spring-mvc.xml. Abaixo serão
 listado os arquivos com suas finalidades e sua configuração:
 
 \begin{itemize}
-  \item \textbf{spring-jpa-config.xml}: Nesse arquivo contém todas as
+  \item \textbf{spring-jpa-config.xml}: Todas as
   configurações relacionadas à configuração da JPA por meio da implementação do
   hibernate e o HikariCP~\ref{subsec:hikari_cp}. Toda a configuração está
   descrita no código:
@@ -760,9 +761,269 @@ listado os arquivos com suas finalidades e sua configuração:
 		/>
 </beans>
   \end{lstlisting}
+   \item \textbf{spring-flyway-config.xml}: Todas as
+  configurações relacionadas à integração do flyway~\ref{subsec:flyway} com o
+  banco de dados. Toda a configuração está descrita no código:
+  \begin{lstlisting}[caption={spring-flyway-config.xml completo da aplicação
+  web}, label={lst:spring-flyway-config.xml_completo_da_app}]
+	<?xml version="1.0" encoding="UTF-8"?>
+	<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+		<bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
+			<property name="schemas" value="${flyway.schemas}" />
+			<property name="encoding" value="${flyway.encoding}" />
+			<property name="dataSource" ref="dataSource" />
+			<property name="initOnMigrate" value="true" />
+		</bean>
+	
+		<bean id="dataSource"
+			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="${flyway.datasource.class}" />
+			<property name="url" value="${flyway.datasource.url}" />
+			<property name="username" value="${flyway.datasource.username}" />
+			<property name="password" value="${flyway.datasource.password}" />
+		</bean>
+	
+	</beans>
+  \end{lstlisting}
+   \item \textbf{spring-ioc.xml}: Todas as configurações realacionadas a
+   injeção de dependência~\ref{subsec:injecao_de_dependencia} aplicando o
+   conceito de inversão de controle~\ref{subsec:inversao_de_controle}.
+   Toda a configuração está descrita no código:
+     \begin{lstlisting}[caption={spring-ioc.xml completo da aplicação
+  web}, label={lst:spring-ioc.xml_completo_da_app}]
+	<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	    http://www.springframework.org/schema/context
+	    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd ">
+	
+	
+		<context:property-placeholder
+			file-encoding="UTF-8"
+			location="classpath:properties/general.properties, classpath:properties/database.properties,
+		 classpath:properties/flyway.properties, classpath:properties/jpa.properties" />
+	
+		<context:annotation-config></context:annotation-config>
+		<context:component-scan base-package="br.com.gostoudaaula" />
+	
+		<bean id="ObjectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"
+			scope="request">
+			<aop:scoped-proxy />
+		</bean>
+	
+		<import resource="spring-flyway-config.xml" />
+		<import resource="spring-jpa-config.xml" />
+	
+	</beans>
+     \end{lstlisting}
 \end{itemize}
 
+\subsection{Propriedades do projeto}
+\label{propriedades_do_projeto}
+
+Em alguns beans do Spring MVC, os valores foram atribuídos por meio expression
+language~\cite{el}, como por exemplo o bean do flyway~\ref{lst:bean_flyway}:
+
+\begin{lstlisting}[caption={bean do flyway}, label={lst:bean_flyway}]
+<bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
+	<property name="schemas" value="${flyway.schemas}" />
+	<property name="encoding" value="${flyway.encoding}" />
+	<property name="dataSource" ref="dataSource" />
+	<property name="initOnMigrate" value="true" />
+</bean>
+	
+\end{lstlisting}
+
+Observe que para a \textit{property} schemas, foi atribuído o valor
+\textit{\$\{flyway.schemas\}}. Esses valores são extraídos a partir de arquivos
+properties~\cite{properties}. Nesse projeto, para que o Spring MVC consiga
+encontrar e ler os arquivos properties, e então, extrair seus valores, foi
+definido o caminho
+\textbf{classpath:properties}
+dentro do arquivo
+\textbf{spring-mvc.xml}~\ref{lst:spring-mvc.xml_completo_da_app}. Para definir o
+caminho basta apenas adicionar a tag \textbf{<context:property-placeholder />}
+informando o \textit{enconding} dos arquivos e a locatização de todos os
+arquivos que serão lidos. Podemos ver uma demonstração utilizada nesse projeto a
+partir do código~\ref{lst:property_placeholder}:
 
 
+\begin{lstlisting}[caption={property-placeholder do projeto},
+label={lst:property_placeholder}]
+<context:property-placeholder
+		file-encoding="UTF-8"
+		location="classpath:properties/general.properties, classpath:properties/database.properties,
+	 classpath:properties/flyway.properties, classpath:properties/jpa.properties" />
+	
+\end{lstlisting}
 
+Observe que temos 4 arquivos distintos dentro do projeto. Cada arquivo contém
+informações relacionadas a um tipo de configuração, por exemplo:
 
+\begin{itemize}
+  \item \textbf{general.properties:} Definições gerais do projeto.
+  \item \textbf{database.properties:} Definições do banco de dados.
+  \item \textbf{flyway.properties:} Definições do flyway.
+  \item \textbf{jpa.properties:} Definições da JPA.
+\end{itemize}
+
+Como exemplo veremos o conteúdo do \textbf{general.properties} a partir do
+código~\ref{lst:conteudo_do_general.properties}:
+
+\begin{lstlisting}[caption={conteúdo do general.properties},
+label={lst:conteudo_do_general.properties}]	
+#Configurações gerais
+encoding = UTF-8
+url = ${url}
+\end{lstlisting}
+
+\subsection{Configurando flyway}
+\label{subsec:configurando_flyway}
+
+Além das definições realizadas pelo flyway, é necessária a existência de um
+arquivo SQL para que ele consiga gerenciar as migrations do banco de dados.
+Porém, no flyway, precisamos seguir uma convenção para que ele consiga gerenciar
+da forma adequada. Nesse projeto foi utilizado apenas um único arquivo com o
+seguinte nome \lstinline{V1__Criacao_tabelas_base.sql}.\\
+
+Note que o arquivo contém \textbf{V1} que indica a versão, nesse caso, é a
+versão 1, então é adicionado 2 \textit{underscores} e, em seguida, o nome do
+arquivo de uma forma bem verbosa, ou seja, explicando explicítamente o que ele
+significa e por fim adicionando a extensão SQL.\\
+
+O conteúdo desses arquivos são instruções SQL, ou seja, toda a instrução contida
+nesse arquivo V1 será executada assim que o flyway for executado. Caso seja
+necessário algum tipo de modificação no banco de dados, basta criar um novo
+arquivo com somando 1 com a versão final, por exemplo, a versão atual é a 1, a
+próxima seria V2 e assim sucessivamente.\\
+
+Para esse projeto, todos esses arquivos do flyway precisam ser inseridos no
+\textbf{classpath:db/migration}.
+
+\section{Estrutura do projeto web}
+\label{sec:estrutura_do_projeto_web}
+
+\subsection{Controllers do Spring}
+\label{subsec:controllers_do_spring}
+
+No projeto web, para inicializarmos a aplicação a partir de uma arquitetura
+MVC~\ref{subsec:mvc_model_view_controller} começamos pela criação de
+controllers. Nesse projeto, adicionamos todas as classes de controller no
+pacote: \textbf{br.com.gostoudaaula.controller}.\\
+
+Para criar uma classe que representa um controller, é recomendado a utilização
+da seguinte convenção: \textit{NomeDaClasseController}, ou seja, o nome da
+classe junto com o prefixo ~\textit{Controller}. Por exemplo, nesse projeto, o
+controller que representa a página de vísita, isto é, a página inicial foi
+denominado como \lstinline{SiteController}, podemos ver o seu conteúdo a partir
+do código~\ref{lst:site_controller}:
+
+\begin{lstlisting}[caption={código da classe SiteController},
+label={lst:site_controller}]	
+package br.com.gostoudaaula.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
+@Controller
+@RequestMapping("/")
+public class SiteController {
+
+	@RequestMapping(method = GET)
+	public String index() {
+		return "index";
+	}
+}
+\end{lstlisting}
+
+Observe que esse controller contém duas annotations~\cite{annotations}:
+
+\begin{itemize}
+  \item \textbf{@Controller:} Indica que a classe será um controller do Spring
+  MVC
+  \item \textbf{@RequestMapping:} Indica que a partir da URL ``/'', esse
+  controller irá atender.
+\end{itemize}
+
+Além disso, o método \lstinline{index} também está anotado com um
+\lstinline{@RequestMapping}, porém, diferente da annotation da classe que recebe
+uma string como valor, essa contém um atributo \lstinline{method} com o valor
+\lstinline{GET}. Isso significa que, se a requisição for para a ``/'' e o método
+de requisição do HTTP~\cite{requestmethod} for GET, esse método será atendido.\\
+
+Além disso, observe que esse método retorna uma String com o valor ``index'',
+isso significa que o Spring MVC tentará encontrar uma página dentro do projeto
+no diretório \textbf{src/main/webapp/WEB-INF/views} com a extensão .jsp conforme
+a configuração do arquivo spring-mvc.xml~\ref{lst:spring-mvc.xml_completo_da_app}
+
+\subsection{Services do Spring}
+\label{subsec:services_do_spring}
+
+Na arquitetura MVC o controller é o responsável em receber as informações do
+cliente, e então, delegar para um especialista, ou seja, uma classe capaz de
+realizar a tarefa solicitada. Teoricamente, se ele receber uma requisição para
+cadastrar algum objeto, significa que ele precisa passar a diante para uma
+classe que faça a persistência de dados, ou então, se a requisição é para apenas
+validar dados, enviará para uma classe que faça isso.\\
+
+Mesmo sendo funcional, tal prática dentro de um controller não é recomendável,
+justamente pelo controller ser responsável em apenas delegar. Em outras
+palavras, controllers não se comunicam diretamente com essas classes
+específicas, e sim, delegam tais tarefas para classes conhecidas como services.
+Dentro do Spring, os services são basicamente uma camada que fica entre a parte
+lógica (persistência de dados, validação, tratamento e geral) e o controller
+para resolver qualquer tipo de requição para uma entidade, por exemplo, se é
+necessário cadastrar uma turma, ou até mesmo validá-la, enviamos tal
+requisição para um service que conterá todas as funcionalidades da entidade
+turma.\\
+
+No Spring, para criarmos um service, seguimos a seguinte convenção:
+\textit{NomeDaClasseService}, ou seja, o nome da
+classe junto com o prefixo ~\textit{Service}. Nesse projeto, todas as services
+foram adicionadas no pacote \textbf{br.com.gostoudadaula.service}. Como exemplo,
+veremos o service \lstinline{TurmaService} a partir do
+código~\ref{lst:turma_service},que representa um service exclusivo da entidade turma:
+
+\begin{lstlisting}[caption={código da classe TurmaController},
+label={lst:turma_service}]	
+package br.com.gostoudaaula.service;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import br.com.gostoudaaula.db.repository.TurmaRepository;
+import br.com.gostoudaaula.model.Turma;
+
+@Service
+public class TurmaService {
+
+	private TurmaRepository repository;
+
+	@Inject
+	public TurmaService(TurmaRepository repository) {
+		this.repository = repository;
+	}
+
+	public void salva(Turma turma) {
+		repository.save(turma);
+	}
+
+	public Turma retorna(Turma turma) {
+		return repository.findOne(turma.getId());
+	}
+
+}
+\end{lstlisting}
+
+Além do nome da classe ter o prefixo \textit{Service}, observe que também
+precisamos adicionar a annotation \lstinline{@Service} para indicar ao Spring
+que essa classe será gerenciada por ele como um service. 

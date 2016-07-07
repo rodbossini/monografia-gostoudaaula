@@ -18,3 +18,10 @@
 \contentsline {lstlisting}{\numberline {3.8}spring-mvc.xml completo da aplica\c c\~ao web}{33}{lstlisting.3.8}
 \contentsline {lstlisting}{\numberline {3.9}configura\c c\~ao para o Spring mapear e acessar as p\'aginas web com extens\~oes .jsp~\cite {jsp}}{33}{lstlisting.3.9}
 \contentsline {lstlisting}{\numberline {3.10}spring-jpa-config.xml completo da aplica\c c\~ao web}{34}{lstlisting.3.10}
+\contentsline {lstlisting}{\numberline {3.11}spring-flyway-config.xml completo da aplica\c c\~ao web}{35}{lstlisting.3.11}
+\contentsline {lstlisting}{\numberline {3.12}spring-ioc.xml completo da aplica\c c\~ao web}{35}{lstlisting.3.12}
+\contentsline {lstlisting}{\numberline {3.13}bean do flyway}{36}{lstlisting.3.13}
+\contentsline {lstlisting}{\numberline {3.14}property-placeholder do projeto}{36}{lstlisting.3.14}
+\contentsline {lstlisting}{\numberline {3.15}conte\'udo do general.properties}{37}{lstlisting.3.15}
+\contentsline {lstlisting}{\numberline {3.16}c\'odigo da classe SiteController}{37}{lstlisting.3.16}
+\contentsline {lstlisting}{\numberline {3.17}c\'odigo da classe TurmaController}{38}{lstlisting.3.17}
