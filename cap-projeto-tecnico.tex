@@ -990,7 +990,8 @@ No Spring, para criarmos um service, seguimos a seguinte convenção:
 classe junto com o prefixo ~\textit{Service}. Nesse projeto, todas as services
 foram adicionadas no pacote \textbf{br.com.gostoudadaula.service}. Como exemplo,
 veremos o service \lstinline{TurmaService} a partir do
-código~\ref{lst:turma_service},que representa um service exclusivo da entidade turma:
+código~\ref{lst:turma_service}, que representa um service exclusivo da entidade
+turma:
 
 \begin{lstlisting}[caption={código da classe TurmaController},
 label={lst:turma_service}]	
@@ -1027,3 +1028,467 @@ public class TurmaService {
 Além do nome da classe ter o prefixo \textit{Service}, observe que também
 precisamos adicionar a annotation \lstinline{@Service} para indicar ao Spring
 que essa classe será gerenciada por ele como um service. 
+
+\section{Estrutura do projeto db}
+\label{estrutura_do_projeto_db}
+
+\subsection{Utilizando o Spring Data}
+\label{utilizando_o_spring_data}
+
+No projeto db, ao invés de utilizarmos classes com o design pattern DAO (Data
+Access Object)~\cite{dao}, a partir do módulo Spring
+Data~\ref{subsec:spring_data}, nesse projeto foi utilizado o conceito de
+repositories Spring Data~\cite{repositoriesspring}. No Spring,
+repositories são representações de classes onde ocorre a persistência de
+dados. A princípio existe uma certa similiaridade com classes DAO, entretanto,
+no Spring Data, representamos um repository a partir de uma interface que
+estende de classes fornecidas pelo Spring Data.\\
+
+A representação mais básica para um repository é a partir da classe
+\lstinline{CrudRepository<T,ID extends Serializable>}~\cite{crudrepository} que
+já contém métodos de CRUD (Create Read Update and Delete), ou seja, métodos que são bem comuns durante uma implementação de um
+DAO. A vantagem em utilizar esse tipo de abordagem é justamente o ganho em
+produtividade, pois, dessa forma, evitamos de ficar escrevendo diversas linhas
+de código que fazem rotinas em comum, como por exemplo, inserção de dados.\\
+
+Nesse projeto, adicionamos todos os repositories dentro do pacote
+\textbf{br.com.gostoudaaula.db.repository}. Podemos ver  um exemplo de
+um repository a partir da interface \lstinline{RespostasRepository} a partir do
+código~\ref{lst:respostas_repository}:
+
+\begin{lstlisting}[caption={código da interface RespostasRepository},
+label={lst:respostas_repository}]
+package br.com.gostoudaaula.db.repository;
+
+import java.util.List;
+import org.joda.time.LocalDate;
+import org.springframework.data.repository.CrudRepository;
+import br.com.gostoudaaula.model.Avaliacao;
+import br.com.gostoudaaula.model.Respostas;
+
+public interface RespostasRepository extends CrudRepository<Respostas, Long>{
+
+	Respostas findByData(LocalDate localDate);
+
+	public List<Respostas> findByAvaliacao(Avaliacao avaliacao);
+}
+\end{lstlisting}
+
+Nesse repository, representamos a interface que fará todas as transações com o
+banco de dados para a classe modelo \lstinline{Respostas}. Observe que no
+momento em que a interface é estendida, passamos dois valores como
+generics~\cite{generics}, que significa o tipo da classe que será persistida e o
+tipo do seu id. Nesse caso a classe \lstinline{Respostas} é a classe que será
+persistida e o \lstinline{Long} é o tipo do id da classe dentro do banco de
+dados.\\
+
+Além dos métodos CRUDs que são fornecidos pela classe
+\lstinline{CrudRepository<T,ID extends Serializable>}, observe que a classe
+\lstinline{RespostasRepository} contém mais duas assinaturas. Essas assinaturas
+são alternativas de busca de registros para a classe \lstinline{Respostas}
+dentro do banco de dados, por exemplo, a assinatura \lstinline{findByData}
+indica que queremos retornar um objeto do tipo \lstinline{Respostas} a partir do
+atributo chamado ``data'' dentro da classe \lstinline{Respostas} com o tipo
+\lstinline{LocalDate}.\\
+
+\section{Estrutura do projeto core}
+\label{estrutura_do_projeto_core}
+
+No projeto core, foram adicionadas todas as classes modelos, DTOs~\cite{dto},
+mixins do Jackson~\ref{subsec:jackson} e conversores. 
+
+\subsection{Models}
+\label{models}
+
+Todas as classes modelos estão contidas
+no pacote \lstinline{br.com.gostoudaaula.model} onde cada classe representa uma
+entidade do sistema. Como por exemplo a classe \lstinline{Disciplina} a partir
+do código~\ref{lst:model_disciplina}:
+
+\begin{lstlisting}[caption={código da classe Disciplina},
+label={lst:model_disciplina}]
+package br.com.gostoudaaula.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity
+public class Disciplina implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private Long id;
+	private String descricao;
+
+	public Disciplina() {
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@NotEmpty
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+}
+\end{lstlisting}
+
+Observe que essa classe contém anotações da JPA justamente por se tratar de uma
+representação de uma disciplina no banco de dados do projeto. 
+
+\subsection{DTO}
+\label{dto}
+
+Todas as classes DTO estão contidas no pacote
+\lstinline{br.com.gostoudaaula.dto}. A partir dessas classes podemos transferir
+dados de formas de uma forma diferente ao qual contemos em classes
+models~\ref{models}, justamente para atender a uma necessidade que apenas o
+conteúdo contido em uma entidade não seja o suficiente. Nesse projeto, temos
+apenas a classe \lstinline{PeriodoDTO} como exemplo, podemos ver o seu conteúdo
+a partir do código~\ref{lst:periodo_dto}:
+
+\begin{lstlisting}[caption={código da classe PeriodoDTO},
+label={lst:periodo_dto}]
+package br.com.gostoudaaula.dto;
+
+import javax.persistence.Convert;
+
+import org.joda.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import br.com.gostoudaaula.converter.DateConverter;
+import br.com.gostoudaaula.json.LocalDateDeserializer;
+import br.com.gostoudaaula.json.LocalDateSerializer;
+import br.com.gostoudaaula.model.PeriodoLetivo;
+
+public class PeriodoDTO {
+
+	LocalDate inicio;
+	LocalDate fim;
+	PeriodoLetivo periodoLetivo;
+
+	public PeriodoDTO() {
+	}
+
+	public PeriodoDTO(PeriodoLetivo periodoLetivo, LocalDate inicio, LocalDate fim) {
+		this.periodoLetivo = periodoLetivo;
+		this.inicio = inicio;
+		this.fim = fim;
+	}
+
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Convert(converter = DateConverter.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	public LocalDate getInicio() {
+		return inicio;
+	}
+
+	public void setInicio(LocalDate inicio) {
+		this.inicio = inicio;
+	}
+
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Convert(converter = DateConverter.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	public LocalDate getFim() {
+		return fim;
+	}
+
+	public void setFim(LocalDate fim) {
+		this.fim = fim;
+	}
+
+	public PeriodoLetivo getPeriodoLetivo() {
+		return periodoLetivo;
+	}
+
+	public void setPeriodoLetivo(PeriodoLetivo periodoLetivo) {
+		this.periodoLetivo = periodoLetivo;
+	}
+
+}
+\end{lstlisting}
+
+Observe que essa classe contém apenas atributos e e anotações para conversão de
+de atributos para documentos JSON. Portanto, essas classes são utilizadas apenas
+para transferirmos dados.
+
+\subsection{Mixins do Jackson}
+\label{minins_do_jackson}
+
+Todos os mixins estão contidos no pacote
+\lstinline{br.com.gostoudaaula.json.mixins}. Mixins são classes auxiliares
+durante a serialização de um objeto a partir da biblioteca do Jackson. A partir
+dos mixins, podemos limitar os atributos que serão serializados em qualquer tipo
+de classe, ou seja, caso algum tipo de atributo seja delicado, como por exemplo,
+uma senha, ou então, por algum motivo qualquer não seja preferível que um
+atributo de uma determinada classe seja serializado, podemos utilizar os mixins
+para resolver esse problema.\\
+
+Nesse projeto, além da situação em que não era interessante um determinado
+atributo durante a serialização, também utilizamos os mixins justamente para os
+casos em que temos relacionamentos bidirecionais na utilização da JPA. Como por
+exemplo as classes \lstinline{Projeto}~\ref{lst:model_projeto} e
+\lstinline{Questoes}~\ref{lst:model_questoes}:
+
+\begin{lstlisting}[caption={código da classe Projeto},
+label={lst:model_projeto}]
+package br.com.gostoudaaula.model;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity
+public class Projeto implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long id;
+	private String descricao;
+	private Avaliacao avaliacao;
+	private List<Questoes> questoes;
+
+	public Projeto() {
+	}
+
+	@NotEmpty
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	@OneToOne(mappedBy = "projeto", cascade = CascadeType.PERSIST)
+	public Avaliacao getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setAvaliacao(Avaliacao avaliacao) {
+		this.avaliacao = avaliacao;
+	}
+
+	@ManyToMany(cascade = CascadeType.PERSIST)
+	@JoinTable(name = "questoes_projeto", joinColumns = { @JoinColumn(name = "id_projeto") }, inverseJoinColumns = {
+			@JoinColumn(name = "id_questoes") })
+	public List<Questoes> getQuestoes() {
+		return questoes;
+	}
+
+	public void setQuestoes(List<Questoes> questoes) {
+		this.questoes = questoes;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption={código da classe Questoes},
+label={lst:model_questoes}]
+package br.com.gostoudaaula.model;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity
+public class Questoes implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long id;
+	private String descricao;
+	private List<Projeto> projetos;
+
+	public Questoes() {
+
+	}
+
+	@NotEmpty
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	@ManyToMany(mappedBy = "questoes")
+	public List<Projeto> getProjetos() {
+		return projetos;
+	}
+
+	public void setProjetos(List<Projeto> projetos) {
+		this.projetos = projetos;
+	}
+
+	@Id
+	@GeneratedValu(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+}
+\end{lstlisting}
+
+Note que ambas as classes possuem uma referência uma da outra. Durante o
+processo de serialização esse tipo de referência pode ser problemático, pois,
+nesse exemplo, se um objeto \textbf{X} do tipo \lstinline{Projeto} possuir a
+referência para um objeto \textbf{Y} do tipo \lstinline{Questoes} e, esse mesmo
+objeto \textbf{Y} tiver uma referência para o objeto \textbf{X} fará com que o
+processo de serialização entre num estado chamado de circular reference, que é
+justamente um looping infinito durante a serialização.\\ 
+
+Uma maneira para resolver esse problema é justamente a utilização de mixins,
+como por exemplo o mixin \lstinline{QuestoesMixIn}~\ref{lst:questoes_mixin}:
+
+\begin{lstlisting}[caption={código da classe QuestoesMixIn},
+label={lst:questoes_mixin}]
+package br.com.gostoudaaula.json.mixin;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
+import br.com.gostoudaaula.model.Projeto;
+
+@JsonAutoDetect(fieldVisibility = Visibility.NONE, getterVisibility = Visibility.NONE)
+public class QuestoesMixIn {
+
+	public class MainMixIn extends QuestoesMixIn {
+
+		@JsonProperty
+		private Long id;
+		@JsonProperty
+		private String descricao;
+		@JsonProperty
+		private List<Projeto> projetos;
+
+	}
+
+	public class AssociationMixIn extends QuestoesMixIn {
+		@JsonProperty
+		private Long id;
+		@JsonProperty
+		private String descricao;
+	}
+}
+\end{lstlisting}
+
+Observe que dentro da classe \lstinline{QuestoesMixIn} temos subclasses que
+herdam dela, nesse caso a \lstinline{MainMixIn} e a
+\lstinline{AssociationMixIn}. Cada uma dessas subclasses podem ser utilizadas no
+momento da serialização do objeto do tipo \lstinline{Questoes}, por exemplo, se
+eu quero apenas os atributos contidos na subclasse \lstinline{MainMixIn} basta
+utilizar essa subclasse no momento da serialização.
+
+
+\subsection{Converters}
+\label{converters}
+
+Todas as classes de converter estão contidas no pacote
+\lstinline{br.com.gostoudaaula.converter}. Esses converters são classes que
+servem apenas para conversão de dados que utilizam padrões diferentes. Como
+exemplo, a data no Brasil que utiliza o Padrão \textbf{dd/mm/yyyy}, sendo que,
+o padrão internacional é \textbf{yyyy/mm/dd}. Nesse projeto utilizamos o
+converter para converte o tipo dos atributos para datas das classes
+models~\ref{models} para o tipo suportado pelo banco de dados. Nesse caso da
+classe \lstinline{Localdate} para \lstinline{Date}. Podemos ver a implementação
+desse converter a partir da classe
+\lstinline{DateConverter}~\ref{lst:date_converter}:
+
+
+\begin{lstlisting}[caption={código da classe DateConverter},
+label={lst:date_converter}]
+package br.com.gostoudaaula.converter;
+
+import java.sql.Date;
+import java.util.TimeZone;
+
+import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
+
+import org.joda.time.DateTimeZone;
+import org.joda.time.LocalDate;
+
+@Converter(autoApply = true)
+public class DateConverter implements AttributeConverter<LocalDate, Date> {
+
+	public Date convertToDatabaseColumn(LocalDate attribute) {
+		return new Date(attribute.toDate().getTime());
+	}
+
+	public LocalDate convertToEntityAttribute(Date dbData) {
+		return new LocalDate(dbData.getTime(),
+				DateTimeZone.forTimeZone(TimeZone.getDefault()));
+	}
+
+}
+\end{lstlisting}
+
+\section{Utilização do Web Services REST}
+
+A partir do Spring MVC podemos fazer com que os controllers também atuem como um
+Web Service utilizando a arquitetura REST~\cite{}
+

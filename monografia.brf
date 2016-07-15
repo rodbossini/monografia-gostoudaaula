@@ -1,6 +1,6 @@
-\backcite {jbmonteiro:12}{{ix}{(document)}{Doc-Start}}
-\backcite {jbmonteiro:12}{{ix}{(document)}{Doc-Start}}
-\backcite {jsp}{{xiii}{(document)}{Doc-Start}}
+\backcite {jbmonteiro:12}{{xi}{(document)}{Doc-Start}}
+\backcite {jbmonteiro:12}{{xi}{(document)}{Doc-Start}}
+\backcite {jsp}{{xv}{(document)}{Doc-Start}}
 \backcite {annotations}{{7}{2.1.4.3}{lstnumber.2.5.16}}
 \backcite {jbmonteiro:12}{{8}{2.1}{figure.caption.8}}
 \backcite {jbmonteiro:12}{{8}{2.2}{figure.caption.9}}
@@ -21,3 +21,8 @@
 \backcite {properties}{{36}{3.5.2}{lstnumber.3.13.7}}
 \backcite {annotations}{{38}{3.6.1}{lstnumber.3.16.15}}
 \backcite {requestmethod}{{38}{3.6.1}{lstnumber.3.16.15}}
+\backcite {dao}{{39}{3.7.1}{subsection.3.7.1}}
+\backcite {repositoriesspring}{{39}{3.7.1}{subsection.3.7.1}}
+\backcite {crudrepository}{{39}{3.7.1}{subsection.3.7.1}}
+\backcite {generics}{{40}{3.7.1}{lstnumber.3.18.14}}
+\backcite {dto}{{40}{3.8}{section.3.8}}
