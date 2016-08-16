@@ -11,8 +11,10 @@ descrito.
 \section{Conceitos}
 \label{sec:conceitos}
 
-Esta seção é dedicada a descrições detalhadas independentes de implementação
-ou tecnologia sobre os principais conceitos envolvidos durante a elaboração
+
+
+Esta seção é dedicada a descrições detalhadas independentes
+de implementação ou tecnologia sobre os principais conceitos envolvidos durante a elaboração
 do projeto. 
 
 \subsection{Modelagem de Dados Conceitual}
@@ -312,6 +314,16 @@ exemplo, arquivos XML ou documentos JSON. Além de permitir a comunicação entre
 diversas aplicações, o web services tem o intuito de disponibilizar serviços que
 são acessíveis por meio de endereços públicos da aplicação. 
 
+\subsubsection{REST}
+\label{subsubsec:rest}
+
+Representational State Transfer (REST), no português Transferência de Estado
+Representacional, é uma abstração arquiteturial para comunicação na Web
+frequentemente utilizada em Web Services~\ref{subsec:web_services}. Uma de suas
+aplicações dentro de um Web Service é a distribuição de APIs. Essa arquitetura
+utiliza o protocolo de comunição HTTP e utiliza como notação comum para
+transferência de dados tanto o XML como JSON.
+
 \subsection{Dispositivos Móveis e Aplicações}
 \label{subsec:dispositivos_moveis_e_aplicacoes}
 
@@ -351,7 +363,7 @@ utiliza Android.
 \subsection{MVC - Model View Controller}
 \label{subsec:mvc_model_view_controller}
 
-A arquitetura MVC consiste em dividir a aplicação em camadas:
+o modelo MVC consiste em dividir a aplicação em camadas:
 \begin{itemize}
   \item \textit{\textbf{Model:}} Representa toda a regra de negócio da
   aplicação, ou seja, todas as classes, configuração, acessos À base de dados ou qualquer recurso
@@ -494,6 +506,23 @@ para que todos mantenham a mesma versão do banco atual com as existentes em
 diversas ramificações do projeto, tecnicamente é chamado de \textit{migration}.
 Nesse projeto, todo o processo de migration de banco de dados para esse projeto, 
 foram gerenciadas a partir da biblioteca flyway~\ref{subsec:flyway}.
+
+\subsection{Versionamento}
+\label{subsec:versionamento}
+
+No desenvolvimento de aplicações computacionais, é muito comum a ocorrência de
+ajustes no projeto, seja para melhorias, adição de alguma funcionalidade ou até
+mesmo correções de bugs. Entretanto, em muitos dos casos, qualquer tipo de
+alteração é arriscada, pois, em uma instância do seu projeto tudo estava
+funcionando sem algum problema, porém, devido a um ajuste, possíveis falhas
+podem ocorrer, como por exemplo, uma funcionalidade que funcionava e, de
+repente, para de funcionar.\\
+
+Para evitar esse tipo de problema, utilizamos ferramentas de versionamento, que
+permitem a realização de um backup de uma instância do projeto, e então, podemos
+realizar diversas alterações sem nos preocupar se o ajuste será problemático ou
+não para o sistema. Para esse projeto, utilizamos a ferramenta
+Git~\ref{subsec:git}
 
 \section{Tecnologia empregada}
 \label{sec:tecnologia_empregada}
@@ -918,4 +947,23 @@ recursos para facilitar o desenvolvimento de uma app. Da mesma forma que o
 Eclipse IDE, o Android Studio~\cite{androidstudio} é gratuito e pode ser
 adquirido no link disponibilizado na bibliografia.
 
-  
+\subsection{Git}
+\label{subsec:git}
+
+Git é um SCM (Software Configuration Management), ou seja, além de ser um
+software capaz de manter o conceito de ferramentas de
+versionamento~\ref{subsec:versionamento}, também permite o desenvolvimento de um
+projeto em time, como por exemplo, a distribuição de versões entre todos os
+desenvolvedores seguindo conceitos empregados por esse tipo de software.
+
+\subsection{Gradle}
+\label{subsec:gradle}
+
+O Maven~\cite{gradle} é uma biblioteca capaz de gerenciar projetos Java, com a
+finalidade de fazer o \textbf{build} (construção) do projeto. Podemos associar o
+Gradle com o Maven~\ref{subsec:maven} justamente porque ambas as ferramentas
+utilizam os mesmos conceitos, entretanto, com implementações e features
+diferentes. Para esse projeto, o motivo de utilizar o Gradle, é justamente pelo
+fato dos projetos Android criados pelo Android
+Studio~\ref{subsec:android_studio}, serem nativamente gerenciados pelo Gradle. Portanto, para todo projeto desenvolvido em cima do
+Android Studio será utilizada essa ferramenta.

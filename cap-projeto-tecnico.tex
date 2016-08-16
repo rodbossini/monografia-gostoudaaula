@@ -826,7 +826,7 @@ listado os arquivos com suas finalidades e sua configuração:
 \end{itemize}
 
 \subsection{Propriedades do projeto}
-\label{propriedades_do_projeto}
+\label{subsec:propriedades_do_projeto}
 
 Em alguns beans do Spring MVC, os valores foram atribuídos por meio expression
 language~\cite{el}, como por exemplo o bean do flyway~\ref{lst:bean_flyway}:
@@ -967,7 +967,7 @@ a configuração do arquivo spring-mvc.xml~\ref{lst:spring-mvc.xml_completo_da_app
 \subsection{Services do Spring}
 \label{subsec:services_do_spring}
 
-Na arquitetura MVC o controller é o responsável em receber as informações do
+No modelo MVC o controller é o responsável em receber as informações do
 cliente, e então, delegar para um especialista, ou seja, uma classe capaz de
 realizar a tarefa solicitada. Teoricamente, se ele receber uma requisição para
 cadastrar algum objeto, significa que ele precisa passar a diante para uma
@@ -1030,10 +1030,10 @@ precisamos adicionar a annotation \lstinline{@Service} para indicar ao Spring
 que essa classe será gerenciada por ele como um service. 
 
 \section{Estrutura do projeto db}
-\label{estrutura_do_projeto_db}
+\label{sec:estrutura_do_projeto_db}
 
 \subsection{Utilizando o Spring Data}
-\label{utilizando_o_spring_data}
+\label{subsec:utilizando_o_spring_data}
 
 No projeto db, ao invés de utilizarmos classes com o design pattern DAO (Data
 Access Object)~\cite{dao}, a partir do módulo Spring
@@ -1092,13 +1092,13 @@ atributo chamado ``data'' dentro da classe \lstinline{Respostas} com o tipo
 \lstinline{LocalDate}.\\
 
 \section{Estrutura do projeto core}
-\label{estrutura_do_projeto_core}
+\label{sec:estrutura_do_projeto_core}
 
 No projeto core, foram adicionadas todas as classes modelos, DTOs~\cite{dto},
 mixins do Jackson~\ref{subsec:jackson} e conversores. 
 
 \subsection{Models}
-\label{models}
+\label{subsec:models}
 
 Todas as classes modelos estão contidas
 no pacote \lstinline{br.com.gostoudaaula.model} onde cada classe representa uma
@@ -1154,13 +1154,13 @@ Observe que essa classe contém anotações da JPA justamente por se tratar de uma
 representação de uma disciplina no banco de dados do projeto. 
 
 \subsection{DTO}
-\label{dto}
+\label{subsec:dto}
 
 Todas as classes DTO estão contidas no pacote
 \lstinline{br.com.gostoudaaula.dto}. A partir dessas classes podemos transferir
 dados de formas de uma forma diferente ao qual contemos em classes
-models~\ref{models}, justamente para atender a uma necessidade que apenas o
-conteúdo contido em uma entidade não seja o suficiente. Nesse projeto, temos
+models~\ref{subsec:models}, justamente para atender a uma necessidade que apenas
+o conteúdo contido em uma entidade não seja o suficiente. Nesse projeto, temos
 apenas a classe \lstinline{PeriodoDTO} como exemplo, podemos ver o seu conteúdo
 a partir do código~\ref{lst:periodo_dto}:
 
@@ -1236,7 +1236,7 @@ de atributos para documentos JSON. Portanto, essas classes são utilizadas apenas
 para transferirmos dados.
 
 \subsection{Mixins do Jackson}
-\label{minins_do_jackson}
+\label{subsec:mixins_do_jackson}
 
 Todos os mixins estão contidos no pacote
 \lstinline{br.com.gostoudaaula.json.mixins}. Mixins são classes auxiliares
@@ -1445,7 +1445,7 @@ utilizar essa subclasse no momento da serialização.
 
 
 \subsection{Converters}
-\label{converters}
+\label{subsec:converters}
 
 Todas as classes de converter estão contidas no pacote
 \lstinline{br.com.gostoudaaula.converter}. Esses converters são classes que
@@ -1453,8 +1453,8 @@ servem apenas para conversão de dados que utilizam padrões diferentes. Como
 exemplo, a data no Brasil que utiliza o Padrão \textbf{dd/mm/yyyy}, sendo que,
 o padrão internacional é \textbf{yyyy/mm/dd}. Nesse projeto utilizamos o
 converter para converte o tipo dos atributos para datas das classes
-models~\ref{models} para o tipo suportado pelo banco de dados. Nesse caso da
-classe \lstinline{Localdate} para \lstinline{Date}. Podemos ver a implementação
+models~\ref{subsec:models} para o tipo suportado pelo banco de dados. Nesse caso
+da classe \lstinline{Localdate} para \lstinline{Date}. Podemos ver a implementação
 desse converter a partir da classe
 \lstinline{DateConverter}~\ref{lst:date_converter}:
 
@@ -1476,10 +1476,10 @@ import org.joda.time.LocalDate;
 public class DateConverter implements AttributeConverter<LocalDate, Date> {
 
 	public Date convertToDatabaseColumn(LocalDate attribute) {
-		return new Date(attribute.toDate().getTime());
+		retpenurn new Date(attribute.toDate().getTime());
 	}
 
-	public LocalDate convertToEntityAttribute(Date dbData) {
+	public LocalDate convertToEntityAttribute(Date dbData) {	
 		return new LocalDate(dbData.getTime(),
 				DateTimeZone.forTimeZone(TimeZone.getDefault()));
 	}
@@ -1489,6 +1489,413 @@ public class DateConverter implements AttributeConverter<LocalDate, Date> {
 
 \section{Utilização do Web Services REST}
 
-A partir do Spring MVC podemos fazer com que os controllers também atuem como um
-Web Service utilizando a arquitetura REST~\cite{}
+A partir do Spring MVC, podemos fazer com que os controllers também atuem como
+um Web Service utilizando a arquitetura REST~\ref{subsubsec:rest}.
+Para isso basta apenas fazer uso da biblioteca de serialização do Jackson. Por
+exemplo, dentro do controller
+\lstinline{ProfessorController} temos o método
+\lstinline{getTurmas}~\ref{lst:metodo_getturmas}:
 
+\begin{lstlisting}[caption={método getTumas do ProfessorController},
+label={lst:metodo_getturmas}]
+@Controller
+@RequestMapping("professor")
+public class ProfessorController {
+
+	private ProfessorService professorService;
+	private ObjectMapper mapper;
+
+	@Inject
+	public ProfessorController(ProfessorService professorService, ObjectMapper mapper) {
+		this.professorService = professorService;
+		this.mapper = mapper;
+	}
+	
+	@RequestMapping(value = "turmas/{id}", method = GET, produces = JSON)
+	public ResponseEntity<String> getTurmas(Professor professor) throws JsonProcessingException {
+		String json = mapper.writeValueAsString(professorService.getTurmas(professor));
+		return new ResponseEntity<String>(json, HttpStatus.OK);
+	}
+	
+	// restante do código
+
+\end{lstlisting}
+
+Observe que esse método devolve a classe \lstinline{ResponseEntity<T>} que é uma
+API do Spring para respondermos requisições com qualquer tipo de objeto. Dessa
+forma, podemos fazer com que qualquer objeto seja devolvido como um documento
+JSON. Portanto, ao utilizamos essa classe, estabelecemos um mecanismo de
+comunicação via JSON utilizando o protocolo HTTP.\\
+
+Além disso, nesse projeto, para toda utilização da classe
+\lstinline{ResponseEntity}, foi utilizada a devolução apenas de String. Em
+outras palavras, ao invés de deixar o Spring responsável em converter objetos
+para JSON, preferimos realizar esse procedimento manualmente, portanto, em todos
+os métodos que utilizamos para esse tipo de comunicação, desenvolvemos Strings,
+que representam o arquivo JSON já configurado. O principal motivo para essa
+escolha é justamente pela questão de utilizar os mixins do
+jackson~\ref{subsec:mixins_do_jackson} para evitar o problema da referêcia
+circular.
+
+\section{Utilização da plataforma openshift}
+\label{sec:utilizacao_da_plataforma_openshift}
+
+Para distribuir a aplicação, utilizamos o Openshift da Red
+Hat~\ref{subsec:openshift}. Justamente pela questão de funcionar em uma
+arquitetura baseada em computação nas nuvens. Portanto, não temos a necessidade
+de conhecer a infraestrutura do servidor(es) que funciona(m) por de trás dos
+panos.\\
+
+Além de não ter que se preocupar em configurar uma infraestrutura
+capaz para manter uma aplicação Java Web funcionando, também temos alguns
+benefícios ao utilizar o openshift.
+
+\begin{itemize}
+  \item \textbf{Custo}: Podemos criar até 3 aplicações em um plano gratuito onde
+  não exige um cartão de crédito.
+  \item \textbf{Estrutura do projeto}: Para aplicações Java Web, o
+  openshift utiliza a estrutura de projeto do Maven~\ref{subsec:maven}. Dessa
+  forma, podemos utilizar o nosso próprio projeto sem a necessidade de diversas
+  configurações a mais.
+  \item \textbf{Realização do deploy via Git}: Para a distribuição da aplicação,
+  o openshift utiliza o git~\ref{subsec:git}.
+\end{itemize}
+
+\subsection{RHC} 
+
+A integração do cliente (desenvolvedor) com a plataforma do openshift, é por
+meio do da ferramenta de linha de comando rhc que pode ser instalada em diversos
+sistemas operacionais. O link de instalação está disponibilizado na
+bibliografia~\cite{instalacaorhc}.\\
+
+A partir do momento em que realiza a instalação do rhc, o openshift gera uma
+chave pública com o protocolo SSH~\cite{ssh} que vincula com a conta do
+openshift. Dessa forma, é possível realizarmos qualquer interação com a
+plataforma, como por exemplo, o download da aplicação que foi criada, ou então,
+a criação de aplicações utilizando o terminal.
+
+\subsection{Configuração da aplicação dentro do openshift}
+\label{subsec:configuracao_da_aplicacao_dentro_do_openshift}
+
+Dentro da plataforma do openshift, podemos criar diversas aplicações a partir do seu
+console~\cite{consoleopenshift} com o link disponibilizado a partir da
+bibliografia. Cada aplicação pode ser composta por um tipo de container, que é
+justamente o servidor que manterá a aplicação funcionando, para esse projeto,
+foi utilizado o servidor de aplicação Tomcat~\cite{tomcat}. Além do Tomcat, foi
+necessário a utilização de um banco de dados e uma interface gráfica para seu
+acesso. Sendo mais preciso, foram utilizadas as seguintes especificações para o
+projeto do openshift:
+
+\begin{itemize}
+  \item \textbf{Tomcat 7}: Servidor de aplicação.
+  \item \textbf{MySQL 5.5}: Banco de dados.
+  \item \textbf{phpMyAdmin 4.0}: Interface gráfica ao banco de dados.
+\end{itemize}
+
+\subsection{Download e Deploy da aplicação}
+\label{subsec:download_e_deploy_da_aplicacao}
+
+Após a criação da aplicação, dentro do console do openshift, é disponibilizado
+um endereço em SSH para a realização do download do projeto. O download é
+realizado por meio do git~\ref{subsec:git}, para isso, dentro de um prompt de
+comando no windows ou um terminal em sistemas Linux ou Mac OSX, basta apenas
+utilizar o comando \lstinline{git clone link_ssh_do_projeto}. A partir da
+execução desse comando, será realizado o donwload no diretório em que
+executar.\\
+
+Se o projeto tiver as mesmas configurações citadas na
+seção~\ref{subsec:configuracao_da_aplicacao_dentro_do_openshift}, será um
+projeto maven com algumas configurações dentro do \textbf{pom.xml} necessárias
+para que seja possível realizar o deploy da aplicação. Além disso, dentro da
+pasta do projeto baixado, contém 2 diretórios ocultos:
+
+\begin{itemize}
+  \item \textbf{.openshift}: arquivos de configuração do projeto dentro da
+  plataforma do openshift.
+  \item \textbf{.git}: arquivo de configuração do git para controlar o
+projeto.
+\end{itemize} 
+
+Em outras palavras, após o momento em que realizamos o download, precisamos,
+pelo menos, manter esses subdiretórios para que consigámos realizar a distribuição do
+projeto. Para o deploy do projeto, é necessário apenas fazer o
+procedimento normal de push do git~\cite{pushgit}. Durante o processo de deploy,
+o openshift executa diversas rotinas que chegam a reiniciar o serviço que mantém
+a aplicação ativa, portanto, é sempre interessante analisar melhores horários
+para realizar o deploy da aplicação, justamente para não impactar a experiência
+de todos os clientes que consomem a aplicação.\\
+
+\section{Estrutura do projeto Android}
+\label{sec:estrutura_do_projeto_android}
+
+Embora o núcleo da aplicação tenha sido desenvolvido como um projeto Java Web em
+um servidor na nuvem, a interface gráfica do usuário, também conhecida,
+tecnicamente, como GUI (Graphical User Interface), foi desenvolvida para
+dispositivos móveis que operam com o sistema operacional Android~\cite{android}. Para esse projeto,
+utilizamos a ferramenta Android Studio~\ref{subsec:android_studio} que é
+disponibilizada gratuitamente no site de desenvolvedores
+Android~\cite{android_developers}.\\
+
+Para qualquer projeto desenvolvido em cima do Android Studio, é criado e
+gerenciado pelo Gradle~\ref{subsec:gradle}. A partir dele podemos realizar
+qualquer tipo de configuração necessária para o projeto, como por exemplo,
+definir a versão mínima e máxima do Android, adicionar ou remover dependências
+entre demais configurações mais avançadas que não serão vistas nesse documento,
+entretanto, podem ser consultadas no link~\cite{gradle_android} disponibilizado
+na bibliografia.
+
+\subsection{Versão do Android}
+\label{subsec:versao_do_android}
+
+Durante a criação do projeto Android é necessária a escolha da versão mínima que
+a App estará funcionará. Para esse projeto,
+escolhemos a versão mínima \textbf{sugerida do Android Studio} que é a
+\textbf{API 15:
+Android 4.0.3 (IceCreamSandwish)} com 97,4\% dos dispositivos ativos da play store comforme a figura~\ref{fig:janela_config_minima_android}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{janela_de_versao_minima_android.png}
+  \caption{Janela de configuração mínima do Android Studio}
+  \label{fig:janela_config_minima_android}.
+\end{figure}
+
+\subsection{Dependências do projeto Android}
+\label{subsec:dependencias_do_projeto_android}
+
+Embora as APIs disponibilizadas nativamente pelo SDK (Software Development Kit)
+do Android, já resolvam diversos problemas dentro de um projeto Android, a
+utilização das mesmas nem sempre é tão preferível, justamente pela falta de
+facilidade durante a implementação. Pensando justamente nesse ponto entre
+outros, foi necessária a utilização de bibliotecas externas, ou melhor,
+dependências do projeto, para o desenvolvimento da App ser mais eficaz. Todas as
+dependências do projeto foram adicionadas e gerenciadas pelo Gradle a partir do
+arquivo \textbf{build.gradle} no nível da App. O
+código~\ref{lst:dependencias_android} lista todas as dependências utilizadas:
+
+\begin{lstlisting}[caption={Dependências do projeto Android},
+label={lst:dependencias_android}]
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
+    compile 'br.com.gostoudaaula:gostoudaaula-core:0.1.9-SNAPSHOT'
+    compile 'com.squareup.okhttp:okhttp:2.7.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
+    compile 'com.jakewharton:butterknife:7.0.1'
+}
+\end{lstlisting}
+
+O Objetivo de cada dependencia é explicado na lista abaixo:
+x
+\begin{itemize}
+  \item \textbf{com.github.lecho:hellocharts-library:1.5.8@aar} Criação de
+  gráficos em Android.
+  \item \textbf{br.com.gostoudaaula:gostoudaaula-core:0.1.9-SNAPSHOT} Projeto
+  core da aplicação para a reutilização das mesmas classes modelos.
+  \item \textbf{com.squareup.okhttp:okhttp:2.7.0} Comunicação via protocolo
+  HTTP.
+  \item \textbf{com.fasterxml.jackson.core:jackson-databind:2.6.3} Serialização
+  e deserialização de objetos para documentos JSON.
+  \item \textbf{com.jakewharton:butterknife:7.0.1} Injeção de View.
+\end{itemize}
+
+\section{Funcionalidades da aplicação Android}
+\label{sec:funcionalidades_da_aplicacao_android}
+
+Embora a App contenha diversas funcionalidades diferentes, muitas delas são bem
+comuns dentro de um projeto de desenvolvimento de software, como por exemplo, o
+login, a listagem aulas, disciplinas, matérias e até mesmo a listagem das
+avaliações de cada aula. Entretanto, existem algumas funcionalidades que são um
+pouco mais complexas e que exigiram um pouco mais de atenção durante o
+desenvolvimento. Como por exemplo, a funcionalidade que permite o aluno a
+avaliar uma avaliação independentemente da quantidade de perguntas que uma
+avaliação contenha, e também, a geração do gráfico para o resultado final da
+avaliação.
+
+\subsection{Respondendo avaliação}
+\label{subsec:respondendo_avaliacao}
+
+O objetivo principal dentro do projeto Android é permitir que cada
+aluno consiga realizar a avaliação de uma aula. Mesmo parecendo um problema
+trivial, essa funcionalidade exige alguns cuidados, pois em um cenário mais
+complexo, ou seja, onde podemos conter diversas perguntas para uma avaliação,
+provavelmente, não é recomendado a utilização de uma única
+Activity~\cite{android_activity}, pois podemos ter uma única tela enorme que
+pode confundir o aluno durante o processo de avaliação, ou então, fazendo com
+que ele esqueça de avaliar alguma questão.\\
+
+Pensando nessa questão, uma maneira mais conveniente de solucionar
+esse problema é justamente criar uma tela exclusiva para cada questão.
+Entretanto, uma Activity para cada questão é mais problemático ainda, pois o
+custo computacional, ou melhor, a exigência em performance e memória do celular
+será enorme. Considerando essa situação, a recomendação da Google é a utilização
+de Fragments~\cite{android_fragments}. Portanto, para essa funcionalidade, foi
+utilizada a classe \lstinline{QuestoesFragment} do pacote
+\textbf{br.com.gostoudaaula.fragment} que é exibida a partir do
+Código~\ref{lst:classe_questoesfragment}.
+
+\begin{lstlisting}[caption={Classe QuestoesFragment},
+label={lst:classe_questoesfragment}]
+package br.com.gostoudaaula.fragment;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import org.joda.time.LocalDate;
+
+import java.util.ArrayList;
+
+import br.com.gostoudaaula.R;
+import br.com.gostoudaaula.delegate.QuestoesDelegate;
+import br.com.gostoudaaula.model.Avaliacao;
+import br.com.gostoudaaula.model.Questoes;
+import br.com.gostoudaaula.model.Respostas;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+/**
+ * Created by alexf on 25/01/16.
+ */
+public class QuestoesFragment extends Fragment {
+
+    @Bind(R.id.questoes_pergunta)
+    TextView pergunta;
+    @Bind(R.id.questoes_resposta)
+    RatingBar rating;
+    @Bind(R.id.questoes_botao_responder)
+    Button button;
+    @Bind(R.id.questoes_quantidade)
+    TextView quantidade;
+    private int total;
+    private int questaoAtual;
+    private ArrayList<Questoes> questoes;
+    private ArrayList<Respostas> respostas;
+    private int valueRating;
+    private Avaliacao avaliacao;
+    private QuestoesDelegate delegate;
+    private Questoes questao;
+
+    private void setup(Bundle bundle) {
+        this.avaliacao = (Avaliacao) bundle.getSerializable("avaliacao");
+        this.questoes = (ArrayList<Questoes>) avaliacao.getProjeto().getQuestoes();
+        this.total = questoes.size();
+        this.questaoAtual = bundle.getInt("questao_atual");
+        this.questao = questoes.get(questaoAtual);
+        this.respostas = (ArrayList<Respostas>) bundle.getSerializable("respostas");
+        this.valueRating = 0;
+        if (respostas == null) {
+            respostas = new ArrayList<>();
+        } else if (respostas.size() == questaoAtual + 1) {
+            this.valueRating = respostas.get(questaoAtual).getResposta();
+        }
+        this.delegate = (QuestoesDelegate) getActivity();
+        setTitle("Questões");
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+        setup(getArguments());
+        View view = inflater.inflate(R.layout.fragment_questoes, container, false);
+        ButterKnife.bind(this, view);
+        populaViews();
+        return view;
+    }
+
+    private void populaViews() {
+        pergunta.setText(questao.getDescricao());
+        quantidade.setText(this.questaoAtual + 1 + " de " + total);
+    }
+
+    private void proximaQuestao() {
+        this.delegate.proximaQuestao(this.avaliacao, this.respostas);
+    }
+
+    @OnClick(R.id.questoes_botao_responder)
+    public void responde() {
+        insereResposta();
+        if (questaoAtual + 1 < total)
+            proximaQuestao();
+        else
+            delegate.enviaRespostas(respostas);
+    }
+
+    private void insereResposta() {
+        valueRating = rating.getProgress();
+        Respostas respostaAtual = new Respostas();
+        respostaAtual.setResposta(valueRating);
+        respostaAtual.setQuestoes(questoes.get(questaoAtual));
+        respostaAtual.setData(LocalDate.now());
+        respostas.add(respostaAtual);
+    }
+
+    private void setTitle(String title) {
+        getActivity().setTitle(title);
+    }
+
+}
+\end{lstlisting}
+
+A partir desse Fragment é possível exibir todas as questões, sendo que,
+cada uma delas, tenham uma tela exclusiva sem que aja a necessidade de iniciar
+novas activities, independemente da quantidade de questões que serão
+respondidas. As partes principais para que esse Fragment funcione da forma
+esperada são os métodos \lstinline{setup()}, \lstinline{responde()},
+\lstinline{insereResposta()} que contém as seguintes responsabilidades:
+
+\begin{itemize}
+  \item \textbf{setup()}: Inicializar o estado atual da questão atual junto com
+  o seu total e sua respectiva resposta.
+  \item \textbf{responde()}: A partir desse é possível fazer com que o aluno
+  avançe para a próxima questão, caso o número da questão atual seja menor que a
+  quantidade total.
+  \item \textbf{insereResposta()}: Quando esse método é chamado, indica que a
+  questão atual será preenchida com as informações contidas na tela. Por
+  exemplo, se o aluno der nota 5 para a primeira questão e nota 7 para a
+  segunda, é esse método que irá garantir que isso seja possível.
+\end{itemize}
+
+\subsection{Representação de resultados}
+\label{subsec:representacao_de_resultados}
+
+O objetivo de cada avaliação é permitir a extração de um resultado sobre o que
+foi avaliado, como por exemplo, saber quais foram as notas de uma aula. Existem
+diversas formas de representar o resultado de uma avaliação, desde texto a
+representações visuais como diagramas ou gráficos. Para esse projeto, foi
+utilizada uma representação em gráfico torre onde podemos ver um exemplo a
+partir da Figura~\ref{fig:grafico_app_android}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{grafico_app_android.jpg}
+  \caption{Gráfico da aula de programação do dia 02/04/2016 na App Android}
+  \label{fig:grafico_app_android}.
+\end{figure}
+
+Observe que o gráfico mostra a quantidade total de notas independentemente da
+pergunta que foi respondida, ou seja, se uma avaliação conter 3 questões, e
+apenas um único aluno responder, serão computadas 3 questões, se forem 2 alunos
+6 questões e assim sucessivamente. Em outras palavras, para esse gráfico, o
+total de respostas a serem computadas dependerá da quantidade de questões da
+avaliação e a quantidade de alunos que avaliarem, isto é, quantidade de questões
+multiplicada pela quantidade de alunos.\\
+
+Além disso, é possível notar que ao invés de mostrar a quantidade de notas
+usando todos os índices possíveis, isto é, de 0 a 10, foi utilizada a
+estratégia de agrupamento de notas, ou seja,  
+
+Embora a representação do resultado da forma que está atualmente não seja tão
+preciso, ou melhor, não passa o feedback exato sobre a qual questão cada
+resposta representa, é possível obtermos o feedback geral sobre o conjunto, ou
+seja, a partir desse gráfico, o professor é capaz de compreender que a aula, em
+geral, foi boa ou ruim, independemente de onde ele teve melhor (notas altas) ou
+pior (notas baixas) desempenho.

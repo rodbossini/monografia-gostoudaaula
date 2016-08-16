@@ -9,11 +9,12 @@
 \backcite {servlet}{{15}{2.2.6}{subsection.2.2.6}}
 \backcite {spring}{{15}{2.2.7}{subsection.2.2.7}}
 \backcite {springdata}{{15}{2.2.8}{subsection.2.2.8}}
-\backcite {flyway}{{16}{2.2.13}{subsection.2.2.13}}
+\backcite {flyway}{{17}{2.2.13}{subsection.2.2.13}}
 \backcite {hikaricp}{{17}{2.2.15}{subsection.2.2.15}}
 \backcite {openshift}{{17}{2.2.16}{subsection.2.2.16}}
 \backcite {eclipsejavaee}{{17}{2.2.17}{subsection.2.2.17}}
 \backcite {androidstudio}{{17}{2.2.18}{subsection.2.2.18}}
+\backcite {gradle}{{18}{2.2.20}{subsection.2.2.20}}
 \backcite {archetype}{{21}{3.2}{figure.caption.14}}
 \backcite {namingmaven}{{22}{3.2}{figure.caption.15}}
 \backcite {jsp}{{33}{6}{lstnumber.3.9.5}}
@@ -26,3 +27,13 @@
 \backcite {crudrepository}{{39}{3.7.1}{subsection.3.7.1}}
 \backcite {generics}{{40}{3.7.1}{lstnumber.3.18.14}}
 \backcite {dto}{{40}{3.8}{section.3.8}}
+\backcite {instalacaorhc}{{47}{3.10.1}{subsection.3.10.1}}
+\backcite {ssh}{{47}{3.10.1}{subsection.3.10.1}}
+\backcite {consoleopenshift}{{47}{3.10.2}{subsection.3.10.2}}
+\backcite {tomcat}{{47}{3.10.2}{subsection.3.10.2}}
+\backcite {pushgit}{{48}{3.10.3}{subsection.3.10.3}}
+\backcite {android}{{48}{3.11}{section.3.11}}
+\backcite {android_developers}{{48}{3.11}{section.3.11}}
+\backcite {gradle_android}{{48}{3.11}{section.3.11}}
+\backcite {android_activity}{{50}{3.12.1}{subsection.3.12.1}}
+\backcite {android_fragments}{{50}{3.12.1}{subsection.3.12.1}}
