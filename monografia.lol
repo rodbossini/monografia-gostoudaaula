@@ -35,3 +35,4 @@
 \contentsline {lstlisting}{\numberline {3.25}m\'etodo getTumas do ProfessorController}{46}{lstlisting.3.25}
 \contentsline {lstlisting}{\numberline {3.26}Depend\^encias do projeto Android}{49}{lstlisting.3.26}
 \contentsline {lstlisting}{\numberline {3.27}Classe QuestoesFragment}{50}{lstlisting.3.27}
+\contentsline {lstlisting}{\numberline {3.28}Classe ChartFragment}{54}{lstlisting.3.28}

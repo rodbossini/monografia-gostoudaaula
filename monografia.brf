@@ -37,3 +37,8 @@
 \backcite {gradle_android}{{48}{3.11}{section.3.11}}
 \backcite {android_activity}{{50}{3.12.1}{subsection.3.12.1}}
 \backcite {android_fragments}{{50}{3.12.1}{subsection.3.12.1}}
+\backcite {hellocharts}{{54}{3.12.3}{subsection.3.12.3}}
+\backcite {material_design}{{61}{6}{chapter.6}}
+\backcite {retrofit}{{61}{6}{chapter.6}}
+\backcite {eventbus}{{61}{6}{chapter.6}}
+\backcite {push_notification}{{61}{6}{chapter.6}}
