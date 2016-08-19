@@ -36,28 +36,21 @@ realizada de diferentes formas. Entre as mais utilizadas no mercado atual está
 a modelagem relacional, que consiste no uso de tabelas para o armazemamento dos
 dados, além de diferentes restrições, como chaves primárias e estrangeiras.
 
-
-Criar subseções para os seguintes itens: 
-linguagem SQL e álgebra relacional (é só para descrever o que é, sem mostrar
-código)
-orientação a objetos
-Mapeamento Objeto Relacional
-Web Services
-Dispositivos Móveis e aplicações
-
 \subsection{SQL e álgebra relacional}
 \label{subsec:sql_e_algebra_relacional}
 
 Structured Query Language (linguagem de consulta estruturada) é uma linguagem de
 pesquisa padrão para banco de dados relacionais, onde permite a comunicação com
 um banco de dados para a realização de consultas simples ou com álgebra
-relacional. A álgebra relacional é uma teoria de como podemos manipular as
-consultas realizadas utilizando o SQL, como por exemplo, mencionar quais são os
-atributos e filtros que necessários com o intuito de devolver o resultado
+relacional. A álgebra relacional é uma teoria onde é representada,
+matematicamente, a forma como podemos manipular as consultas realizadas
+utilizando o SQL, como por exemplo, mencionar quais são os atributos e filtros que necessários com o intuito de devolver o resultado
 esperado.
+
 \begin{equation}
 	\sigma_{id = 1} (Empregado)
 \end{equation}
+
 \subsection{Orientação a objetos}
 \label{subsec:orientacao_a_objetos}
 
@@ -65,18 +58,19 @@ O paradigma de POO (programação orientada a objetos) é um modelo para o
 desenvolvimento de software ao qual utilizamos unidades chamadas de
 objetos. Esse paradigma nos permite modelar um sistema
 computacional por meio desses objetos que representam todas as entidades
-contidas no sistema que, por sua vez, refletem as abstrações de um objeto da
-vida real para a aplicação, como por exemplo, na modelagem para essa aplicação,
-foi necessário modelar a entidade aula que representa uma aula da vida real que
-compõe um aluno, um professor e qualquer outra informação que seja necessária
+contidas no sistema que, por sua vez, refletem as características de um
+objeto da vida real para a aplicação, como por exemplo, na modelagem
+dessa aplicação, foi necessário modelar a entidade aula que representa uma aula
+da vida real que compõe um aluno, um professor e qualquer outra informação que seja necessária
 para essa entidade.
 
-Os objetos dessas entidades são identificadas como classes que possuem estados
+Os objetos dessas entidades são identificados como classes que possuem estados
 (atributos) e comportamentos (métodos) que definem suas responsabilidades e
-razão de existir. 
+razão de existir. Em código, podemos representar as classes conforme o exemplo
+do Código~\ref{lst:classes_aula_professor_e_aluno}.
 
 \begin {lstlisting}[caption={Exemplo de como podemos criar 3 classes e adicionar seus
-atributos}]
+atributos}, label = {lst:classes_aula_professor_e_aluno}]
 class Aula {
 	
 	Aluno aluno;
@@ -103,20 +97,26 @@ class Aluno {
 }
 \end{lstlisting}
 
+Nesse exemplo, são representadas 3 classes, ou seja, a classe Aula que contém
+um aluno e um professor, a classe Professor que contém aulas e a classe Aluno
+e contém aulas.\\
+
 Além disso, na POO, temos grandes benefícios devido aos
-recursos de encapsulamento, herança, polimorfismo que permitem o
-desenvolvimento de um sistema mais coerente, seguro e manutenível. 
+recursos de encapsulamento~\ref{subsubsec:encapsulamento},
+herança~\ref{subsubsec:heranca}, polimorfismo~\ref{subsubsec:polimorfismo} que permitem
+o desenvolvimento de um sistema mais coerente, seguro e manutenível.
 
 \subsubsection{Encapsulamento}
 \label{subsubsec:encapsulamento}
 
-O encapsulamento é um recurso que tem o objeto de esconder todos os passos que
-são realizados para apenas uma chamada de método. Podemos verificar um pequeno
-exemplo de encapsulamento durante uma chamada 
+O encapsulamento é um recurso que tem o objetivo de esconder todos os passos que
+são realizados em uma chamada de método. Podemos verificar um pequeno
+exemplo de encapsulamento durante uma chamada a partir do
+Código~\ref{lst:utilizacao_encapsulamento}:
 
 \begin{lstlisting}[caption={Exemplo de utilização do encapsulamento para
-calcular um bonus}]
-class CalculadorDeBonus {
+calcular um bonus}, label = {lst:utilizacao_encapsulamento}]
+class CalculadoraDeBonus {
 
 	double calcularBonus(double salario){
 		if(salario < 1000){
@@ -136,7 +136,7 @@ class Funcionario {
 	double bonus;
 	
 	double getBonus(){
-		bonus = new CalculadorDeBonus().calcularBonus(this.salario);
+		bonus = new CalculadoraDeBonus().calcularBonus(this.salario);
 		return bonus;
 	}
 
@@ -171,7 +171,7 @@ encapsulada precisarem ser alterados(as), basta apenas alterar dentro de um
 \end{itemize}
 \item Reutilização de código.
 \begin{itemize}
-\item Permite a possibilidade e reutilizar o mesmo código, exigindo apenas uma
+\item Permite a possibilidade de reutilizar o mesmo código, exigindo apenas uma
 chama à função que encapsulou todo algoritmo.
 \end{itemize}
 \end{itemize}
@@ -181,14 +181,15 @@ chama à função que encapsulou todo algoritmo.
 
 A herança é um dos principais recursos da orientação a objetos, pois, por meio
 dela, podemos criar classes filhas de uma classe. Quando dizemos que uma classe
-é uma filha de outra, significa que a classe filha herda todos os atributos e
+é filha de outra, significa que a classe filha herda todos os atributos e
 métodos da classe mãe, ou seja, ela possuirá o mesmo comportamento que sua
 classe mãe, porém, ela também terá os seus próprios comportamentos. Por exemplo,
-na aplicação, fizemos uma abstração de um usuário qualquer no sistema, o
-resultado obtido dessa abstração foi a classe \lstinline{Usuario}:
+na aplicação, foi realizada a abstração de um usuário qualquer no sistema, o
+resultado obtido dessa abstração foi a classe \lstinline{Usuario} conforme o
+Código~\ref{lst:classe_usuario}:
 
 \begin{lstlisting}[caption={Exemplo de uma classe que representa um usuário no
-sistema}]
+sistema}, label = {lst:classe_usuario}]
 public class Usuario {
 	
 	long id;
@@ -201,8 +202,8 @@ public class Usuario {
 }
 \end{lstlisting}
 
-Essa classe, como podemos ver, pode representar qualquer usuário dentro da
-aplicação, porém, nessa aplicação, existem 2 tipos de usuários, que são os
+Como podemos ver, essa classe pode representar qualquer usuário dentro da
+aplicação. Porém, nessa aplicação, existem 2 tipos de usuários, que são os
 alunos e professores, que consequentemente, possuem comportamentos diferentes no
 sistema, mas, além de suas diferenças, eles possuem semelhanças que são os
 atributos id, senha, nome, sobrenome ou qualquer outro tipo de comportamento ou
@@ -214,10 +215,11 @@ computacional, porém, uma das soluções possíveis e sofisticada dentro da orienta
 pois, dessa forma, faremos com que ambas possuam os mesmo comportamentos de um
 usuário qualquer, mas, que cada uma tenha o seu próprio comportamento dentro da
 aplicação. Para fazer com que uma classe herde de outra, basta utilizar a
-instrução \lstinline{extends}:
+instrução \lstinline{extends}, onde é possível visualizar o exemplo a partir do
+Código~\ref{lst:heranca_usuario_aluno_professor}:
 
 \begin{lstlisting}[caption={Exemplo de como criamos classes filhas utilizando a
-herança do Java}]
+herança do Java}, label = {lst:heranca_usuario_aluno_professor}]
 public class Usuario {
 	
 	long id;
@@ -229,13 +231,13 @@ public class Usuario {
 	
 }
 
-public class Aluno extends {
+public class Aluno extends Usuario {
 
 	//atributos, métodos
 	 
 }
 
-public class Professor extends {
+public class Professor extends Usuario {
 
 	//atributos, métodos
 	 
@@ -246,7 +248,7 @@ A partir do momento em que as classes \lstinline{Aluno} e \lstinline{Professor}
 estendem da classe \lstinline{Usuario}, significa que, além de representarem
 elas mesmos dentro da aplicação, elas também são um usuário, ou seja, a partir
 desse momento, qualquer comportamento e estado que estiver na classe
-\lstinline{Usuario}, serão herdados por essas classes.
+\lstinline{Usuario}, serão herdados por essas classes também.
 
 \subsubsection{Polimorfismo} 
 \label{subsubsec:polimorfismo}
@@ -257,14 +259,16 @@ alguma moficação peculiar daquela classe, por exemplo, imaginemos que a classe
 \lstinline{Usuario} contenha o método \lstinline{cadastrarSenha(String senha)},
 esse método, dentro da classe \lstinline{Usuario} possui um processo de
 criptografia padrão, e para a classe professor, precisa utilizar um padrão
-diferente ao qual um usuário qualquer use, pra permitimos que isso seja possível
-utilizando a mesma assinatura de método, reescrevemos o método da classe
-\lstinline{Usuario} dentro da classe \lstinline{Professor} e adicionamos o
-comportamento específico e esperado daquele método para a classe
-\lstinline{Professor}:
+diferente ao qual um usuário qualquer use.\\
+
+Para que isso seja
+possível, ou seja, utilizar a mesma assinatura de método
+(\lstinline{cadastrarSenha(String senha)}) para com um comportamento diferente,
+reescrevemos o método da classe \lstinline{Usuario} (classe mãe) dentro da classe \lstinline{Professor} (classe filha) e adicionamos o comportamento específico e esperado daquele método para a classe \lstinline{Professor}, veja o exemplo a partir do
+Código~\ref{lst:usuario_professor_polimorfismo}:
 
 \begin{lstlisting}[caption={Exemplo de polimorfismo da classe filha Professor e
-classe mãe Usuario}]
+classe mãe Usuario}, label = {lst:usuario_professor_polimorfismo}]
 class Usuario {
 
 	public cadastrarSenha(String senha){
@@ -273,7 +277,7 @@ class Usuario {
 
 }
 
-class Professor extends {
+class Professor extends Usuario {
 
 	@Override
 	public cadastrarSenha(String senha){
@@ -308,11 +312,12 @@ terão. A aplicação desse conceito no Java, é descrita com mais na seção
 Os serviços na web é uma solução muito utilizada no mercado para permitir que
 diversas aplicações, independentemente da plataforma em que foram desenvolvidas,
 consigam se comunicar com o sistema via um protocolo de rede em comum, como
-por exemplo o HTTP. Essa comunicação é permitida devido ao tipo de
+por exemplo o HTTP~\cite{http}. Essa comunicação é permitida devido ao tipo de
 mensagem/documento que é processado para enviar e receber os dados, como por
-exemplo, arquivos XML ou documentos JSON. Além de permitir a comunicação entre
-diversas aplicações, o web services tem o intuito de disponibilizar serviços que
-são acessíveis por meio de endereços públicos da aplicação. 
+exemplo, arquivos no formato XML~\cite{xml} ou JSON~\cite{json}. Além de
+permitir a comunicação entre diversas aplicações, os web services tem o intuito de disponibilizar serviços
+que são acessíveis por meio de endereços públicos da aplicação, também
+conhecidos por API (Application Programmer Interface).
 
 \subsubsection{REST}
 \label{subsubsec:rest}
@@ -320,7 +325,7 @@ são acessíveis por meio de endereços públicos da aplicação.
 Representational State Transfer (REST), no português Transferência de Estado
 Representacional, é uma abstração arquiteturial para comunicação na Web
 frequentemente utilizada em Web Services~\ref{subsec:web_services}. Uma de suas
-aplicações dentro de um Web Service é a distribuição de APIs. Essa arquitetura
+aplicações dentro de um Web Services é a distribuição de APIs. Essa arquitetura
 utiliza o protocolo de comunição HTTP e utiliza como notação comum para
 transferência de dados tanto o XML como JSON.
 
@@ -363,11 +368,15 @@ utiliza Android.
 \subsection{MVC - Model View Controller}
 \label{subsec:mvc_model_view_controller}
 
-o modelo MVC consiste em dividir a aplicação em camadas:
+O modelo MVC consiste em dividir a aplicação em camadas, onde é possível
+representar um sistema computacional completo em 3 camadas distintas de uma
+forma macro. Abaixo, estão listadas tais cadamas e seus objetivos
+respectivamente:
+
 \begin{itemize}
   \item \textit{\textbf{Model:}} Representa toda a regra de negócio da
-  aplicação, ou seja, todas as classes, configuração, acessos À base de dados ou qualquer recurso
-  que esteja do lado do servidor e que o usuário final não tenha acesso.
+  aplicação, ou seja, todas as classes, configuração, acessos à base de dados
+  ou qualquer recurso que esteja do lado do servidor e que o usuário final não tenha acesso.
   \item \textit{\textbf{View:}} Todo conteúdo que representa a parte visual da
   aplicação, ou seja, qualquer interface com o usuário.
   \item \textit{\textbf{Controller:}} É o responsável em receber todas as
@@ -375,10 +384,20 @@ o modelo MVC consiste em dividir a aplicação em camadas:
   (\emph{Model}) e por fim, enviar uma resposta ao usuário.
 \end{itemize}
 
+A partir da Figura~\ref{fig:mvc}, é possível representar de forma visual todo o
+conceito proposto:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{mvc.png}
+  \caption{Diagrama que representa conceitualmente o mvc a partir de um
+  navegador qualquer} \label{fig:mvc}.
+\end{figure}
+
 A partir dessa arquitetura, podemos desenvolver uma aplicação de uma
 forma mais organizada e segura, pois além de dividirmos todo o conteúdo de acesso ao
-usuário (páginas em HTML ou qualquer interface direta ao usuário) e a regra de
-negócio (classes, configurações, acesso aos dados ou qualquer parte interna do
+usuário (páginas em HTML~\cite{html} ou qualquer interface direta ao usuário) e
+a regra de negócio (classes, configurações, acesso aos dados ou qualquer parte interna do
 sistema) deixamos transparente como tudo funciona internamente, ou seja, o
 usuário enxerga apenas o que ele precisa saber sem ter noção alguma de como é o
 sistema internamente.
@@ -404,30 +423,30 @@ mais simples possível apenas para serem testadas. A diferença entre testar
 pedaços da aplicação ao invés da aplicação num todo, é que permitimos que a nossa aplicação seja mais coerente, 
 segura e flexível, pois implementaremos métodos pequenos e com apenas uma
 responsabilidade, dessa forma garantimos que a funcionalidade esteja funcionando
-e então, permitimos que ela seja reutilizada em qualquer parte do código sem
+,e então, permitimos que ela seja reutilizada em qualquer parte do código sem
 preocupações de falhas. Além disso, se um dia precisarmos realizar alguma
 alteração de uma funcionalidade, alteraremos apenas em um ponto do sistema. \\
 
 Como podemos ver, a prática do TDD, além de nos ajudar a garantir um sistema
 mais confiável, tende a criar diversos cenários dentro da aplicação, aumentando
-muito mais o desenvolvimento do sistema. A princípio parece uma prática que mais atrapalha do que ajuda o desenvolvimento, porém,
-quando estamos desenvolvendo, é muito comum que ocorra muitas mudanças no código
+muito mais o tempo de desenvolvimento do sistema. A princípio parece uma prática
+que mais atrapalha do que ajuda o desenvolvimento, porém, quando estamos desenvolvendo, é muito comum que ocorra muitas mudanças no código
 e nem sempre conseguimos prever o quão impactante foi a alteração, ou seja, se
-ainda funciona ou se não quebrou o nosso sistema. Para verificar
-esse detalhe, inicialmente, pensamos em \textbf{testar manualmente tudo
-novamente} para verificar se ocorreu algum problema. Além de ser trabalhoso,
-provavelmente, esqueceremos de testar todas as funcionalidades do sistema, ou
-seja, a chance de não garantir que tudo esteja funcionando como o esperado, é
-muito grande. Quando utilizamos o TDD, todos os cenários de testes que criamos
+ainda funciona ou se quebrou o nosso sistema.\\ 
+
+Sem a utilização do TDD, inicialmente, pensamos em \textbf{testar manualmente
+tudo novamente} para verificar se ocorreu algum problema após alguma alteração
+realizada no sistema.
+Além de ser trabalhoso, provavelmente, esqueceremos de testar todas as funcionalidades do sistema, ou seja, a chance de não garantir que tudo esteja funcionando como o esperado, é muito grande. Quando utilizamos o TDD, todos os cenários de testes que criamos
 são testados automaticamente, como uma \emph{pilha de processos}, dessa forma,
 evitamos perder tempo em verificar manualmente cada cenário e, se algum teste falhar, a
 nossa própria aplicação mostratará o que e onde falhou com muito mais precisão.
 \\
 
-Para utizarmos o conceito de TDD em Java, podemos utilizar a API do JUnit que é
-descrita com mais detalhes no capítulo ~\ref{subsec:testes_JUnit}.
+Para utilizarmos o conceito de TDD em Java, podemos fazer uso da API JUnit
+que é descrita com mais detalhes no capítulo ~\ref{subsec:testes_JUnit}.
 
-\subsection{cliente e servidor}
+\subsection{Aplicações cliente e servidor}
 \label{subsec:cliente_e_servidor}
 
 Em aplicações Web, como por exemplo websites, é muito comum encontrarmos a
@@ -435,7 +454,7 @@ arquitetura de aplicação conhecida como \emph{cliente e servidor}, que é
 justamente uma aplicação autônoma (servidor) que recebe diversas requisições de
 diversos usuários (cliente) e responde de acordo com o que cada cliente
 requisitou, como por exemplo, se um cliente solicita uma página de cadastro, o
-servidor entende recebe essa requisição, executa os passos necessários e
+servidor recebe essa requisição, executa os passos necessários e
 responde com a página solicitada.
 
 \subsection{Servidor de aplicação}
@@ -443,8 +462,9 @@ responde com a página solicitada.
 
 Em aplicações Web, é muito comum utilizarmos um servidor que será responsável em
 manter a aplicação ativa. Esses servidores são conhecidos como servidores de
-aplicação e, uma de suas principais responsabilidades, é manter as aplicações
-disponíveis para receber requisições e respondê-las
+aplicação. A principal responsabilidade desses servidores, é
+manter as aplicações disponíveis, ou seja, mantê-las funcionando para que seja
+possível, por exemplo, receber requisições dos clientes e respondê-las
 ~\ref{subsec:cliente_e_servidor}.
 
 \subsection{UML - Unified Modeling Language}
@@ -454,7 +474,9 @@ O UML - Unified Modeling Language, na tradução, Linguagem Unificada de
 Modelagem, é uma linguagem de modelagem que permite representarmos um sistema de
 forma padronizada utilizando o conceito de orientação a objetos. A importância
 da utilização da UML é justamente para esclarecer o comportamento da aplicação
-tanto para a equipe de desenvolvimento quanto para o cliente. 
+tanto para a equipe de desenvolvimento quanto para o cliente. No UML, tais
+padrões são representados a partir de diagramas, onde é possível enxerga de
+forma visual as características do sistema.
 
 \subsubsection{Diagrama de classes}
 \label{subsubsec:diagrama_de_classes}
@@ -482,8 +504,8 @@ O diagrama de sequência é utilizado para descrever com mais detalhes o fluxo de
 uma funcionalidade, por exemplo, a funcionalidade \textbf{realizar o login} dos
 autores \textbf{aluno} ou \textbf{professor}, ambos enviam suas credenciais para
 o servidor, o servidor consulta as credenciais no banco de dados e, se tudo
-estiver ok, ele responde com as informações do aluno/professor junto com o um
-token identificador. O diagrama de sequência não é utilizado em todas as
+estiver correto, ele responde com as informações do aluno/professor junto com o
+um token identificador. O diagrama de sequência não é utilizado em todas as
 funcionalidade, em outras palavras, a intenção do diagrama de sequência é
 justamente dar mais atenção às funcionalidades mais peculiares da aplicação e
 que exigem uma certa atenção tanto para o cliente quanto para os
@@ -493,8 +515,8 @@ desenvolvedores.
 \label{subsec:migration_de_banco_de_dados}
 
 Quando desenvolvemos uma aplicação, em alguns momentos temos a necessidade de
-realizar algumas alterações em sua estrutura, como por exemplo a adição ou
-alteração ou, em casos mais delicados, a exclusão de uma coluna ou tabela. Tais
+realizar algumas alterações na estrutura do banco de dados, como por exemplo a
+adição ou alteração ou, em casos mais delicados, a exclusão de uma coluna ou tabela. Tais
 modificações precisam ser gerenciadas e mantidas para todas as versões de
 desenvolvimento do banco de dados antes mesmo de realizar o
 deploy~\ref{subsubsec:distribuicao_da_aplicacao_deploy}, pois se uma versão for
@@ -513,16 +535,19 @@ foram gerenciadas a partir da biblioteca flyway~\ref{subsec:flyway}.
 No desenvolvimento de aplicações computacionais, é muito comum a ocorrência de
 ajustes no projeto, seja para melhorias, adição de alguma funcionalidade ou até
 mesmo correções de bugs. Entretanto, em muitos dos casos, qualquer tipo de
-alteração é arriscada, pois, em uma instância do seu projeto tudo estava
-funcionando sem algum problema, porém, devido a um ajuste, possíveis falhas
-podem ocorrer, como por exemplo, uma funcionalidade que funcionava e, de
-repente, para de funcionar.\\
+alteração é arriscada, pois quando modificamos um ponto do sistema que já
+funciona, há chances das modificações afetarem esse ponto, e então, temos um
+resultado inesperado, como por exemplo, uma funcionalidade que funcionava
+corretamente e, de repente, para de funcionar.\\
 
 Para evitar esse tipo de problema, utilizamos ferramentas de versionamento, que
-permitem a realização de um backup de uma instância do projeto, e então, podemos
+permitem a realização de um backup de uma instância do projeto, ou seja, podemos
 realizar diversas alterações sem nos preocupar se o ajuste será problemático ou
-não para o sistema. Para esse projeto, utilizamos a ferramenta
-Git~\ref{subsec:git}
+não para o sistema, pois se acontecer algo inesperado, temos a possibilidade de
+retornar à instância que funcionava. Atualmente existem diversas ferramentas
+que proporcionam esse sistema de versionamento, entrentanto, para esse projeto,
+utilizamos a ferramenta Git~\ref{subsec:git} que é muito utilizada na comunidade
+de desenvolvedores.
 
 \section{Tecnologia empregada}
 \label{sec:tecnologia_empregada}
@@ -542,10 +567,13 @@ ambiente de interpretação conhecido como máquina virtual Java etc.
 \subsection{JPA - Java Persistence API}
 \label{subsec:jpa_java_persistence_api}
 
-JPA (Java Persistence API) é uma especificação Java EE que determina tudo que
-uma implementação de ORM (Object-Relational Mapping) para Java, precisa
-implementar para que seja uma biblioteca funcional de persistência de dados
-utilizando ORM. 
+JPA (Java Persistence API)~\cite{jpa} é uma especificação Java EE, que determina
+todas as implementações necessárias, para
+que seja possível realizar o
+conceito de ORM~\ref{subsec:orm_object_relational_mapping} em Java. Em outras
+palavras, para que uma ferramenta ou biblioteca que oferece
+o conceito de ORM na linguagem funcione como o esperado, precisa implementar a 
+especificação JPA.
 
 \subsection{Hibernate}
 \label{subsec:hibernate}
@@ -574,23 +602,26 @@ Model} (POM).
 O POM é um arquivo XML que permite a configuração de toda estrutura de um
 projeto Maven. A partir do pom.xml, temos a capacidade de configurar qualquer
 tipo de detalhe do projeto, como por exemplo, qual será o nome, pacote, versão
-do java que será compilado e executado, quais dependências entre outras
+do Java que será compilado e executado, quais dependências entre outras
 possíveis configurações.
 
 \subsubsection{Gerenciamento de dependência}
 \label{subsubsec:gerenciamento_de_dependencia}
 
 Durante o desenvolvimento da aplicação, utilizamos outras APIs
-para resolver determinados problemas, como por exemplo, o Spring, Hibernate,
-Jackson entre outros. Essas APIs são arquivos .jar que precisam ser
-baixados e adicionados dentro do projeto, porém, quando fazemos isso
+para resolver determinados problemas, como por exemplo, o
+Spring Framework~\ref{subsec:spring_framework},
+Hibernate~\ref{subsec:hibernate}, Jackson~\ref{subsec:jackson} entre outros.
+Essas APIs são arquivos .jar que precisam ser baixados e adicionados dentro do projeto, porém, quando fazemos isso
 manualmente, nem sempre é uma tarefa simples e tende a apresentar problemas,
 como por exemplo o Hibernate que, além de precisar das bibliotecas próprias,
-ele necessita da API da JPA. O Maven resolve todos esses problemas simplesmente
-adicionando a dependência por meio da tag <denpendency>: 
+ele necessita da API da JPA~\ref{subsec:jpa_java_persistence_api}. O Maven
+resolve todos esses problemas simplesmente adicionando a dependência por meio da tag \lstinline{<denpendency>} onde é
+possível visualizar o exemplo da adição da biblioteca do Hibernate a partir
+do Código~\ref{lst:dependencia_maven}:
 
 \begin {lstlisting}[caption={Adicionando o hibernate para a o projeto usando o
-pom.xml}]
+pom.xml}, label = {lst:dependencia_maven}]
 <properties>
 	//outras propriedades
 	<hibernate.version>4.3.11.Final</hibernate.version>
@@ -606,6 +637,12 @@ pom.xml}]
 <dependencies>
 
 \end{lstlisting}
+
+Nesse exemplo, o maven irá baixar todas as bibliotecas do Hibernate e suas
+dependências também, ou seja, a API da JPA e qualquer outra biblioteca
+necessária para o seu funcionamento. Dessa forma, delegamos todo o trabalho de
+adição, remoção, ou melhor, de gerenciamento de todas as bibliotecas e APIs para
+o Maven.
 
 \subsubsection{distribuição da aplicação - Deploy}
 \label{subsubsec:distribuicao_da_aplicacao_deploy}
@@ -803,26 +840,36 @@ dependência.
 \label{subsec:spring_data}
 
 O Spring Data~\cite{springdata} faz parte de um dos módulos do Spring
-framework~\cite{subsec:spring_framework}. O objetivo desse módulo é justamente
+framework~\ref{subsec:spring_framework}. O objetivo desse módulo é justamente
 facilitar a maneira como persistimos os dados em um banco de dados utilizando o
 Spring.
 
 \subsection{Injecão de dependência}
 \label{subsec:injecao_de_dependencia}
 
-Durante o desenvolvimento da aplicação, foi utilizado uma grande quantidade de
-bibliotecas e APIs, porém, em Java, ou em qualquer tipo de aplicação orientada a
+Durante o desenvolvimento da aplicação, foi utilizada uma grande quantidade de
+bibliotecas e APIs. Em Java, ou em qualquer tipo de aplicação orientada a
 objetos, sempre que queremos utilizar uma classe, precisamos fazer uma
-instância, no caso de APIs, além de fazer uma instância, na maioria das vezes,
-precisamos realizar certas configurações para que funcione de acordo com a nossa
-necessidade. O Spring framework fornece para nós um recurso conhecido como
-injeção de dependência, que consiste em atribuir uma instância a um
-objeto automaticamente. Quando queremos que um objeto seja injetado, utilizamos
-a anotação @Inject, que indica que o objeto será injetado:
+instância. Entretanto, em alguns casos, principalmente bibliotecas e APIs
+externas, é bem comum que, além de fazer uma instância da classe fornecida, aja
+a necessidade de realizar certas configurações para que funcione de acordo com a
+nossa necessidade. Como por exemplo o Hibernate, que exige que configuremos
+todo o ambiente da infraestrutura do banco de dados, como por exemplo,
+endereço de acesso, usuário e senha.\\
 
-\begin{lstlisting}
-	@Inject
-	private Aluno aluno;
+Tendo em vista esse cenário, é fácil perceber que criar todos esses objetos
+manualmente pode ser arriscado, pois podemos esquecer de alguma configuração e
+então o nosso sistema pode quebrar. Uma alternativa muito utilizada atualmente,
+é justamente a injeção de dependência que consiste no conceito de inversão de
+controle~\ref{subsec:inversao_de_controle}, e então, permite que o desenvolvedor
+peça ao Spring framework uma instância de um objeto desejado a partir da
+anotação \lstinline{@Inject} onde é possível ver o exemplo a partir do
+Código~\ref{lst:injecao_de_dependencia}:
+
+\begin{lstlisting}[caption = {Injetando a classe Aluno}, label =
+{lst:injecao_de_dependencia}]
+@Inject
+private Aluno aluno;
 \end{lstlisting}
 
 \subsection{Inversão de controle}
