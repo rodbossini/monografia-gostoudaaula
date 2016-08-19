@@ -638,35 +638,38 @@ pom.xml}, label = {lst:dependencia_maven}]
 
 \end{lstlisting}
 
-Nesse exemplo, o maven irá baixar todas as bibliotecas do Hibernate e suas
-dependências também, ou seja, a API da JPA e qualquer outra biblioteca
+Nesse exemplo, o maven baixa todas as bibliotecas do Hibernate e suas
+dependências, ou seja, a API da JPA e qualquer outra biblioteca
 necessária para o seu funcionamento. Dessa forma, delegamos todo o trabalho de
-adição, remoção, ou melhor, de gerenciamento de todas as bibliotecas e APIs para
-o Maven.
+adição, remoção, ou melhor, de gerenciamento de todas as bibliotecas e APIs do
+projeto para o Maven.
 
 \subsubsection{distribuição da aplicação - Deploy}
 \label{subsubsec:distribuicao_da_aplicacao_deploy}
 
 Todas as vezes que terminamos uma funcionalidade ou até mesmo finalizamos a
-aplicação, precisamos distribuir essa aplicação para uso, ou seja, publicá-la
+aplicação, precisamos distribuí-la para uso, ou seja, publicá-la
 ou, tecnicamente falando, fazer o \textit{deploy}. Em muito dos casos, fazer o
 deploy da aplicação nem sempre é uma tarefa trivial, pois é necessário se preoculpar com
 ambientes diferentes, por exemplo, em ambiente de desenvolvimento, nós
 podemos utilizar um banco de dados de teste ou então uma versão qualquer
 do JDK. Porém em um ambiente, como por exemplo, de produção, precisamos evitar o
-máximo possível de \textit{bugs}, ou seja, tomar alguns cuidadoa com qual tipo
+máximo possível de \textit{bugs}, ou seja, tomar alguns cuidados com qual tipo
 de configuração a nossa aplicação está utilizando, pois elas são diferentes, ou
-seja, consequentemente teremos um erro. \\
+seja, se utilizarmos uma configuração que não seja compatível com o ambiente de
+produção, consequentemente teremos um erro.
+\\
 
 Cuidar manualmente desse tipo de rotina, permite um risco maior de falhas
 causando problemas que poderiam ser evitados, como por exemplo, utilizar um usuário 
 e senha de banco de dados que não existe no servidor externo, e é justamente por
 esses motivos que utilizamos os \emph{profiles} do Maven que são capazes de
 criar diferentes perfis para cada tipo de ambiente por meio da tag <profile> 
-segue um exemplo de uma configuração para ambiente de desenvolvimento e para ambiente de produção:
+segue um exemplo de uma configuração para ambiente de desenvolvimento e para
+ambiente de produção a partir do Código~\ref{lst:profile_maven}:
 
 \begin{lstlisting}[caption={Criando profiles para ambiente de desenvolvimento e
-ambiente de produção no pom.xml}]
+ambiente de produção no pom.xml}, label = {lst:profile_maven}]
 <profiles>
 
 		<profile>
@@ -709,11 +712,11 @@ ambiente de produção no pom.xml}]
 \end{lstlisting}
 
 Além de configurar diferentes perfis da aplicação, o Maven também executa uma
-rotina em que verifica se todo o projeto está funcionando da maneira correta,
+rotina que verifica se todo o projeto está funcionando da maneira correta,
 por exemplo, verifica se todas as bibliotecas e APIs que foram descritas no
 pom.xml estão funcionando corretamente, faz todos os testes que foram realizados
-no projeto para garantir se todos funcioram e também gera os arquivos de deploy,
-ou seja, arquivos .jar para aplicações Java e arquivos .war para aplicações
+no projeto para garantir se todos funcionaram e também gera os arquivos de
+deploy, ou seja, arquivos .jar para aplicações Java e arquivos .war para aplicações
 Java Web.
 
 \subsubsection{Modularização de projeto}
@@ -736,8 +739,8 @@ core, nomeamos como \textit{gostoudaaula-core} e para o banco de dados
 
 Como visto no capítulo ~\ref{subsec:tdd_test_driven_development}, para
 implementarmos os testes em Java utilizando o conceito de TDD, utilizamos a
-biblioteca do JUnit que fornece anotações específicas para criarmos os cenários de teste e testá-los. Os
-cenários de teste são métodos com uma assinatura que descreve de uma forma bem
+biblioteca do JUnit~\cite{junit} que fornece anotações específicas para criarmos
+os cenários de teste e testá-los. Os cenários de teste são métodos com uma assinatura que descreve de uma forma bem
 explícita o que está sendo testado, por exemplo, um cenário de teste que
 verifica se a funcionalidade de cadastrar um aluno está funcionando:
 
@@ -756,9 +759,10 @@ verificar o resultado de alguma funcionalidade, precisamos fazer uso dos métodos
 da classe \lstinline{Assert} do próprio JUnit que nos fornece alguns métodos
 como o \lstinline{assertTrue} que recebe um método com retorno \emph{booleano},
 e se caso o retorno for verdadeiro passará, caso o contrário, falhará. Podemos
-ver claramente nos seguintes exemplos:
+ver claramente um exemplo a partir do Código~\ref{lst:asserts_junit}:
 
-\begin{lstlisting}[caption={Exemplo não real de como utilizar o JUnit}]
+\begin{lstlisting}[caption={Exemplo não real de como utilizar o JUnit}, label =
+{lst:asserts_junit}] 
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -779,7 +783,8 @@ public class AlunoTest {
 \end{lstlisting}
 
 Observe que foi utilizado um método em que sempre retornará \lstinline{true}, ou
-seja, o teste sempre passará, justamente para exibir a figura
+seja, o teste sempre passará, justamente para visualizar o resultado exibido na
+Figura~\ref{fig:teste_com_sucesso} onde o teste passa.
 
 \begin{figure}[H]
   \centering
@@ -790,11 +795,11 @@ seja, o teste sempre passará, justamente para exibir a figura
 
 Caso o teste falhasse, o JUnit exibiria uma informação um pouco diferente, além,
 de mudar a cor da barra de testes, mostraria o ponto que falhou. Podemos
-verificar um dos casos simplesmente alterando o método para devolver
-\lstinline{false}:
+simular um erro proposital simplesmente alterando o código para que devolva
+\lstinline{false}, conforme o Código~\ref{lst:metodo_retornando_falso}:
 
 \begin{lstlisting}[caption={Alteração do resultado de \lstinline{true} para
-\lstinline{false}}]
+\lstinline{false}}, label = {lst:metodo_retornando_falso}]
 	//restante do código
 	
 	public boolean cadastrarAluno(){
@@ -805,11 +810,15 @@ verificar um dos casos simplesmente alterando o método para devolver
 }
 \end{lstlisting}
 
+Observe que, diferentemente da Figura~\ref{fig:teste_com_sucesso}, a
+Figura~\ref{fig:teste_com_falha} demonstra a resposta que o Junit exibe quando
+acontece alguma falha no teste.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{resultado_falho_junit.png}
   \caption{Resultado de um teste que falhou utilizando o eclipse}
-  \label{fig:teste_com_sucesso}.
+  \label{fig:teste_com_falha}.
 \end{figure}
 
 Perceba que além de mudar a cor para vermelho, ao clicarmos no teste
@@ -875,27 +884,37 @@ private Aluno aluno;
 \subsection{Inversão de controle}
 \label{subsec:inversao_de_controle}
 
-A injeção de dependência atribuirá as instâncias necessárias para os objetos que
-estão anotados com @Inject, porém, para que o Spring consiga injetar esses
-objetos, precisamos ensinar o Spring a criar essas instâncias. Quando ensinamos
-o Spring a criar instâncias, podemos configurar como a instância será criada e
-então o Spring passa a gerenciar todas as classes que estão anotadas com
-@Inject, fazendo com que o programador não precise mais se preocupar em
-instânciar esses objetos, essa abordagem de fazer com que o framework instancie
-os objetos é chamada de Inversão de Controle (IoC).
+Embora o objetivo da injeção de dependência~\ref{subsec:injecao_de_dependencia}
+seja permitir que o desenvolvedor peça para o Spring uma instância de um objeto
+desejado, por padrão, o Spring não sabe como instânciar os objetos! Em outras
+palavras, inserir a annotation @Inject não é o suficiente. Portanto, para todo
+tipo de objeto que for injetado, é necessário realizar uma configuração que
+ensine o Spring a instânciar tal objeto.\\
+
+A partir do momento em que o Spring sabe instânciar um objeto, e então, pedimos
+para ele injetá-lo, significa que toda a responsabilidade desde a criação da
+instância será transferida para o framework, ou seja, o próprio Spring se torna
+responsável. Esse conceito também é conhecido por \textbf{inversão de
+controle}, ou, tecnicamente, \textit{Inversion of Control} (IoC).\\
 
 \subsection{Beans do Spring}
 \label{subsec:beans_do_spring}
 
-Quando ensinamos o Spring a instanciar uma classe, essa classe se tornará um
-\emph{Bean} do Spring. Os Beans do Spring são todas as classes gerenciadas pelo
-ele, ou seja, serão todas as classes que o Spring saberá criar as instâncias.
-Para transformarmos uma interface ou classe em um bean, basta adicionar uma
-tag <bean> no arquivo XML de configuração do spring:
+Para que o conceito de inversão de
+controle~\ref{subsec:inversao_de_controle} seja possível dentro do Spring,
+é necessário configurar a classe que será injetada. Essa configuração consiste
+no processo de transformar a classe desejada (classe que deseja injetar) em um
+\emph{Bean} do Spring.\\
 
-\begin{lstlisting}
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+Os Beans do Spring são todas as classes gerenciadas por ele, ou seja, todas as
+classes que o Spring sabe instânciar.
+Para transformarmos uma interface ou classe em um bean, basta adicionar uma
+tag \lstinline{<bean>} no arquivo XML de configuração do spring, conforme
+Código~\ref{lst:bean_spring_exemplo}:
+
+\begin{lstlisting}[caption = {Exemplo de criação do Bean para o EntityManager
+do Hibernate}, label = {lst:bean_spring_exemplo}] <beans
+xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
     http://www.springframework.org/schema/context
@@ -914,6 +933,10 @@ tag <bean> no arquivo XML de configuração do spring:
 </beans>
 \end{lstlisting}
 
+A partir do momento que transformamos uma classe ou interface num Bean do
+Spring, temos a disponibilidade de utilizar todo o conceito de injeção de
+dependência~\ref{subsec:injecao_de_dependencia}.
+
 \subsection{Controle de transações}
 \label{subsec:controle_de_transacoes}
 
@@ -921,14 +944,19 @@ Para conectar a aplicação com o banco de dados, foi utilizada a especificação
 JPA (Java Persistence API) que estabalece uma comunição com o banco de dados
 criando transações. Porém, todas as vezes que estamos utilizando uma transação
 precisamos saber o momento em que ela precisa ser iniciada e o momento em ela
-precisa aplicar as ações de commit/rollback e por fechá-las. Perceba que essa
-ações podem ser um pouco repitivas como também perigosas para a nossa aplicação,
-como por exemplo, interagir com o banco por meio de uma transação e não
+precisa aplicar as ações de commit/rollback e, por fim, fechá-las.\\
+
+
+Perceba que essas ações podem ser um pouco repitivas como também perigosas para
+a nossa aplicação, como por exemplo, interagir com o banco por meio de uma transação e não
 realizar o commit, ou então, simplesmente não fechar a conexão. Devido a esses
-detalhes, utilizamos o Spring para fazer a injeção de dependência das classes
-que são responsáveis em lidar com as transações, ou seja, o Spring gerencia
-todas as transações da aplicação, garantindo que todas essas rotinas sejam
-feitas corretamente sem o desenvolvedor precisar se preocupar.
+detalhes, fazemos o uso da injeção de
+dependência~\ref{subsec:injecao_de_dependencia} do Spring justamente para que
+ele se responsabilize por todo ciclo de vida da transação, isto é, desde sua
+abertura, ações e por fim, o seu fechamento. Dessa forma, evitamos de nos
+preocupar com quaisquer detalhes que envolvam transações com o banco de dados,
+mantendo um sistema mais estável e seguro, pois o próprio framework seguirá
+todas as rotinas sem falhas.
 
 \subsection{Flyway DB}
 \label{subsec:flyway}
@@ -936,7 +964,7 @@ feitas corretamente sem o desenvolvedor precisar se preocupar.
 Devido a necessidade de manter a
 migration~\ref{subsec:migration_de_banco_de_dados} do banco de dados de uma
 forma mais organizada e com menos intervensão humana, nesse projeto, utilizamos
-o flyway~\cite{flyway} que é uma farramenta simples e poderosa, capaz de
+o flyway~\cite{flyway} que é uma ferramenta simples e poderosa, capaz de
 realizar a migration de uma maneira bem simplicada.
 
 \subsection{Jackson}
@@ -944,10 +972,9 @@ realizar a migration de uma maneira bem simplicada.
 
 Em uma comunicação entre aplicação utilizando Web
 Services~\ref{subsec:web_services}, é muito comum convertemos classes para um
-formato em que qualquer aplicação, independemente da implementação, ou seja,
-linguagem de programação, entenda, como por exemplo, XML e JSON. Porém, uma
-conversão manual de uma classe passar o formato desejado, nem sempre é um
-trabalho fácil e por isso não é recomendável esse tipo de prática. Para
+formato em que qualquer aplicação, independemente da implementação (linguagem de
+programação), entenda, como por exemplo, XML e JSON. Porém, uma conversão manual
+de uma classe passar o formato desejado, nem sempre é um trabalho fácil e por isso não é recomendável esse tipo de prática. Para
 facilitarmos essa tarefa, utilizamos a biblioteca do jackson que, com poucas
 configurações, consegue realizar essas conversões de forma automática.
 
@@ -966,9 +993,8 @@ próprio HikariCP~\cite{hikaricp} que está disponibilizada na bibliografia.
 \label{subsec:openshift}
 
 O openshift é uma plataforma como um serviço, também
-conhecido como PaaS (Platform-as-a-Service), da Red Hat que permite o os
-desenvolvedores a criar aplicações em uma infraestrutura na nuvem. Para mais
-imformações da plataforma consulte o web site~\cite{openshift}.
+conhecido como PaaS (Platform-as-a-Service), da Red Hat que permite a criação de 
+aplicações em uma infraestrutura na nuvem. Para mais imformações da plataforma consulte o web site~\cite{openshift}.
 
 \subsection{Eclipse IDE for Java EE}
 \label{subsec:eclipse_ide_for_java_ee}
@@ -990,7 +1016,7 @@ que é justamente predefinida para o desenvolvimento de aplicações Java Web.
 Assim como o Eclipse IDE~\ref{subsec:eclipse_ide_for_java_ee}, o Android Studio
 é uma IDE, porém a sua finalidade é justamente facilitar o desenvolvimento de
 aplicações para Android. Com diversas características, funcionalidades e
-recursos para facilitar o desenvolvimento de uma app. Da mesma forma que o
+recursos para facilitar o desenvolvimento de uma App. Da mesma forma que o
 Eclipse IDE, o Android Studio~\cite{androidstudio} é gratuito e pode ser
 adquirido no link disponibilizado na bibliografia.
 
@@ -1006,7 +1032,7 @@ desenvolvedores seguindo conceitos empregados por esse tipo de software.
 \subsection{Gradle}
 \label{subsec:gradle}
 
-O Maven~\cite{gradle} é uma biblioteca capaz de gerenciar projetos Java, com a
+O Gradle~\cite{gradle} é uma biblioteca capaz de gerenciar projetos Java, com a
 finalidade de fazer o \textbf{build} (construção) do projeto. Podemos associar o
 Gradle com o Maven~\ref{subsec:maven} justamente porque ambas as ferramentas
 utilizam os mesmos conceitos, entretanto, com implementações e features

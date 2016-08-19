@@ -9,6 +9,7 @@
 \contentsline {lstlisting}{\numberline {2.9}Exemplo n\~ao real de como utilizar o JUnit}{15}{lstlisting.2.9}
 \contentsline {lstlisting}{\numberline {2.10}Altera\c c\~ao do resultado de \lstinline {true} para \lstinline {false}}{15}{lstlisting.2.10}
 \contentsline {lstlisting}{\numberline {2.11}Injetando a classe Aluno}{17}{lstlisting.2.11}
+\contentsline {lstlisting}{\numberline {2.12}Exemplo de cria\c c\~ao do Bean para o EntityManager do Hibernate}{17}{lstlisting.2.12}
 \contentsline {lstlisting}{\numberline {3.1}Adicionando m\'odulos no projeto parent}{26}{lstlisting.3.1}
 \contentsline {lstlisting}{\numberline {3.2}Adicionando o parent dentro de um m\'odulo}{26}{lstlisting.3.2}
 \contentsline {lstlisting}{\numberline {3.3}Depend\^encias do parent}{27}{lstlisting.3.3}
