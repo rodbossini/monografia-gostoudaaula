@@ -6,7 +6,7 @@
 
 A aplicação \emph{Gostou da Aula?} teve seu desenvolvimento iniciado pela
 modelagem conceitual dos dados. Após análise detalhada, obtivemos um Diagrama
-Entidade Relacionamento, o qual é exibido pela figura ~\ref{fig:der}.
+Entidade Relacionamento, o qual é exibido pela Figura~\ref{fig:der}.
 
 \begin{figure}[H]
   \centering
@@ -19,8 +19,8 @@ Cada entitidade e relacionamento possui determinadas peculiaridades que são
 descritas a seguir:
 
 \begin{itemize}
-  \item \textbf{Usuário}: Refere a uma representação de um usuário qualquer no
-  sistema, essa é uma entidade abstrata, ou seja, exige uma especilização entre
+  \item \textbf{Usuário}: Refere-se a uma representação de um usuário qualquer
+  no sistema, essa é uma entidade abstrata, ou seja, exige uma especilização entre
   a entidade \textbf{Professor} e \textbf{Aluno} que são os 2 tipos de usuários
   existentes na aplicação.
   \item \textbf{Professor}: Representa um professor dentro da aplicação.
@@ -51,11 +51,10 @@ utilizando a biblioteca do Maven, como por exemplo o terminal, porém, para essa
 aplicação foi utilizado o Eclipse IDE~\ref{subsec:eclipse_ide_for_java_ee}, pois
 ele já contém algumas facilidades, como por exemplo, escolher os menus de
 criação em um modo gráfico e simplesmente digitar as informações necessárias sem
-ao menos ficar escrevendo vários comandos. \ 
+ao menos ficar escrevendo vários comandos.\\
 
 Para criar um projeto Maven no eclipse, basta clicar no menu ``File > New >
-Project\ldots'', então aparecerá a janela conforme a figura
-~\ref{fig:projeto_filtro_maven}:
+Project\ldots'', então aparecerá a janela conforme a Figura~\ref{fig:projeto_filtro_maven}:
 
 \begin{figure}[H]
   \centering 
@@ -77,8 +76,8 @@ figura~\ref{fig:projeto_criacao_maven}:
 Lembre-se de deixar marcada a opção ``Create a simple project (skip archetype
 selection)'' justamente para avançar o passo em que seleciona o archetype do
 Maven~\cite{archetype} que é descrito com mais detalhes no link disponibilizado
-na bibliografia.Então clicamos em ``Next'' e aparece a janela de acordo com 
-a figura~\ref{fig:projeto_informacoes_maven} :
+na bibliografia. Então clicamos em ``Next'' e aparece a janela de acordo com 
+a Figura~\ref{fig:projeto_informacoes_maven} :
 
 \begin{figure}[H]
   \centering 
@@ -92,10 +91,10 @@ justamente o \textit{\textbf{Group Id}}, \textit{\textbf{Artifact Id}},
 \textit{\textbf{Version}} e \textit{\textbf{Package}}. Cada uma das informações
 possuem uma grande importante para aplicação. As descrições de cada um desses
 itens estão disponíveis com detalhes no link disponibilizado na
-bibliografia~\cite{namingmaven}.
+bibliografia~\cite{namingmaven}.\\
 
 Após a criação, o projeto Maven padrão criado pelo Eclipse contém a estrutura de
-acordo com a figura~\ref{fig:projeto_maven_padrao}.
+acordo com a Figura~\ref{fig:projeto_maven_padrao}.
 
 \begin{figure}[H]
   \centering 
@@ -124,7 +123,7 @@ Além desses dois diretórios, para cada um deles, existem os subdiretórios
 
 \begin{itemize}
   \item \textbf{java}: Todos os arquivos de extensão .java, em outras palavras,
-  todo código relacionado à classes Java, serão adicionados dentro desse
+  todo código relacionado às classes Java, serão adicionados dentro desse
   diretório.
   \item \textbf{resources}: Todos os recursos da aplicação, como por exemplo,
   configurações em XML, .properties ou qualquer tipo de recurso para a aplicação
@@ -132,7 +131,7 @@ Além desses dois diretórios, para cada um deles, existem os subdiretórios
   diretório.
 \end{itemize}
 
-\subsection{Utilizando modulos com Maven}
+\subsection{Utilizando módulos com Maven}
 \label{subsec:utilizando_modulos_com_maven}
 
 A arquitetura para o desenvolvimento da aplicação, foi planejado com a ideia da
@@ -140,8 +139,8 @@ criação de módulos~\ref{subsubsec:modularizacao_de_projeto}. Para essa aplicação
 foram criados 3 módulos:
 
 \begin{itemize}
-  \item \textbf{core}: Adicionar as classes de regra de negócio representadas
-  no diagrama de classes~\ref{sec:diagrama_de_classes}.
+  \item \textbf{core}: Classes de regra de negócio representadas
+  no diagrama de classes~\ref{sec:diagramas_de_uml_utilizados}.
   \item \textbf{db}: Todas as classes para conexão com o banco de dados.
   \item \textbf{web}: Todas as classes e configuração para aplicação Web e
   configuração de conexão ao banco de dados.
@@ -149,20 +148,21 @@ foram criados 3 módulos:
 
 Tendo conhecimento que cada projeto é independente um do outro, um dos pontos
 importantes é saber como eles se comunicam entre eles. No Maven, utilizamos o
-conceito Parent e childs descritos~\ref{subsec:parent_e_childs_com_maven}.
+conceito Parent e childs descritos na
+seção~\ref{subsec:parent_e_childs_com_maven}.
 
 \subsection{Parent e childs com Maven}
 \label{subsec:parent_e_childs_com_maven}
 
 O conceito de parent e childs do Maven é justamente criar um projeto pai
 (parent) e seus filhos (childs). O projeto pai, é um projeto genérico que não
-possui código fonto ou qualquer arquivo de configuração. Ele é utilizado como
+possui código fonte ou qualquer arquivo de configuração. Ele é utilizado como
 \textit{container} de seus filhos que de fato, são os módulos da aplicação.
-Paara essa aplicação utilizamos também o mesmo nome de projeto para o parent,
+Para essa aplicação utilizamos também o mesmo nome de projeto para o parent,
 porém com o sufixo \textbf{parent}.\\
 
 Para configurar um projeto parent, simplesmente adicionamos os módulos no
-pom.xml conforme o código~\ref{lst:adicao_de_modulos}:
+pom.xml conforme o Código~\ref{lst:adicao_de_modulos}:
 
 \begin{lstlisting}[caption = {Adicionando módulos no projeto parent}, label
 ={lst:adicao_de_modulos}] 
@@ -178,7 +178,8 @@ pom.xml conforme o código~\ref{lst:adicao_de_modulos}:
 \end{lstlisting}
 
 Além de informar ao parent quais são os seus módulos, todos os filhos precisam
-também informar quem é o pai deles dentro do pom.xml adicionando o código:
+também informar quem é o pai deles dentro do pom.xml, veja o exemplo a partir
+do Código~\ref{lst:adicao_de_parent}:
 
 \begin{lstlisting}[caption = {Adicionando o parent dentro de um módulo},
 label={lst:adicao_de_parent}]
@@ -189,27 +190,25 @@ label={lst:adicao_de_parent}]
 	</parent>
 \end{lstlisting}
 
-A partir do momento em que um projeto Maven declara quem é o seu pai, todos os
+Quando um projeto Maven declara quem é o seu pai, todos os
 recursos e dependências do pai são herdados a ele, ou seja, suas dependências e
-arquivos de configurações. Porém, mesmo os modulos sendo filhos do mesmo pai,
+arquivos de configurações. Porém, mesmo os módulos sendo filhos do mesmo pai,
 não significa que cada um tem acesso direto ao outro, para resolver isso basta
 adicionar os módulos necessários em cada projeto como uma
 dependência~\ref{subsubsec:gerenciamento_de_dependencia}.
-
-
-
 
 \section{Dependências de todos os módulos}
 \label{sec:dependencias_de_todos_os_modulos}
 
 Uma das grandes vantagens em utilizar o Maven é justamente pelo gerenciamento de
 dependência~\ref{subsubsec:gerenciamento_de_dependencia}. Visto na
-subseção~\ref{subsec:utilizando_modulos_com_maven}, a aplicação é baseada em
+seção~\ref{subsec:utilizando_modulos_com_maven}, a aplicação é baseada em
 módulos que representam um projeto independemente, logo, cada um desses projetos possuem
 suas respectivas dependências, e serão disponibilizadas a seguir:
 
 \begin{itemize}
-  \item \textbf{parent}~\ref{lst:dependencias_parent}:
+  \item Dependências do projeto \textbf{parent}
+  exibidas no Código~\ref{lst:dependencias_parent}:
   \begin{lstlisting}[caption = {Dependências do parent}, label =
   {lst:dependencias_parent}] 
   	<dependencies>
@@ -250,7 +249,8 @@ suas respectivas dependências, e serão disponibilizadas a seguir:
 
 	</dependencies>
   \end{lstlisting}
-  \item \textbf{core}~\ref{lst:dependencias_core}: 
+  \item Dependências do projeto \textbf{core}
+  exibidas no Código~\ref{lst:dependencias_core}:
   \begin{lstlisting}[caption = {Dependências do core}, label =
   {lst:dependencias_core}]
   	<dependencies>
@@ -286,7 +286,8 @@ suas respectivas dependências, e serão disponibilizadas a seguir:
 
 	</dependencies>  
   \end{lstlisting}
-  \item \textbf{db}~\ref{lst:dependencias_db}:
+  \item Dependências do projeto \textbf{db} exibidas
+  no Código~\ref{lst:dependencias_db}:
   \begin{lstlisting}[caption = {Dependências do db}, label =
   {lst:dependencias_db}]
   	<dependencies>
@@ -346,7 +347,8 @@ suas respectivas dependências, e serão disponibilizadas a seguir:
 
 	</dependencies>
   \end{lstlisting}
-  \item \textbf{web}~\ref{lst:dependencias_web}:
+  \item Dependências do projeto \textbf{web}
+  exibidas no Código~\ref{lst:dependencias_web}:
   \begin{lstlisting}[caption = {Dependências do web}, label = {lst:dependencias_web}] 
   	<dependencies>
 		<dependency>
@@ -510,8 +512,9 @@ No planejamento para a implementação da aplicação, utilizamos a
 UML~\ref{subsec:uml} para representar de uma forma mais clara o que tinha que
 ser implementado dentro da aplicação. Dentre os diversos diagramas existentes da
 UML, foram utilizados apenas os diagramas de
-\textbf{classes}~\ref{subsec:diagrama_de_classes_utilizado},\textbf{caso de
-uso}~\ref{subsec:diagrama_de_caso_de_uso_utilizado} e de \textbf{sequência}.
+\textbf{classes}~\ref{subsec:diagrama_de_classes_utilizado}, \textbf{caso de
+uso}~\ref{subsec:diagrama_de_caso_de_uso_utilizado} e de
+\textbf{sequência}~\ref{subsec:diagrama_de_sequencia_utilizado}.
 
 \subsection{Diagrama de classes utilizado}
 \label{subsec:diagrama_de_classes_utilizado}
@@ -520,7 +523,8 @@ Em projetos de aplicações orientadas a objetos, antes mesmo de começar a
 implementar as classes, é muito comum utilizarmos o diagrama de
 classes~\ref{subsubsec:diagrama_de_classes} para uma visibilidade estática de
 como devemos implementar as classes.
-Para essa aplicação utilizamos o diagrama de classe conforme a figura~\ref{fig:diagrama_de_classes}.
+Para essa aplicação utilizamos o diagrama de classe conforme a
+Figura~\ref{fig:diagrama_de_classes}.
 
 \begin{figure}[H]
   \centering
@@ -536,7 +540,7 @@ Além do diagrama de classe~\ref{subsec:diagrama_de_classes_utilizado}, é de
 grande importância utilizarmos o diagrama de caso de
 uso~\ref{subsubsec:diagrama_de_caso_de_uso} para obtermos uma visão macro sobre
 as principais funcionalidades. Para essa aplicação, utilizamos o diagrama
-conforme a figura~\ref{fig:diagrama_de_caso_de_uso}.
+conforme a Figura~\ref{fig:diagrama_de_caso_de_uso}.
 
 \begin{figure}[H]
   \centering
@@ -553,7 +557,7 @@ uso~\ref{fig:diagrama_de_caso_de_uso}, a principal funcionalidade é a
 \textbf{avaliar aula} que possui diversos passos para que seja realizada, porém,
 para especificar tal funcionalidade utilizamos o diagrama de
 sequência~\ref{subsubsec:diagrama_de_sequencia} conforme a
-figura~\ref{fig:diagrama_de_sequencia}
+Figura~\ref{fig:diagrama_de_sequencia}
 
 \begin{figure}[H]
   \centering
@@ -565,6 +569,9 @@ figura~\ref{fig:diagrama_de_sequencia}
 \section{Configurando projeto web}
 \label{sec:configurando_projeto_web}
 
+Nessa seção serão exibidos todos os arquivos e passos necessários para a
+realização da configuração do projeto web. 
+
 \subsection{Configurando o Spring MVC}
 \label{subsec:configura_o_spring_mvc}
 
@@ -574,11 +581,11 @@ dentro do arquivo ``src/main/webapp/views/web.xml'' que refere-se ao arquivo de
 configuração da estrutura de um projeto Java Web. Dentro desse arquivo temos a
 capacidade de configurar diversos comportamentos da aplicação, como por exemplo,
 quais Servlets~\ref{subsec:servlet_api} serão utilizadas, qual endereço HTTP
-será atendido dentre outros recursos. Para esse projeto foi utilizado o seguinte
-XML~\ref{lst:web.xml_app_web} de configuração:
+será atendido dentre outros recursos. O web.xml desse
+projeto pode ser visualizado a partir do Código~\ref{lst:web.xml_app_web}:
 
-\begin{lstlisting}[caption={web.xml completo da aplicação web},
-label={lst:web.xml_app_web}]
+\begin{lstlisting}[caption = {web.xml completo da aplicação web},
+label = {lst:web.xml_app_web}]
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee"
@@ -624,19 +631,19 @@ label={lst:web.xml_app_web}]
 \end{lstlisting}
 
 Essa configuração descreve qual será a Servlet do Spring que será utilizada,
-juntamente com a localização dessa Servlet. Além disso, descreve a partir de
+juntamente com a localização da mesma. Além disso, descreve a partir de
 qual endereço o Spring atuará, nesse caso, pra todo endereço que fizer parte da
 ``/'' (qualquer endereço via HTTP) será atendido pelo Spring, por fim, a
 configuração de encoding que é justamente a formatação dos caracteres, para esse
-projeto foi utilizado o UTF-8.\\
+projeto, nesse caso, foi utilizado o UTF-8.\\
 
 Com o arquivo web.xml configurado, precisamos criar o arquivo de configuração do
 próprio Spring, que atuará como o projeto Spring MVC. Como visto no
-código~\ref{lst:web.xml_app_web} a localização e nome do arquivo corresponde ao
+Código~\ref{lst:web.xml_app_web} a localização e nome do arquivo corresponde ao
 seguinte valor: \textbf{classpath:spring/spring-mvc.xml}. Isso significa que
 esse arquivo será procurado dentro do diretório:
 ``src/main/resources/spring/'', então criamos o arquivo \textbf{spring-mvc.xml}
-com o conteúdo de acordo com o código:
+com o conteúdo de acordo com o Código~\ref{lst:spring-mvc.xml_completo_da_app}:
 
 \begin{lstlisting}[caption={spring-mvc.xml completo da aplicação web},
 label={lst:spring-mvc.xml_completo_da_app}]
@@ -673,7 +680,7 @@ label={lst:spring-mvc.xml_completo_da_app}]
 \end{lstlisting}
 
 O arquivo spring-mvc.xml concentra todas as configuração relacionadas ao Spring
-MVC, como por exemplo o código~\ref{lst:configurando_mapeamento_de_paginas}:
+MVC, como por exemplo o Código~\ref{lst:configurando_mapeamento_de_paginas}:
 
 \begin{lstlisting}[caption={configuração para o Spring mapear e acessar as
 páginas web com extensões .jsp~\cite{jsp}},
@@ -687,15 +694,15 @@ label={lst:configurando_mapeamento_de_paginas}]
  
 Além das configurações do Spring MVC, foram adicionadas as configurações de injeção de dependência~\ref{subsec:injecao_de_dependencia} do Spring
 Framework, JPA~\ref{subsec:jpa_java_persistence_api} e
-Hibernate~\ref{subsec:hibernate} e mensageria. Cada configuração está contida em
-arquivos distintos que dentro do mesmo diretório do arquivo spring-mvc.xml. Abaixo serão
-listado os arquivos com suas finalidades e sua configuração:
+Hibernate~\ref{subsec:hibernate}. Cada configuração está contida em
+arquivos distintos dentro do mesmo diretório do arquivo spring-mvc.xml. Abaixo serão
+listado os arquivos com suas finalidades e conteúdo:
 
 \begin{itemize}
   \item \textbf{spring-jpa-config.xml}: Todas as
   configurações relacionadas à configuração da JPA por meio da implementação do
   hibernate e o HikariCP~\ref{subsec:hikari_cp}. Toda a configuração está
-  descrita no código:
+  descrita no Código~\ref{lst:spring-jpa-config.xml_completo_da_app}:
   \begin{lstlisting}[caption={spring-jpa-config.xml completo da aplicação web},
   label={lst:spring-jpa-config.xml_completo_da_app}]
 <?xml version="1.0" encoding="UTF-8"?>
@@ -763,7 +770,8 @@ listado os arquivos com suas finalidades e sua configuração:
   \end{lstlisting}
    \item \textbf{spring-flyway-config.xml}: Todas as
   configurações relacionadas à integração do flyway~\ref{subsec:flyway} com o
-  banco de dados. Toda a configuração está descrita no código:
+  banco de dados. Toda a configuração está descrita no
+  Código~\ref{lst:spring-flyway-config.xml_completo_da_app}:
   \begin{lstlisting}[caption={spring-flyway-config.xml completo da aplicação
   web}, label={lst:spring-flyway-config.xml_completo_da_app}]
 	<?xml version="1.0" encoding="UTF-8"?>
@@ -792,7 +800,8 @@ listado os arquivos com suas finalidades e sua configuração:
    \item \textbf{spring-ioc.xml}: Todas as configurações realacionadas a
    injeção de dependência~\ref{subsec:injecao_de_dependencia} aplicando o
    conceito de inversão de controle~\ref{subsec:inversao_de_controle}.
-   Toda a configuração está descrita no código:
+   Toda a configuração está descrita no
+   Código~\ref{lst:spring-ioc.xml_completo_da_app}:
      \begin{lstlisting}[caption={spring-ioc.xml completo da aplicação
   web}, label={lst:spring-ioc.xml_completo_da_app}]
 	<beans xmlns="http://www.springframework.org/schema/beans"
@@ -852,7 +861,7 @@ dentro do arquivo
 caminho basta apenas adicionar a tag \textbf{<context:property-placeholder />}
 informando o \textit{enconding} dos arquivos e a locatização de todos os
 arquivos que serão lidos. Podemos ver uma demonstração utilizada nesse projeto a
-partir do código~\ref{lst:property_placeholder}:
+partir do Código~\ref{lst:property_placeholder}:
 
 
 \begin{lstlisting}[caption={property-placeholder do projeto},
@@ -875,7 +884,7 @@ informações relacionadas a um tipo de configuração, por exemplo:
 \end{itemize}
 
 Como exemplo veremos o conteúdo do \textbf{general.properties} a partir do
-código~\ref{lst:conteudo_do_general.properties}:
+Código~\ref{lst:conteudo_do_general.properties}:
 
 \begin{lstlisting}[caption={conteúdo do general.properties},
 label={lst:conteudo_do_general.properties}]	
@@ -910,6 +919,10 @@ Para esse projeto, todos esses arquivos do flyway precisam ser inseridos no
 \section{Estrutura do projeto web}
 \label{sec:estrutura_do_projeto_web}
 
+Nessa seção será exibida a forma como o projeto foi estruturado, ou melhor,
+organizado, como por exemplo, classes de controller, services, modelos entre
+demais entidades de grande importância dentro do projeto.
+
 \subsection{Controllers do Spring}
 \label{subsec:controllers_do_spring}
 
@@ -923,7 +936,7 @@ da seguinte convenção: \textit{NomeDaClasseController}, ou seja, o nome da
 classe junto com o prefixo ~\textit{Controller}. Por exemplo, nesse projeto, o
 controller que representa a página de vísita, isto é, a página inicial foi
 denominado como \lstinline{SiteController}, podemos ver o seu conteúdo a partir
-do código~\ref{lst:site_controller}:
+do Código~\ref{lst:site_controller}:
 
 \begin{lstlisting}[caption={código da classe SiteController},
 label={lst:site_controller}]	
@@ -975,11 +988,11 @@ classe que faça a persistência de dados, ou então, se a requisição é para apenas
 validar dados, enviará para uma classe que faça isso.\\
 
 Mesmo sendo funcional, tal prática dentro de um controller não é recomendável,
-justamente pelo controller ser responsável em apenas delegar. Em outras
-palavras, controllers não se comunicam diretamente com essas classes
+justamente pelo fato do controller ser \textbf{responsável em apenas delegar}.
+Em outras palavras, controllers não se comunicam diretamente com essas classes
 específicas, e sim, delegam tais tarefas para classes conhecidas como services.
 Dentro do Spring, os services são basicamente uma camada que fica entre a parte
-lógica (persistência de dados, validação, tratamento e geral) e o controller
+lógica (persistência de dados, validação, tratamento em geral) e o controller
 para resolver qualquer tipo de requição para uma entidade, por exemplo, se é
 necessário cadastrar uma turma, ou até mesmo validá-la, enviamos tal
 requisição para um service que conterá todas as funcionalidades da entidade
@@ -990,7 +1003,7 @@ No Spring, para criarmos um service, seguimos a seguinte convenção:
 classe junto com o prefixo ~\textit{Service}. Nesse projeto, todas as services
 foram adicionadas no pacote \textbf{br.com.gostoudadaula.service}. Como exemplo,
 veremos o service \lstinline{TurmaService} a partir do
-código~\ref{lst:turma_service}, que representa um service exclusivo da entidade
+Código~\ref{lst:turma_service}, que representa um service exclusivo da entidade
 turma:
 
 \begin{lstlisting}[caption={código da classe TurmaController},
@@ -1032,13 +1045,16 @@ que essa classe será gerenciada por ele como um service.
 \section{Estrutura do projeto db}
 \label{sec:estrutura_do_projeto_db}
 
+Nesta seção serão apresentadas as classes responsáveis para a realização da
+persistência de dados a partir da aplicação web.
+
 \subsection{Utilizando o Spring Data}
 \label{subsec:utilizando_o_spring_data}
 
 No projeto db, ao invés de utilizarmos classes com o design pattern DAO (Data
-Access Object)~\cite{dao}, a partir do módulo Spring
-Data~\ref{subsec:spring_data}, nesse projeto foi utilizado o conceito de
-repositories Spring Data~\cite{repositoriesspring}. No Spring,
+Access Object)~\cite{dao}, nesse projeto foi utilizado o conceito de
+repositories Spring Data~\cite{repositoriesspring}, a partir do módulo Spring
+Data~\ref{subsec:spring_data}. No Spring Data,
 repositories são representações de classes onde ocorre a persistência de
 dados. A princípio existe uma certa similiaridade com classes DAO, entretanto,
 no Spring Data, representamos um repository a partir de uma interface que
@@ -1054,7 +1070,7 @@ de código que fazem rotinas em comum, como por exemplo, inserção de dados.\\
 Nesse projeto, adicionamos todos os repositories dentro do pacote
 \textbf{br.com.gostoudaaula.db.repository}. Podemos ver  um exemplo de
 um repository a partir da interface \lstinline{RespostasRepository} a partir do
-código~\ref{lst:respostas_repository}:
+Código~\ref{lst:respostas_repository}:
 
 \begin{lstlisting}[caption={código da interface RespostasRepository},
 label={lst:respostas_repository}]
@@ -1095,7 +1111,9 @@ atributo chamado ``data'' dentro da classe \lstinline{Respostas} com o tipo
 \label{sec:estrutura_do_projeto_core}
 
 No projeto core, foram adicionadas todas as classes modelos, DTOs~\cite{dto},
-mixins do Jackson~\ref{subsec:jackson} e conversores. 
+mixins do Jackson~\ref{subsec:jackson} e conversores. Em outras palavras, todas
+as classes que fazem parte da regra de negócio, isto é, da lógica do projeto,
+foram adicionadas nesse projeto.
 
 \subsection{Models}
 \label{subsec:models}
@@ -1103,7 +1121,7 @@ mixins do Jackson~\ref{subsec:jackson} e conversores.
 Todas as classes modelos estão contidas
 no pacote \lstinline{br.com.gostoudaaula.model} onde cada classe representa uma
 entidade do sistema. Como por exemplo a classe \lstinline{Disciplina} a partir
-do código~\ref{lst:model_disciplina}:
+do Código~\ref{lst:model_disciplina}:
 
 \begin{lstlisting}[caption={código da classe Disciplina},
 label={lst:model_disciplina}]
@@ -1158,11 +1176,11 @@ representação de uma disciplina no banco de dados do projeto.
 
 Todas as classes DTO estão contidas no pacote
 \lstinline{br.com.gostoudaaula.dto}. A partir dessas classes podemos transferir
-dados de formas de uma forma diferente ao qual contemos em classes
+dados de uma forma diferente ao qual contemos em classes
 models~\ref{subsec:models}, justamente para atender a uma necessidade que apenas
 o conteúdo contido em uma entidade não seja o suficiente. Nesse projeto, temos
 apenas a classe \lstinline{PeriodoDTO} como exemplo, podemos ver o seu conteúdo
-a partir do código~\ref{lst:periodo_dto}:
+a partir do Código~\ref{lst:periodo_dto}:
 
 \begin{lstlisting}[caption={código da classe PeriodoDTO},
 label={lst:periodo_dto}]
@@ -1243,13 +1261,12 @@ Todos os mixins estão contidos no pacote
 durante a serialização de um objeto a partir da biblioteca do Jackson. A partir
 dos mixins, podemos limitar os atributos que serão serializados em qualquer tipo
 de classe, ou seja, caso algum tipo de atributo seja delicado, como por exemplo,
-uma senha, ou então, por algum motivo qualquer não seja preferível que um
-atributo de uma determinada classe seja serializado, podemos utilizar os mixins
-para resolver esse problema.\\
+uma senha, ou então, quaisquer atributos que não podem ser visualizados durante
+a serialização da classe.\\
 
-Nesse projeto, além da situação em que não era interessante um determinado
-atributo durante a serialização, também utilizamos os mixins justamente para os
-casos em que temos relacionamentos bidirecionais na utilização da JPA. Como por
+Além da situação que permite esconder um
+atributo durante a serialização, os mixins foram necessários justamente para
+os casos em que temos relacionamentos bidirecionais na utilização da JPA. Como por
 exemplo as classes \lstinline{Projeto}~\ref{lst:model_projeto} e
 \lstinline{Questoes}~\ref{lst:model_questoes}:
 
@@ -1398,8 +1415,9 @@ objeto \textbf{Y} tiver uma referência para o objeto \textbf{X} fará com que o
 processo de serialização entre num estado chamado de circular reference, que é
 justamente um looping infinito durante a serialização.\\ 
 
-Uma maneira para resolver esse problema é justamente a utilização de mixins,
-como por exemplo o mixin \lstinline{QuestoesMixIn}~\ref{lst:questoes_mixin}:
+Para resolver esse problema, foram utilizados os mixins conforme o exemplo
+exibido a partir do da classe
+\lstinline{QuestoesMixIn}~\ref{lst:questoes_mixin}:
 
 \begin{lstlisting}[caption={código da classe QuestoesMixIn},
 label={lst:questoes_mixin}]
@@ -1450,12 +1468,10 @@ utilizar essa subclasse no momento da serialização.
 Todas as classes de converter estão contidas no pacote
 \lstinline{br.com.gostoudaaula.converter}. Esses converters são classes que
 servem apenas para conversão de dados que utilizam padrões diferentes. Como
-exemplo, a data no Brasil que utiliza o Padrão \textbf{dd/mm/yyyy}, sendo que,
-o padrão internacional é \textbf{yyyy/mm/dd}. Nesse projeto utilizamos o
-converter para converte o tipo dos atributos para datas das classes
-models~\ref{subsec:models} para o tipo suportado pelo banco de dados. Nesse caso
-da classe \lstinline{Localdate} para \lstinline{Date}. Podemos ver a implementação
-desse converter a partir da classe
+exemplo, a data no Brasil que utiliza o padrão \textbf{dd/mm/yyyy}, sendo que,
+o padrão internacional é \textbf{yyyy-mm-dd}. Nesse projeto convertemos o tipo
+dos atributos para datas das classes models~\ref{subsec:models}, ou seja, para
+um tipo suportado pelo banco de dados. Nesse caso da classe \lstinline{Localdate} para \lstinline{Date}. Podemos ver a implementação desse converter a partir da classe
 \lstinline{DateConverter}~\ref{lst:date_converter}:
 
 
@@ -1524,17 +1540,17 @@ public class ProfessorController {
 Observe que esse método devolve a classe \lstinline{ResponseEntity<T>} que é uma
 API do Spring para respondermos requisições com qualquer tipo de objeto. Dessa
 forma, podemos fazer com que qualquer objeto seja devolvido como um documento
-JSON. Portanto, ao utilizamos essa classe, estabelecemos um mecanismo de
-comunicação via JSON utilizando o protocolo HTTP.\\
+JSON. Portanto, ao utilizarmos essa classe, estabelecemos um mecanismo de
+comunicação via JSON via o protocolo HTTP.\\
 
 Além disso, nesse projeto, para toda utilização da classe
-\lstinline{ResponseEntity}, foi utilizada a devolução apenas de String. Em
+\lstinline{ResponseEntity}, foi devolvida apenas de String. Em
 outras palavras, ao invés de deixar o Spring responsável em converter objetos
 para JSON, preferimos realizar esse procedimento manualmente, portanto, em todos
 os métodos que utilizamos para esse tipo de comunicação, desenvolvemos Strings,
 que representam o arquivo JSON já configurado. O principal motivo para essa
 escolha é justamente pela questão de utilizar os mixins do
-jackson~\ref{subsec:mixins_do_jackson} para evitar o problema da referêcia
+jackson~\ref{subsec:mixins_do_jackson} para evitar o problema da referência
 circular.
 
 \section{Utilização da plataforma openshift}
@@ -1548,7 +1564,7 @@ panos.\\
 
 Além de não ter que se preocupar em configurar uma infraestrutura
 capaz para manter uma aplicação Java Web funcionando, também temos alguns
-benefícios ao utilizar o openshift.
+benefícios a mais ao utilizar o openshift.
 
 \begin{itemize}
   \item \textbf{Custo}: Podemos criar até 3 aplicações em um plano gratuito onde
@@ -1564,7 +1580,7 @@ benefícios ao utilizar o openshift.
 \subsection{RHC} 
 
 A integração do cliente (desenvolvedor) com a plataforma do openshift, é por
-meio do da ferramenta de linha de comando rhc que pode ser instalada em diversos
+meio da ferramenta de linha de comando rhc que pode ser instalada em diversos
 sistemas operacionais. O link de instalação está disponibilizado na
 bibliografia~\cite{instalacaorhc}.\\
 
@@ -1580,7 +1596,7 @@ a criação de aplicações utilizando o terminal.
 Dentro da plataforma do openshift, podemos criar diversas aplicações a partir do seu
 console~\cite{consoleopenshift} com o link disponibilizado a partir da
 bibliografia. Cada aplicação pode ser composta por um tipo de container, que é
-justamente o servidor que manterá a aplicação funcionando, para esse projeto,
+justamente o servidor que manterá a aplicação funcionando. Para esse projeto,
 foi utilizado o servidor de aplicação Tomcat~\cite{tomcat}. Além do Tomcat, foi
 necessário a utilização de um banco de dados e uma interface gráfica para seu
 acesso. Sendo mais preciso, foram utilizadas as seguintes especificações para o
@@ -1617,8 +1633,8 @@ projeto.
 \end{itemize} 
 
 Em outras palavras, após o momento em que realizamos o download, precisamos,
-pelo menos, manter esses subdiretórios para que consigámos realizar a distribuição do
-projeto. Para o deploy do projeto, é necessário apenas fazer o
+pelo menos, manter esses diretórios ocultos para que consigámos realizar a
+distribuição do projeto. Para o deploy do projeto, é necessário apenas fazer o
 procedimento normal de push do git~\cite{pushgit}. Durante o processo de deploy,
 o openshift executa diversas rotinas que chegam a reiniciar o serviço que mantém
 a aplicação ativa, portanto, é sempre interessante analisar melhores horários
@@ -1671,7 +1687,7 @@ outros, foi necessária a utilização de bibliotecas externas, ou melhor,
 dependências do projeto, para o desenvolvimento da App ser mais eficaz. Todas as
 dependências do projeto foram adicionadas e gerenciadas pelo Gradle a partir do
 arquivo \textbf{build.gradle} no nível da App. O
-código~\ref{lst:dependencias_android} lista todas as dependências utilizadas:
+Código~\ref{lst:dependencias_android} lista todas as dependências utilizadas:
 
 \begin{lstlisting}[caption={Dependências do projeto Android},
 label={lst:dependencias_android}]
@@ -1921,7 +1937,7 @@ seja, a partir desse gráfico, o professor é capaz de compreender que a aula,
 Para a implementação do gráfico foi utilizada a biblioteca gratuita HelloCharts
 para Android~\cite{hellocharts}. E todo código de implementação está contido na
 classe \lstinline{ChartFragment} do pacote
-\textbf{br.com.gostoudaaula.fragment} onde é possível conferir o contéudo a
+\lstinline{br.com.gostoudaaula.fragment} onde é possível conferir o contéudo a
 partir do Código~\ref{lst:classe_questoesfragment}
 
 \begin{lstlisting}[caption={Classe ChartFragment},
