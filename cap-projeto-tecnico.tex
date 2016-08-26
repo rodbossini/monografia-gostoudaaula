@@ -1,6 +1,10 @@
 \chapter{Projeto Técnico}
 \label{cap:projet/home/alex-felipe/git/monografia-gostoudaaula/cap-conceitos-e-tecnologia.texo_tecnico}
 
+Neste capítulo são descritos os detalhes técnicos do desenvolvimento do projeto.
+A ideia é que o leitor possa reproduzir a implementação do sistema seguindo os
+passos descritos aqui.
+
 \section{Modelagem de banco de dados}
 \label{sec:modelagem_de_banco_de_dados}
 
@@ -15,12 +19,12 @@ Entidade Relacionamento, o qual é exibido pela Figura~\ref{fig:der}.
   \label{fig:der}.
 \end{figure}
 
-Cada entitidade e relacionamento possui determinadas peculiaridades que são
+Cada entidade e relacionamento possui determinadas peculiaridades que são
 descritas a seguir:
 
 \begin{itemize}
   \item \textbf{Usuário}: Refere-se a uma representação de um usuário qualquer
-  no sistema, essa é uma entidade abstrata, ou seja, exige uma especilização entre
+  no sistema, essa é uma generalização, ou seja, exige uma especilização entre
   a entidade \textbf{Professor} e \textbf{Aluno} que são os 2 tipos de usuários
   existentes na aplicação.
   \item \textbf{Professor}: Representa um professor dentro da aplicação.
@@ -53,7 +57,7 @@ ele já contém algumas facilidades, como por exemplo, escolher os menus de
 criação em um modo gráfico e simplesmente digitar as informações necessárias sem
 ao menos ficar escrevendo vários comandos.\\
 
-Para criar um projeto Maven no eclipse, basta clicar no menu ``File > New >
+Para criar um projeto Maven no Eclipse, basta clicar no menu ``File > New >
 Project\ldots'', então aparecerá a janela conforme a Figura~\ref{fig:projeto_filtro_maven}:
 
 \begin{figure}[H]
@@ -89,7 +93,7 @@ a Figura~\ref{fig:projeto_informacoes_maven} :
 Observe que agora é necessário adicionar algumas informações do Maven, que é
 justamente o \textit{\textbf{Group Id}}, \textit{\textbf{Artifact Id}},
 \textit{\textbf{Version}} e \textit{\textbf{Package}}. Cada uma das informações
-possuem uma grande importante para aplicação. As descrições de cada um desses
+possui uma grande importante para aplicação. As descrições de cada um desses
 itens estão disponíveis com detalhes no link disponibilizado na
 bibliografia~\cite{namingmaven}.\\
 
@@ -134,7 +138,7 @@ Além desses dois diretórios, para cada um deles, existem os subdiretórios
 \subsection{Utilizando módulos com Maven}
 \label{subsec:utilizando_modulos_com_maven}
 
-A arquitetura para o desenvolvimento da aplicação, foi planejado com a ideia da
+A arquitetura para o desenvolvimento da aplicação, foi planejada com a ideia da
 criação de módulos~\ref{subsubsec:modularizacao_de_projeto}. Para essa aplicação
 foram criados 3 módulos:
 
@@ -146,10 +150,10 @@ foram criados 3 módulos:
   configuração de conexão ao banco de dados.
 \end{itemize}
 
-Tendo conhecimento que cada projeto é independente um do outro, um dos pontos
-importantes é saber como eles se comunicam entre eles. No Maven, utilizamos o
+Tendo conhecimento de que cada projeto é independente um do outro, um dos pontos
+importantes é saber como eles se comunicam entre si. No Maven, utilizamos o
 conceito Parent e childs descritos na
-seção~\ref{subsec:parent_e_childs_com_maven}.
+Seção~\ref{subsec:parent_e_childs_com_maven}.
 
 \subsection{Parent e childs com Maven}
 \label{subsec:parent_e_childs_com_maven}
@@ -191,8 +195,8 @@ label={lst:adicao_de_parent}]
 \end{lstlisting}
 
 Quando um projeto Maven declara quem é o seu pai, todos os
-recursos e dependências do pai são herdados a ele, ou seja, suas dependências e
-arquivos de configurações. Porém, mesmo os módulos sendo filhos do mesmo pai,
+recursos e dependências do pai são herdados por ele, ou seja, suas dependências
+e arquivos de configurações. Porém, mesmo os módulos sendo filhos do mesmo pai,
 não significa que cada um tem acesso direto ao outro, para resolver isso basta
 adicionar os módulos necessários em cada projeto como uma
 dependência~\ref{subsubsec:gerenciamento_de_dependencia}.
@@ -200,15 +204,15 @@ dependência~\ref{subsubsec:gerenciamento_de_dependencia}.
 \section{Dependências de todos os módulos}
 \label{sec:dependencias_de_todos_os_modulos}
 
-Uma das grandes vantagens em utilizar o Maven é justamente pelo gerenciamento de
+Uma das grandes vantagens em utilizar o Maven é justamente o gerenciamento de
 dependência~\ref{subsubsec:gerenciamento_de_dependencia}. Visto na
-seção~\ref{subsec:utilizando_modulos_com_maven}, a aplicação é baseada em
-módulos que representam um projeto independemente, logo, cada um desses projetos possuem
-suas respectivas dependências, e serão disponibilizadas a seguir:
+Seção~\ref{subsec:utilizando_modulos_com_maven}, a aplicação é baseada em
+módulos que representam um projeto independemente, logo, cada um desses projetos
+possui suas respectivas dependências, exibidas a seguir.
 
 \begin{itemize}
   \item Dependências do projeto \textbf{parent}
-  exibidas no Código~\ref{lst:dependencias_parent}:
+  exibidas no Código~\ref{lst:dependencias_parent}.
   \begin{lstlisting}[caption = {Dependências do parent}, label =
   {lst:dependencias_parent}] 
   	<dependencies>
@@ -250,7 +254,7 @@ suas respectivas dependências, e serão disponibilizadas a seguir:
 	</dependencies>
   \end{lstlisting}
   \item Dependências do projeto \textbf{core}
-  exibidas no Código~\ref{lst:dependencias_core}:
+  exibidas no Código~\ref{lst:dependencias_core}.
   \begin{lstlisting}[caption = {Dependências do core}, label =
   {lst:dependencias_core}]
   	<dependencies>
@@ -287,7 +291,7 @@ suas respectivas dependências, e serão disponibilizadas a seguir:
 	</dependencies>  
   \end{lstlisting}
   \item Dependências do projeto \textbf{db} exibidas
-  no Código~\ref{lst:dependencias_db}:
+  no Código~\ref{lst:dependencias_db}.
   \begin{lstlisting}[caption = {Dependências do db}, label =
   {lst:dependencias_db}]
   	<dependencies>
@@ -348,7 +352,7 @@ suas respectivas dependências, e serão disponibilizadas a seguir:
 	</dependencies>
   \end{lstlisting}
   \item Dependências do projeto \textbf{web}
-  exibidas no Código~\ref{lst:dependencias_web}:
+  exibidas no Código~\ref{lst:dependencias_web}.
   \begin{lstlisting}[caption = {Dependências do web}, label = {lst:dependencias_web}] 
   	<dependencies>
 		<dependency>
@@ -579,8 +583,8 @@ O projeto web foi baseado na estrutura do Spring
 MVC~\ref{subsec:spring_framework}, porém, a configuração inicial é realizada
 dentro do arquivo ``src/main/webapp/views/web.xml'' que refere-se ao arquivo de
 configuração da estrutura de um projeto Java Web. Dentro desse arquivo temos a
-capacidade de configurar diversos comportamentos da aplicação, como por exemplo,
-quais Servlets~\ref{subsec:servlet_api} serão utilizadas, qual endereço HTTP
+possibilidade de configurar diversos comportamentos da aplicação, como por
+exemplo, quais Servlets~\ref{subsec:servlet_api} serão utilizadas, qual endereço HTTP
 será atendido dentre outros recursos. O web.xml desse
 projeto pode ser visualizado a partir do Código~\ref{lst:web.xml_app_web}:
 
@@ -631,11 +635,10 @@ label = {lst:web.xml_app_web}]
 \end{lstlisting}
 
 Essa configuração descreve qual será a Servlet do Spring que será utilizada,
-juntamente com a localização da mesma. Além disso, descreve a partir de
+juntamente com a localização dela. Além disso, descreve a partir de
 qual endereço o Spring atuará, nesse caso, pra todo endereço que fizer parte da
 ``/'' (qualquer endereço via HTTP) será atendido pelo Spring, por fim, a
-configuração de encoding que é justamente a formatação dos caracteres, para esse
-projeto, nesse caso, foi utilizado o UTF-8.\\
+configuração de encoding, nesse caso, UTF-8.\\
 
 Com o arquivo web.xml configurado, precisamos criar o arquivo de configuração do
 próprio Spring, que atuará como o projeto Spring MVC. Como visto no
@@ -679,8 +682,8 @@ label={lst:spring-mvc.xml_completo_da_app}]
 </beans>
 \end{lstlisting}
 
-O arquivo spring-mvc.xml concentra todas as configuração relacionadas ao Spring
-MVC, como por exemplo o Código~\ref{lst:configurando_mapeamento_de_paginas}:
+O arquivo spring-mvc.xml concentra todas as configurações relacionadas ao Spring
+MVC, como por exemplo o Código~\ref{lst:configurando_mapeamento_de_paginas}.
 
 \begin{lstlisting}[caption={configuração para o Spring mapear e acessar as
 páginas web com extensões .jsp~\cite{jsp}},
@@ -695,14 +698,14 @@ label={lst:configurando_mapeamento_de_paginas}]
 Além das configurações do Spring MVC, foram adicionadas as configurações de injeção de dependência~\ref{subsec:injecao_de_dependencia} do Spring
 Framework, JPA~\ref{subsec:jpa_java_persistence_api} e
 Hibernate~\ref{subsec:hibernate}. Cada configuração está contida em
-arquivos distintos dentro do mesmo diretório do arquivo spring-mvc.xml. Abaixo serão
-listado os arquivos com suas finalidades e conteúdo:
+arquivos distintos dentro do mesmo diretório do arquivo spring-mvc.xml. A seguir
+são listados os arquivos com suas finalidades e conteúdo:
 
 \begin{itemize}
   \item \textbf{spring-jpa-config.xml}: Todas as
   configurações relacionadas à configuração da JPA por meio da implementação do
-  hibernate e o HikariCP~\ref{subsec:hikari_cp}. Toda a configuração está
-  descrita no Código~\ref{lst:spring-jpa-config.xml_completo_da_app}:
+  Hibernate e o HikariCP~\ref{subsec:hikari_cp}. Toda a configuração está
+  descrita no Código~\ref{lst:spring-jpa-config.xml_completo_da_app}.
   \begin{lstlisting}[caption={spring-jpa-config.xml completo da aplicação web},
   label={lst:spring-jpa-config.xml_completo_da_app}]
 <?xml version="1.0" encoding="UTF-8"?>
@@ -769,9 +772,9 @@ listado os arquivos com suas finalidades e conteúdo:
 </beans>
   \end{lstlisting}
    \item \textbf{spring-flyway-config.xml}: Todas as
-  configurações relacionadas à integração do flyway~\ref{subsec:flyway} com o
+  configurações relacionadas à integração do Flyway~\ref{subsec:flyway} com o
   banco de dados. Toda a configuração está descrita no
-  Código~\ref{lst:spring-flyway-config.xml_completo_da_app}:
+  Código~\ref{lst:spring-flyway-config.xml_completo_da_app}.
   \begin{lstlisting}[caption={spring-flyway-config.xml completo da aplicação
   web}, label={lst:spring-flyway-config.xml_completo_da_app}]
 	<?xml version="1.0" encoding="UTF-8"?>
@@ -797,11 +800,11 @@ listado os arquivos com suas finalidades e conteúdo:
 	
 	</beans>
   \end{lstlisting}
-   \item \textbf{spring-ioc.xml}: Todas as configurações realacionadas a
+   \item \textbf{spring-ioc.xml}: Todas as configurações realacionadas à
    injeção de dependência~\ref{subsec:injecao_de_dependencia} aplicando o
    conceito de inversão de controle~\ref{subsec:inversao_de_controle}.
    Toda a configuração está descrita no
-   Código~\ref{lst:spring-ioc.xml_completo_da_app}:
+   Código~\ref{lst:spring-ioc.xml_completo_da_app}.
      \begin{lstlisting}[caption={spring-ioc.xml completo da aplicação
   web}, label={lst:spring-ioc.xml_completo_da_app}]
 	<beans xmlns="http://www.springframework.org/schema/beans"
@@ -837,8 +840,9 @@ listado os arquivos com suas finalidades e conteúdo:
 \subsection{Propriedades do projeto}
 \label{subsec:propriedades_do_projeto}
 
-Em alguns beans do Spring MVC, os valores foram atribuídos por meio expression
-language~\cite{el}, como por exemplo o bean do flyway~\ref{lst:bean_flyway}:
+Em alguns beans do Spring MVC, os valores foram atribuídos por meio de
+expression language~\cite{el}, como por exemplo o bean do
+Flyway, exibido no Código~\ref{lst:bean_flyway}:
 
 \begin{lstlisting}[caption={bean do flyway}, label={lst:bean_flyway}]
 <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
@@ -859,7 +863,7 @@ definido o caminho
 dentro do arquivo
 \textbf{spring-mvc.xml}~\ref{lst:spring-mvc.xml_completo_da_app}. Para definir o
 caminho basta apenas adicionar a tag \textbf{<context:property-placeholder />}
-informando o \textit{enconding} dos arquivos e a locatização de todos os
+informando o \textit{encoding} dos arquivos e a localização de todos os
 arquivos que serão lidos. Podemos ver uma demonstração utilizada nesse projeto a
 partir do Código~\ref{lst:property_placeholder}:
 
@@ -896,45 +900,45 @@ url = ${url}
 \subsection{Configurando flyway}
 \label{subsec:configurando_flyway}
 
-Além das definições realizadas pelo flyway, é necessária a existência de um
+Além das definições realizadas pelo Flyway, é necessária a existência de um
 arquivo SQL para que ele consiga gerenciar as migrations do banco de dados.
 Porém, no flyway, precisamos seguir uma convenção para que ele consiga gerenciar
 da forma adequada. Nesse projeto foi utilizado apenas um único arquivo com o
-seguinte nome \lstinline{V1__Criacao_tabelas_base.sql}.\\
+ nome \lstinline{V1__Criacao_tabelas_base.sql}.\\
 
 Note que o arquivo contém \textbf{V1} que indica a versão, nesse caso, é a
 versão 1, então é adicionado 2 \textit{underscores} e, em seguida, o nome do
-arquivo de uma forma bem verbosa, ou seja, explicando explicítamente o que ele
+arquivo de uma forma bem verbosa, ou seja, explicando explicitamente o que ele
 significa e por fim adicionando a extensão SQL.\\
 
 O conteúdo desses arquivos são instruções SQL, ou seja, toda a instrução contida
-nesse arquivo V1 será executada assim que o flyway for executado. Caso seja
+nesse arquivo V1 será executada assim que o Flyway for executado. Caso seja
 necessário algum tipo de modificação no banco de dados, basta criar um novo
-arquivo com somando 1 com a versão final, por exemplo, a versão atual é a 1, a
+arquivo somando 1 com a versão final, por exemplo, a versão atual é a 1, a
 próxima seria V2 e assim sucessivamente.\\
 
-Para esse projeto, todos esses arquivos do flyway precisam ser inseridos no
+Para esse projeto, todos esses arquivos do Flyway precisam ser inseridos no
 \textbf{classpath:db/migration}.
 
 \section{Estrutura do projeto web}
 \label{sec:estrutura_do_projeto_web}
 
-Nessa seção será exibida a forma como o projeto foi estruturado, ou melhor,
+Nessa seção será exibida a forma como o projeto foi
 organizado, como por exemplo, classes de controller, services, modelos entre
-demais entidades de grande importância dentro do projeto.
+demais entidades de grande importância.
 
 \subsection{Controllers do Spring}
 \label{subsec:controllers_do_spring}
 
 No projeto web, para inicializarmos a aplicação a partir de uma arquitetura
-MVC~\ref{subsec:mvc_model_view_controller} começamos pela criação de
+MVC~\ref{subsec:mvc_model_view_controller}, começamos pela criação de
 controllers. Nesse projeto, adicionamos todas as classes de controller no
 pacote: \textbf{br.com.gostoudaaula.controller}.\\
 
-Para criar uma classe que representa um controller, é recomendado a utilização
+Para criar uma classe que representa um controller, é recomendada a utilização
 da seguinte convenção: \textit{NomeDaClasseController}, ou seja, o nome da
-classe junto com o prefixo ~\textit{Controller}. Por exemplo, nesse projeto, o
-controller que representa a página de vísita, isto é, a página inicial foi
+classe junto com o sufixo ~\textit{Controller}. Por exemplo, nesse projeto, o
+controller que representa a página de visita, isto é, a página inicial foi
 denominado como \lstinline{SiteController}, podemos ver o seu conteúdo a partir
 do Código~\ref{lst:site_controller}:
 
@@ -980,15 +984,16 @@ a configuração do arquivo spring-mvc.xml~\ref{lst:spring-mvc.xml_completo_da_app
 \subsection{Services do Spring}
 \label{subsec:services_do_spring}
 
-No modelo MVC o controller é o responsável em receber as informações do
+
+No modelo MVC, o controller é o responsável por receber as informações do
 cliente, e então, delegar para um especialista, ou seja, uma classe capaz de
 realizar a tarefa solicitada. Teoricamente, se ele receber uma requisição para
-cadastrar algum objeto, significa que ele precisa passar a diante para uma
+cadastrar algum objeto, significa que ele precisa passar adiante para uma
 classe que faça a persistência de dados, ou então, se a requisição é para apenas
 validar dados, enviará para uma classe que faça isso.\\
 
 Mesmo sendo funcional, tal prática dentro de um controller não é recomendável,
-justamente pelo fato do controller ser \textbf{responsável em apenas delegar}.
+justamente pelo fato do controller ser \textbf{responsável por apenas delegar}.
 Em outras palavras, controllers não se comunicam diretamente com essas classes
 específicas, e sim, delegam tais tarefas para classes conhecidas como services.
 Dentro do Spring, os services são basicamente uma camada que fica entre a parte
@@ -1000,8 +1005,8 @@ turma.\\
 
 No Spring, para criarmos um service, seguimos a seguinte convenção:
 \textit{NomeDaClasseService}, ou seja, o nome da
-classe junto com o prefixo ~\textit{Service}. Nesse projeto, todas as services
-foram adicionadas no pacote \textbf{br.com.gostoudadaula.service}. Como exemplo,
+classe junto com o sufixo ~\textit{Service}. Nesse projeto, todos os services
+foram adicionados ao pacote \textbf{br.com.gostoudadaula.service}. Como exemplo,
 veremos o service \lstinline{TurmaService} a partir do
 Código~\ref{lst:turma_service}, que representa um service exclusivo da entidade
 turma:
@@ -1038,7 +1043,7 @@ public class TurmaService {
 }
 \end{lstlisting}
 
-Além do nome da classe ter o prefixo \textit{Service}, observe que também
+Além do nome da classe ter o sufixo \textit{Service}, observe que também
 precisamos adicionar a annotation \lstinline{@Service} para indicar ao Spring
 que essa classe será gerenciada por ele como um service. 
 
@@ -1051,20 +1056,20 @@ persistência de dados a partir da aplicação web.
 \subsection{Utilizando o Spring Data}
 \label{subsec:utilizando_o_spring_data}
 
-No projeto db, ao invés de utilizarmos classes com o design pattern DAO (Data
+No pacote db, ao invés de utilizarmos classes com o design pattern DAO (Data
 Access Object)~\cite{dao}, nesse projeto foi utilizado o conceito de
 repositories Spring Data~\cite{repositoriesspring}, a partir do módulo Spring
 Data~\ref{subsec:spring_data}. No Spring Data,
 repositories são representações de classes onde ocorre a persistência de
-dados. A princípio existe uma certa similiaridade com classes DAO, entretanto,
-no Spring Data, representamos um repository a partir de uma interface que
+dados. A princípio, existe uma certa similaridade com classes DAO, entretanto,
+no Spring Data, representamos um repository como uma interface que
 estende de classes fornecidas pelo Spring Data.\\
 
-A representação mais básica para um repository é a partir da classe
+A representação mais básica para um repository se dá por meio da classe
 \lstinline{CrudRepository<T,ID extends Serializable>}~\cite{crudrepository} que
-já contém métodos de CRUD (Create Read Update and Delete), ou seja, métodos que são bem comuns durante uma implementação de um
-DAO. A vantagem em utilizar esse tipo de abordagem é justamente o ganho em
-produtividade, pois, dessa forma, evitamos de ficar escrevendo diversas linhas
+já contém métodos de CRUD (Create, Read, Update and Delete), ou seja, métodos
+que são bem comuns em uma uma implementação de um DAO. A vantagem em utilizar
+esse tipo de abordagem é justamente o ganho em produtividade, pois, dessa forma, evitamos de ficar escrevendo diversas linhas
 de código que fazem rotinas em comum, como por exemplo, inserção de dados.\\
 
 Nesse projeto, adicionamos todos os repositories dentro do pacote
@@ -1092,9 +1097,9 @@ public interface RespostasRepository extends CrudRepository<Respostas, Long>{
 
 Nesse repository, representamos a interface que fará todas as transações com o
 banco de dados para a classe modelo \lstinline{Respostas}. Observe que no
-momento em que a interface é estendida, passamos dois valores como
-generics~\cite{generics}, que significa o tipo da classe que será persistida e o
-tipo do seu id. Nesse caso a classe \lstinline{Respostas} é a classe que será
+momento em que a interface é estendida, passamos dois tipos como
+generics~\cite{generics}, que são o tipo da classe que será persistida e
+o tipo do seu id. Nesse caso a classe \lstinline{Respostas} é a classe que será
 persistida e o \lstinline{Long} é o tipo do id da classe dentro do banco de
 dados.\\
 
@@ -1112,16 +1117,16 @@ atributo chamado ``data'' dentro da classe \lstinline{Respostas} com o tipo
 
 No projeto core, foram adicionadas todas as classes modelos, DTOs~\cite{dto},
 mixins do Jackson~\ref{subsec:jackson} e conversores. Em outras palavras, todas
-as classes que fazem parte da regra de negócio, isto é, da lógica do projeto,
-foram adicionadas nesse projeto.
+as classes que constituem a implementação das regras de negócio, isto é, da
+lógica do projeto, foram adicionadas nesse pacote.
 
 \subsection{Models}
 \label{subsec:models}
 
 Todas as classes modelos estão contidas
-no pacote \lstinline{br.com.gostoudaaula.model} onde cada classe representa uma
+no pacote \lstinline{br.com.gostoudaaula.model}. Cada uma delas representa uma
 entidade do sistema. Como por exemplo a classe \lstinline{Disciplina} a partir
-do Código~\ref{lst:model_disciplina}:
+do Código~\ref{lst:model_disciplina}.
 
 \begin{lstlisting}[caption={código da classe Disciplina},
 label={lst:model_disciplina}]
@@ -1175,8 +1180,8 @@ representação de uma disciplina no banco de dados do projeto.
 \label{subsec:dto}
 
 Todas as classes DTO estão contidas no pacote
-\lstinline{br.com.gostoudaaula.dto}. A partir dessas classes podemos transferir
-dados de uma forma diferente ao qual contemos em classes
+\lstinline{br.com.gostoudaaula.dto}. Utilizando-as podemos transferir
+dados de uma forma diferente daquela usada em classes
 models~\ref{subsec:models}, justamente para atender a uma necessidade que apenas
 o conteúdo contido em uma entidade não seja o suficiente. Nesse projeto, temos
 apenas a classe \lstinline{PeriodoDTO} como exemplo, podemos ver o seu conteúdo
@@ -1258,9 +1263,9 @@ para transferirmos dados.
 
 Todos os mixins estão contidos no pacote
 \lstinline{br.com.gostoudaaula.json.mixins}. Mixins são classes auxiliares
-durante a serialização de um objeto a partir da biblioteca do Jackson. A partir
-dos mixins, podemos limitar os atributos que serão serializados em qualquer tipo
-de classe, ou seja, caso algum tipo de atributo seja delicado, como por exemplo,
+para a serialização de um objeto usando a biblioteca do Jackson. Usando
+mixins, podemos limitar os atributos que serão serializados em qualquer tipo de classe, 
+ou seja, caso algum tipo de atributo seja delicado, como por exemplo,
 uma senha, ou então, quaisquer atributos que não podem ser visualizados durante
 a serialização da classe.\\
 
@@ -1411,13 +1416,13 @@ Note que ambas as classes possuem uma referência uma da outra. Durante o
 processo de serialização esse tipo de referência pode ser problemático, pois,
 nesse exemplo, se um objeto \textbf{X} do tipo \lstinline{Projeto} possuir a
 referência para um objeto \textbf{Y} do tipo \lstinline{Questoes} e, esse mesmo
-objeto \textbf{Y} tiver uma referência para o objeto \textbf{X} fará com que o
-processo de serialização entre num estado chamado de circular reference, que é
+objeto \textbf{Y} tiver uma referência para o objeto \textbf{X}, isso fará com
+que o processo de serialização entre num estado chamado de circular reference, que é
 justamente um looping infinito durante a serialização.\\ 
 
 Para resolver esse problema, foram utilizados os mixins conforme o exemplo
-exibido a partir do da classe
-\lstinline{QuestoesMixIn}~\ref{lst:questoes_mixin}:
+exibido usando a classe \lstinline{QuestoesMixIn} exibida no Código
+~\ref{lst:questoes_mixin}.
 
 \begin{lstlisting}[caption={código da classe QuestoesMixIn},
 label={lst:questoes_mixin}]
@@ -1471,7 +1476,8 @@ servem apenas para conversão de dados que utilizam padrões diferentes. Como
 exemplo, a data no Brasil que utiliza o padrão \textbf{dd/mm/yyyy}, sendo que,
 o padrão internacional é \textbf{yyyy-mm-dd}. Nesse projeto convertemos o tipo
 dos atributos para datas das classes models~\ref{subsec:models}, ou seja, para
-um tipo suportado pelo banco de dados. Nesse caso da classe \lstinline{Localdate} para \lstinline{Date}. Podemos ver a implementação desse converter a partir da classe
+um tipo suportado pelo banco de dados. Nesse caso da classe \lstinline{Localdate} para \lstinline{Date}. 
+Podemos ver a implementação desse converter na classe
 \lstinline{DateConverter}~\ref{lst:date_converter}:
 
 
@@ -1505,12 +1511,12 @@ public class DateConverter implements AttributeConverter<LocalDate, Date> {
 
 \section{Utilização do Web Services REST}
 
-A partir do Spring MVC, podemos fazer com que os controllers também atuem como
-um Web Service utilizando a arquitetura REST~\ref{subsubsec:rest}.
+Usando o Spring MVC, podemos fazer com que os controllers também atuem como
+um web service utilizando a arquitetura REST~\ref{subsubsec:rest}.
 Para isso basta apenas fazer uso da biblioteca de serialização do Jackson. Por
 exemplo, dentro do controller
 \lstinline{ProfessorController} temos o método
-\lstinline{getTurmas}~\ref{lst:metodo_getturmas}:
+\lstinline{getTurmas}~\ref{lst:metodo_getturmas}.
 
 \begin{lstlisting}[caption={método getTumas do ProfessorController},
 label={lst:metodo_getturmas}]
@@ -1541,89 +1547,91 @@ Observe que esse método devolve a classe \lstinline{ResponseEntity<T>} que é uma
 API do Spring para respondermos requisições com qualquer tipo de objeto. Dessa
 forma, podemos fazer com que qualquer objeto seja devolvido como um documento
 JSON. Portanto, ao utilizarmos essa classe, estabelecemos um mecanismo de
-comunicação via JSON via o protocolo HTTP.\\
+comunicação com dados representados utilizando JSON e transferidos por meio do
+protocolo HTTP.\\
 
 Além disso, nesse projeto, para toda utilização da classe
-\lstinline{ResponseEntity}, foi devolvida apenas de String. Em
-outras palavras, ao invés de deixar o Spring responsável em converter objetos
+\lstinline{ResponseEntity}, o tipo de retorno é sempre String. Em
+outras palavras, ao invés de deixar o Spring responsável por converter objetos
 para JSON, preferimos realizar esse procedimento manualmente, portanto, em todos
-os métodos que utilizamos para esse tipo de comunicação, desenvolvemos Strings,
+os métodos que utilizamos para esse tipo de comunicação, devolvemos Strings,
 que representam o arquivo JSON já configurado. O principal motivo para essa
 escolha é justamente pela questão de utilizar os mixins do
-jackson~\ref{subsec:mixins_do_jackson} para evitar o problema da referência
+Jackson~\ref{subsec:mixins_do_jackson} para evitar o problema da referência
 circular.
 
 \section{Utilização da plataforma openshift}
 \label{sec:utilizacao_da_plataforma_openshift}
 
-Para distribuir a aplicação, utilizamos o Openshift da Red
-Hat~\ref{subsec:openshift}. Justamente pela questão de funcionar em uma
+Para implantar a aplicação, utilizamos o Openshift da Red
+Hat~\ref{subsec:openshift}, justamente pela questão de funcionar em uma
 arquitetura baseada em computação nas nuvens. Portanto, não temos a necessidade
 de conhecer a infraestrutura do servidor(es) que funciona(m) por de trás dos
 panos.\\
 
 Além de não ter que se preocupar em configurar uma infraestrutura
 capaz para manter uma aplicação Java Web funcionando, também temos alguns
-benefícios a mais ao utilizar o openshift.
+benefícios a mais ao utilizar o Openshift.
 
 \begin{itemize}
-  \item \textbf{Custo}: Podemos criar até 3 aplicações em um plano gratuito onde
+  \item \textbf{Custo}: Podemos criar até 3 aplicações em um plano gratuito que
   não exige um cartão de crédito.
   \item \textbf{Estrutura do projeto}: Para aplicações Java Web, o
-  openshift utiliza a estrutura de projeto do Maven~\ref{subsec:maven}. Dessa
+  Openshift utiliza a estrutura de projeto do Maven~\ref{subsec:maven}. Dessa
   forma, podemos utilizar o nosso próprio projeto sem a necessidade de diversas
   configurações a mais.
   \item \textbf{Realização do deploy via Git}: Para a distribuição da aplicação,
-  o openshift utiliza o git~\ref{subsec:git}.
+  o Openshift utiliza o git~\ref{subsec:git}.
 \end{itemize}
 
 \subsection{RHC} 
 
-A integração do cliente (desenvolvedor) com a plataforma do openshift, é por
+A integração do cliente (desenvolvedor) com a plataforma do Openshift, se dá por
 meio da ferramenta de linha de comando rhc que pode ser instalada em diversos
 sistemas operacionais. O link de instalação está disponibilizado na
 bibliografia~\cite{instalacaorhc}.\\
 
-A partir do momento em que realiza a instalação do rhc, o openshift gera uma
-chave pública com o protocolo SSH~\cite{ssh} que vincula com a conta do
-openshift. Dessa forma, é possível realizarmos qualquer interação com a
-plataforma, como por exemplo, o download da aplicação que foi criada, ou então,
+A partir do momento em que realiza a instalação do rhc, o Openshift gera uma
+chave pública com o protocolo SSH~\cite{ssh} que fica vinculado à conta. Dessa
+forma, é possível realizarmos qualquer interação com a plataforma, como por exemplo, 
+o download da aplicação que foi criada, ou então,
 a criação de aplicações utilizando o terminal.
 
 \subsection{Configuração da aplicação dentro do openshift}
 \label{subsec:configuracao_da_aplicacao_dentro_do_openshift}
 
-Dentro da plataforma do openshift, podemos criar diversas aplicações a partir do seu
-console~\cite{consoleopenshift} com o link disponibilizado a partir da
+Dentro da plataforma do Openshift, podemos criar diversas aplicações a partir do seu
+console~\cite{consoleopenshift} com o link disponibilizado na
 bibliografia. Cada aplicação pode ser composta por um tipo de container, que é
 justamente o servidor que manterá a aplicação funcionando. Para esse projeto,
-foi utilizado o servidor de aplicação Tomcat~\cite{tomcat}. Além do Tomcat, foi
-necessário a utilização de um banco de dados e uma interface gráfica para seu
+foi utilizado o Servlet container Tomcat~\cite{tomcat}. Além do Tomcat, foi
+necessária a utilização de um banco de dados e uma interface gráfica para seu
 acesso. Sendo mais preciso, foram utilizadas as seguintes especificações para o
-projeto do openshift:
+projeto do Openshift.
 
 \begin{itemize}
-  \item \textbf{Tomcat 7}: Servidor de aplicação.
+  \item \textbf{Tomcat 7}: Servlet container.
   \item \textbf{MySQL 5.5}: Banco de dados.
-  \item \textbf{phpMyAdmin 4.0}: Interface gráfica ao banco de dados.
+  \item \textbf{phpMyAdmin 4.0}: Interface gráfica para acesso ao banco de
+  dados.
 \end{itemize}
 
-\subsection{Download e Deploy da aplicação}
+\subsection{Download e implantação da aplicação}
 \label{subsec:download_e_deploy_da_aplicacao}
 
-Após a criação da aplicação, dentro do console do openshift, é disponibilizado
+Após a criação da aplicação, dentro do console do Openshift, é disponibilizado
 um endereço em SSH para a realização do download do projeto. O download é
-realizado por meio do git~\ref{subsec:git}, para isso, dentro de um prompt de
-comando no windows ou um terminal em sistemas Linux ou Mac OSX, basta apenas
-utilizar o comando \lstinline{git clone link_ssh_do_projeto}. A partir da
-execução desse comando, será realizado o donwload no diretório em que
-executar.\\
+realizado por meio do git~\ref{subsec:git}. Para isso, dentro de um prompt de
+comando no Windows ou um terminal em sistemas Linux ou Mac OSX, basta apenas
+utilizar o comando \lstinline{git clone link_ssh_do_projeto}. Com a
+execução desse comando, será realizado o donwload no diretório em que o
+terminal estiver atualmente.\\
 
 Se o projeto tiver as mesmas configurações citadas na
-seção~\ref{subsec:configuracao_da_aplicacao_dentro_do_openshift}, será um
-projeto maven com algumas configurações dentro do \textbf{pom.xml} necessárias
-para que seja possível realizar o deploy da aplicação. Além disso, dentro da
-pasta do projeto baixado, contém 2 diretórios ocultos:
+Seção~\ref{subsec:configuracao_da_aplicacao_dentro_do_openshift}, ele será um
+projeto Maven com algumas configurações dentro do \textbf{pom.xml} necessárias
+para que seja possível realizar a implantação da aplicação. Além disso, dentro
+da pasta do projeto, há 2 diretórios ocultos, como a seguir.
 
 \begin{itemize}
   \item \textbf{.openshift}: arquivos de configuração do projeto dentro da
@@ -1633,13 +1641,13 @@ projeto.
 \end{itemize} 
 
 Em outras palavras, após o momento em que realizamos o download, precisamos,
-pelo menos, manter esses diretórios ocultos para que consigámos realizar a
-distribuição do projeto. Para o deploy do projeto, é necessário apenas fazer o
-procedimento normal de push do git~\cite{pushgit}. Durante o processo de deploy,
-o openshift executa diversas rotinas que chegam a reiniciar o serviço que mantém
-a aplicação ativa, portanto, é sempre interessante analisar melhores horários
-para realizar o deploy da aplicação, justamente para não impactar a experiência
-de todos os clientes que consomem a aplicação.\\
+pelo menos, manter esses diretórios ocultos para que consigamos realizar a
+distribuição do projeto. Para a implantação do projeto, é necessário apenas
+fazer o procedimento normal de push do git~\cite{pushgit}. Durante o processo de
+implantação, o Openshift executa diversas rotinas que chegam a reiniciar o
+serviço que mantém a aplicação ativa, portanto, é sempre interessante analisar melhores horários
+para realizar a implantação da aplicação, justamente para não impactar a
+experiência de todos os clientes que consomem a aplicação.\\
 
 \section{Estrutura do projeto Android}
 \label{sec:estrutura_do_projeto_android}
@@ -1648,26 +1656,27 @@ Embora o núcleo da aplicação tenha sido desenvolvido como um projeto Java Web em
 um servidor na nuvem, a interface gráfica do usuário, também conhecida,
 tecnicamente, como GUI (Graphical User Interface), foi desenvolvida para
 dispositivos móveis que operam com o sistema operacional Android~\cite{android}. Para esse projeto,
-utilizamos a ferramenta Android Studio~\ref{subsec:android_studio} que é
+utilizamos o IDE Android Studio~\ref{subsec:android_studio} que é
 disponibilizada gratuitamente no site de desenvolvedores
 Android~\cite{android_developers}.\\
 
-Para qualquer projeto desenvolvido em cima do Android Studio, é criado e
-gerenciado pelo Gradle~\ref{subsec:gradle}. A partir dele podemos realizar
+Qualquer projeto desenvolvido usando o Android Studio é criado e
+gerenciado pelo Gradle~\ref{subsec:gradle}. Usando ele podemos realizar
 qualquer tipo de configuração necessária para o projeto, como por exemplo,
 definir a versão mínima e máxima do Android, adicionar ou remover dependências
 entre demais configurações mais avançadas que não serão vistas nesse documento,
-entretanto, podem ser consultadas no link~\cite{gradle_android} disponibilizado
-na bibliografia.
+que podem, entretanto, ser consultadas no link~\cite{gradle_android}
+disponibilizado na bibliografia.
 
 \subsection{Versão do Android}
 \label{subsec:versao_do_android}
 
 Durante a criação do projeto Android é necessária a escolha da versão mínima que
-a App estará funcionará. Para esse projeto,
+a aplicação requer. Para esse projeto,
 escolhemos a versão mínima \textbf{sugerida do Android Studio} que é a
 \textbf{API 15:
-Android 4.0.3 (IceCreamSandwish)} com 97,4\% dos dispositivos ativos da play store comforme a figura~\ref{fig:janela_config_minima_android}
+Android 4.0.3 (IceCreamSandwish)} com 97,4\% dos dispositivos ativos no Google
+Play, como mostra a Figura~\ref{fig:janela_config_minima_android}.
 
 \begin{figure}[H]
   \centering
@@ -1675,18 +1684,17 @@ Android 4.0.3 (IceCreamSandwish)} com 97,4\% dos dispositivos ativos da play sto
   \caption{Janela de configuração mínima do Android Studio}
   \label{fig:janela_config_minima_android}.
 \end{figure}
-
+pi
 \subsection{Dependências do projeto Android}
 \label{subsec:dependencias_do_projeto_android}
 
 Embora as APIs disponibilizadas nativamente pelo SDK (Software Development Kit)
-do Android, já resolvam diversos problemas dentro de um projeto Android, a
-utilização das mesmas nem sempre é tão preferível, justamente pela falta de
-facilidade durante a implementação. Pensando justamente nesse ponto entre
-outros, foi necessária a utilização de bibliotecas externas, ou melhor,
-dependências do projeto, para o desenvolvimento da App ser mais eficaz. Todas as
-dependências do projeto foram adicionadas e gerenciadas pelo Gradle a partir do
-arquivo \textbf{build.gradle} no nível da App. O
+do Android já resolvam diversos problemas dentro de um projeto Android, a
+utilização delas nem sempre é preferível, justamente pela falta de
+facilidade durante a implementação. Pensando justamente nesse ponto, optamos
+pelo uso de bibliotecas externas, ou melhor, dependências do projeto. Todas as dependências do projeto foram 
+adicionadas e gerenciadas pelo Gradle, que as encontra por meio do
+arquivo \textbf{build.gradle} localizado no módulo app. O
 Código~\ref{lst:dependencias_android} lista todas as dependências utilizadas:
 
 \begin{lstlisting}[caption={Dependências do projeto Android},
@@ -1703,7 +1711,7 @@ dependencies {
 }
 \end{lstlisting}
 
-O Objetivo de cada dependencia é explicado na lista abaixo:
+O objetivo de cada dependência é explicado na lista a seguir.
 
 \begin{itemize}
   \item \textbf{com.github.lecho:hellocharts-library:1.5.8@aar} Criação de
@@ -1722,10 +1730,10 @@ O Objetivo de cada dependencia é explicado na lista abaixo:
 
 Embora a App contenha diversas funcionalidades diferentes, muitas delas são bem
 comuns dentro de um projeto de desenvolvimento de software, como por exemplo, o
-login, a listagem aulas, disciplinas, matérias e até mesmo a listagem das
+login, a listagem de aulas, disciplinas, matérias e até mesmo a listagem das
 avaliações de cada aula. Entretanto, existem algumas funcionalidades que são um
 pouco mais complexas e que exigiram um pouco mais de atenção durante o
-desenvolvimento. Como por exemplo, a funcionalidade que permite o aluno a
+desenvolvimento. Como por exemplo, a funcionalidade que permite ao aluno
 avaliar uma avaliação independentemente da quantidade de perguntas que uma
 avaliação contenha, e também, a geração do gráfico para o resultado final da
 avaliação.
@@ -1736,8 +1744,8 @@ avaliação.
 O objetivo principal dentro do projeto Android é permitir que cada
 aluno consiga realizar a avaliação de uma aula. Mesmo parecendo um problema
 trivial, essa funcionalidade exige alguns cuidados, pois em um cenário mais
-complexo, ou seja, onde podemos conter diversas perguntas para uma avaliação,
-provavelmente, não é recomendado a utilização de uma única
+complexo, por exemplo, onde existam diversas perguntas para uma
+avaliação, provavelmente não é recomendada a utilização de uma única
 Activity~\cite{android_activity}, pois podemos ter uma única tela enorme que
 pode confundir o aluno durante o processo de avaliação, ou então, fazendo com
 que ele esqueça de avaliar alguma questão.\\
@@ -1745,11 +1753,11 @@ que ele esqueça de avaliar alguma questão.\\
 Pensando nessa questão, uma maneira mais conveniente de solucionar
 esse problema é justamente criar uma tela exclusiva para cada questão.
 Entretanto, uma Activity para cada questão é mais problemático ainda, pois o
-custo computacional, ou melhor, a exigência em performance e memória do celular
+custo computacional, ou melhor, a exigência em desempenho e memória do celular
 será enorme. Considerando essa situação, a recomendação da Google é a utilização
 de Fragments~\cite{android_fragments}. Portanto, para essa funcionalidade, foi
 utilizada a classe \lstinline{QuestoesFragment} do pacote
-\textbf{br.com.gostoudaaula.fragment} que é exibida a partir do
+\textbf{br.com.gostoudaaula.fragment} que é ilustrada pelo
 Código~\ref{lst:classe_questoesfragment}.
 
 \begin{lstlisting}[caption={Classe QuestoesFragment},
@@ -1861,12 +1869,12 @@ public class QuestoesFragment extends Fragment {
 }
 \end{lstlisting}
 
-A partir desse Fragment é possível exibir todas as questões, sendo que,
-cada uma delas, tenham uma tela exclusiva sem que aja a necessidade de iniciar
-novas activities, independemente da quantidade de questões que serão
+Esse Fragment exibe todas as questões, sendo que,
+cada uma delas, tem uma tela exclusiva sem  a necessidade de iniciar
+novas activities, independentemente da quantidade de questões que serão
 respondidas. As partes principais para que esse Fragment funcione da forma
 esperada são os métodos \lstinline{setup()}, \lstinline{responde()},
-\lstinline{insereResposta()} que contém as seguintes responsabilidades:
+\lstinline{insereResposta()} que possuem as seguintes responsabilidades:
 
 \begin{itemize}
   \item \textbf{setup()}: Inicializar o estado atual da questão atual junto com
@@ -1887,8 +1895,8 @@ O objetivo de cada avaliação é permitir a extração de um resultado sobre o que
 foi avaliado, como por exemplo, saber quais foram as notas de uma aula. Existem
 diversas formas de representar o resultado de uma avaliação, desde texto a
 representações visuais como diagramas ou gráficos. Para esse projeto, foi
-utilizada uma representação em gráfico torre onde podemos ver um exemplo a
-partir da Figura~\ref{fig:grafico_app_android}.
+utilizada uma representação em gráfico torre do qual podemos ver um exemplo na
+Figura~\ref{fig:grafico_app_android}.
 
 \begin{figure}[H]
   \centering
@@ -1898,10 +1906,10 @@ partir da Figura~\ref{fig:grafico_app_android}.
 \end{figure}
 
 Observe que o gráfico mostra a quantidade total de notas independentemente da
-pergunta que foi respondida, ou seja, se uma avaliação conter 3 questões, e
+pergunta que foi respondida, ou seja, se uma avaliação contiver 3 questões, e
 apenas um único aluno responder, serão computadas 3 questões, se forem 2 alunos
-6 questões e assim sucessivamente. Em outras palavras, para esse gráfico, o
-total de respostas a serem computadas dependerá da quantidade de questões da
+teremos 6 questões e assim sucessivamente. Em outras palavras, para esse
+gráfico, o total de respostas a serem computadas dependerá da quantidade de questões da
 avaliação e a quantidade de alunos que avaliarem, isto é, quantidade de questões
 multiplicada pela quantidade de alunos.\\
 
@@ -1917,15 +1925,15 @@ de uma forma rápida baseada na quantidade de notas, por exemplo:
   \item \textbf{notas de 7 a 10}: Indicam que o feedback foi \textbf{positivo}.
 \end{itemize}
 
-Também é válido notar que ambos todos os agrupamentos possuem cores específicas,
-ou melhor, para resultados negativos representamos com a cor vermelha, normais
-amarelo e positivos verde. O principal motivo por diferenciar cada coluna com
+Também é interessante notar que todos os agrupamentos possuem cores
+específicas, ou seja, resultados negativos representamos com a cor
+vermelha, normais amarelo e positivos verde. O principal motivo por diferenciar cada coluna com
 uma cor específica é para facilitar, visualmente, a identificação do resultado
 final da avaliação da aula, em outras palavras, verificar se a aula foi boa,
 normal ou ótima.
 
 Embora a representação do resultado da forma que está atualmente não seja tão
-preciso, ou melhor, não passa o feedback exato sobre a qual questão cada
+precisa, ou melhor, não passa o feedback exato sobre qual questão cada
 resposta representa, é possível obtermos o feedback geral sobre o conjunto, ou
 seja, a partir desse gráfico, o professor é capaz de compreender que a aula,
 \textbf{em geral}, foi boa ou ruim, independemente de onde ele teve melhor

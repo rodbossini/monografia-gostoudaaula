@@ -1,6 +1,6 @@
-\backcite {jbmonteiro:12}{{xi}{(document)}{Doc-Start}}
-\backcite {jbmonteiro:12}{{xi}{(document)}{Doc-Start}}
-\backcite {jsp}{{xv}{(document)}{Doc-Start}}
+\backcite {jbmonteiro:12}{{xiii}{(document)}{Doc-Start}}
+\backcite {jbmonteiro:12}{{xiii}{(document)}{Doc-Start}}
+\backcite {jsp}{{xvii}{(document)}{Doc-Start}}
 \backcite {annotations}{{7}{2.1.4.3}{lstnumber.2.5.16}}
 \backcite {http}{{7}{2.1.6}{subsection.2.1.6}}
 \backcite {xml}{{7}{2.1.6}{subsection.2.1.6}}
@@ -44,7 +44,7 @@
 \backcite {android_activity}{{53}{3.12.1}{subsection.3.12.1}}
 \backcite {android_fragments}{{53}{3.12.1}{subsection.3.12.1}}
 \backcite {hellocharts}{{57}{3.12.3}{subsection.3.12.3}}
-\backcite {material_design}{{65}{6}{chapter.6}}
-\backcite {retrofit}{{65}{6}{chapter.6}}
-\backcite {eventbus}{{65}{6}{chapter.6}}
-\backcite {push_notification}{{65}{6}{chapter.6}}
+\backcite {material_design}{{63}{5}{chapter.5}}
+\backcite {retrofit}{{63}{5}{chapter.5}}
+\backcite {eventbus}{{63}{5}{chapter.5}}
+\backcite {push_notification}{{63}{5}{chapter.5}}

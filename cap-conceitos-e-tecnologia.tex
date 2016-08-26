@@ -38,28 +38,32 @@ dados, além de diferentes restrições, como chaves primárias e estrangeiras.
 \label{subsec:sql_e_algebra_relacional}
 
 Structured Query Language (linguagem de consulta estruturada) é uma linguagem de
-pesquisa padrão para banco de dados relacionais, onde permite a comunicação com
+pesquisa padrão para banco de dados relacionais que permite a comunicação com
 um banco de dados para a realização de consultas simples ou com álgebra
-relacional. A álgebra relacional é uma teoria onde é representada,
+relacional. A álgebra relacional é uma teoria que representa,
 matematicamente, a forma como podemos manipular as consultas realizadas
-utilizando o SQL, como por exemplo, mencionar quais são os atributos e filtros que necessários com o intuito de devolver o resultado
-esperado.
+utilizando o SQL, como por exemplo, mencionar quais são os atributos e filtros necessários com o intuito
+de devolver o resultado esperado. Veja como exemplo a
+Equação~\ref{eq:algebra_relacional}. Nela, o operador~$\sigma$ atua sobre a
+relação Empregado, aplicando o filtro~$id = 1$, o que quer dizer que somente as
+tuplas com essa propriedade fazem parte da relação obtida.
 
 \begin{equation}
 	\sigma_{id = 1} (Empregado)
+	\label{eq:algebra_relacional}
 \end{equation}
 
 \subsection{Orientação a objetos}
 \label{subsec:orientacao_a_objetos}
 
 O paradigma de POO (programação orientada a objetos) é um modelo para o
-desenvolvimento de software ao qual utilizamos unidades chamadas de
+desenvolvimento de software em que utilizamos unidades chamadas de
 objetos. Esse paradigma nos permite modelar um sistema
 computacional por meio desses objetos que representam todas as entidades
 contidas no sistema que, por sua vez, refletem as características de um
-objeto da vida real para a aplicação, como por exemplo, na modelagem
-dessa aplicação, foi necessário modelar a entidade aula que representa uma aula
-da vida real que compõe um aluno, um professor e qualquer outra informação que seja necessária
+objeto da vida real para a aplicação. Na modelagem
+da aplicação proposta neste trabalho, por exemplo, foi necessário modelar a
+entidade aula que representa uma aula da vida real que compõe um aluno, um professor e qualquer outra informação que seja necessária
 para essa entidade.
 
 Os objetos dessas entidades são identificados como classes que possuem estados
@@ -130,8 +134,8 @@ class CalculadoraDeBonus {
 
 class Funcionario {
 
-	double salario;
-	double bonus;
+	private double salario;
+	private double bonus;
 	
 	double getBonus(){
 		bonus = new CalculadoraDeBonus().calcularBonus(this.salario);
@@ -182,8 +186,8 @@ dela, podemos criar classes filhas de uma classe. Quando dizemos que uma classe
 é filha de outra, significa que a classe filha herda todos os atributos e
 métodos da classe mãe, ou seja, ela possuirá o mesmo comportamento que sua
 classe mãe, porém, ela também terá os seus próprios comportamentos. Por exemplo,
-na aplicação, foi realizada a abstração de um usuário qualquer no sistema, o
-resultado obtido dessa abstração foi a classe \lstinline{Usuario} conforme o
+na aplicação proposta, foi realizada a abstração de um usuário qualquer no
+sistema, o resultado obtido dessa abstração foi a classe \lstinline{Usuario} conforme o
 Código~\ref{lst:classe_usuario}:
 
 \begin{lstlisting}[caption={Exemplo de uma classe que representa um usuário no
@@ -202,18 +206,18 @@ public class Usuario {
 
 Como podemos ver, essa classe pode representar qualquer usuário dentro da
 aplicação. Porém, nessa aplicação, existem 2 tipos de usuários, que são os
-alunos e professores, que consequentemente, possuem comportamentos diferentes no
+alunos e professores que, consequentemente, possuem comportamentos diferentes no
 sistema, mas, além de suas diferenças, eles possuem semelhanças que são os
 atributos id, senha, nome, sobrenome ou qualquer outro tipo de comportamento ou
 estado que é esperado de qualquer usuário. 
 
 Temos diversas formas de resolver essa distinção dentro de um sistema
-computacional, porém, uma das soluções possíveis e sofisticada dentro da orientação a objetos, é fazer com que a classe
-\lstinline{Professor} e \lstinline{Aluno} herdem da classe \lstinline{Usuario},
-pois, dessa forma, faremos com que ambas possuam os mesmo comportamentos de um
+computacional, porém, uma das soluções possíveis e sofisticadas dentro da
+orientação a objetos, é fazer com que as classes \lstinline{Professor} e
+\lstinline{Aluno} herdem da classe \lstinline{Usuario}, pois, dessa forma, faremos com que ambas possuam os mesmo comportamentos de um
 usuário qualquer, mas, que cada uma tenha o seu próprio comportamento dentro da
 aplicação. Para fazer com que uma classe herde de outra, basta utilizar a
-instrução \lstinline{extends}, onde é possível visualizar o exemplo a partir do
+instrução \lstinline{extends}, exemplificada pelo 
 Código~\ref{lst:heranca_usuario_aluno_professor}:
 
 \begin{lstlisting}[caption={Exemplo de como criamos classes filhas utilizando a
@@ -262,7 +266,8 @@ diferente ao qual um usuário qualquer use.\\
 Para que isso seja
 possível, ou seja, utilizar a mesma assinatura de método
 (\lstinline{cadastrarSenha(String senha)}) para com um comportamento diferente,
-reescrevemos o método da classe \lstinline{Usuario} (classe mãe) dentro da classe \lstinline{Professor} (classe filha) e adicionamos o comportamento específico e esperado daquele método para a classe \lstinline{Professor}, veja o exemplo a partir do
+reescrevemos o método da classe \lstinline{Usuario} (classe mãe) dentro da classe \lstinline{Professor} (classe filha) e adicionamos o
+ comportamento específico e esperado daquele método para a classe \lstinline{Professor}, veja o exemplo a partir do
 Código~\ref{lst:usuario_professor_polimorfismo}:
 
 \begin{lstlisting}[caption={Exemplo de polimorfismo da classe filha Professor e
@@ -301,13 +306,13 @@ que um programador tem ao desenvolver um sistema que exija uma comunicação
 constante com o banco de dados, pois ele não precisa obter um alto conhecimento
 de SQL ou banco de dados para conseguir realizar consultas, persistências,
 alterações dados ou qualquer tipo de ação que o banco de dados e a aplicação
-terão. A aplicação desse conceito no Java, é descrita com mais na seção
+terão. A aplicação desse conceito no Java, é descrita com mais detalhes na Seção
 ~\ref{subsec:jpa_java_persistence_api}.
 
 \subsection{Web Services}
 \label{subsec:web_services}
 
-Os serviços na web é uma solução muito utilizada no mercado para permitir que
+Um web service é uma solução muito utilizada no mercado para permitir que
 diversas aplicações, independentemente da plataforma em que foram desenvolvidas,
 consigam se comunicar com o sistema via um protocolo de rede em comum, como
 por exemplo o HTTP~\cite{http}. Essa comunicação é permitida devido ao tipo de
@@ -321,9 +326,9 @@ conhecidos por API (Application Programmer Interface).
 \label{subsubsec:rest}
 
 Representational State Transfer (REST), no português Transferência de Estado
-Representacional, é uma abstração arquiteturial para comunicação na Web
-frequentemente utilizada em Web Services~\ref{subsec:web_services}. Uma de suas
-aplicações dentro de um Web Services é a distribuição de APIs. Essa arquitetura
+Representacional, é uma abstração arquitetural para comunicação na Web
+frequentemente utilizada em web services~\ref{subsec:web_services}. Uma de suas
+aplicações dentro de um web service é a distribuição de APIs. Essa arquitetura
 utiliza o protocolo de comunição HTTP e utiliza como notação comum para
 transferência de dados tanto o XML como JSON.
 
@@ -334,9 +339,9 @@ Segundo o relatório do International Data Corporation (IDC) publicado
 em maio de 2012, o Android possui 59\% do mercado de smartphones e soma
 a quantia de 89,9 milhões de aparelhos distribuídos apenas no primeiro tri-
 mestre deste ano (2012), em todo o mundo. Em segundo lugar, aparece o iOS
-que é o sistema operacional do Apple iPhone. O gráfico 1.1 demonstra a par-
-ticipação no mercado dos principais sistemas operacionais e a quantidade de
-aparelhos distribuídos.
+que é o sistema operacional do Apple iPhone. O
+gráfico~\ref{fig:grafico_android_2012} demonstra a participação no mercado dos
+principais sistemas operacionais e a quantidade de aparelhos distribuídos.
 
 \begin{figure}[H]
   \centering
@@ -347,7 +352,7 @@ aparelhos distribuídos.
 
 O IDC também prevê que, em 2016, o Android ainda possuirá a maior
 fatia do mercado, com 52,9\%. A disputa pelo segundo lugar será acirrada
-entre iOS e Windows Phone 7. A ~\ref{fig:grafico_android_2012} ilustra a
+entre iOS e Windows Phone 7. A Figura ~\ref{fig:grafico_android_2016} ilustra a
 previsão realizada pelo IDC.
 
 \begin{figure}[H]
@@ -360,16 +365,15 @@ previsão realizada pelo IDC.
 
 Já no mercado de tablets, o iPad detém o trono com 68\% , enquanto o
 Google aposta em seu primeiro tablet, o Nexus 7 ao preço US\$199,00, para
-ga- nhar terreno tentando repetir o sucesso do Amazon Kindle Fire, que também
+ganhar terreno tentando repetir o sucesso do Amazon Kindle Fire, que também
 utiliza Android.
 
 \subsection{MVC - Model View Controller}
 \label{subsec:mvc_model_view_controller}
 
 O modelo MVC consiste em dividir a aplicação em camadas, onde é possível
-representar um sistema computacional completo em 3 camadas distintas de uma
-forma macro. Abaixo, estão listadas tais cadamas e seus objetivos
-respectivamente:
+representar um sistema computacional completo em 3 camadas distintas. Abaixo,
+estão listadas tais camadas e seus objetivos respectivamente.
 
 \begin{itemize}
   \item \textit{\textbf{Model:}} Representa toda a regra de negócio da
@@ -382,8 +386,7 @@ respectivamente:
   (\emph{Model}) e por fim, enviar uma resposta ao usuário.
 \end{itemize}
 
-A partir da Figura~\ref{fig:mvc}, é possível representar de forma visual todo o
-conceito proposto:
+A Figura~\ref{fig:mvc}, ilustra graficamente esta arquitetura.
 
 \begin{figure}[H]
   \centering
@@ -403,13 +406,13 @@ sistema internamente.
 \subsection{TDD - Test Driven Development}
 \label{subsec:tdd_test_driven_development}
 
-O desenvolvimento das funcionalidades da aplicação, foi baseado na prática do
+O desenvolvimento das funcionalidades da aplicação foi baseado na prática do
 TDD (Test Driven Development) que tem a finalidade de fazer com que o
 desenvolvedor crie primeiro o cenário de teste e então desenvolva a
-funcionalidade, por exemplo, suponhamos que precisamos criar uma funcionalidade
+funcionalidade. Por exemplo, suponhamos que precisamos criar uma funcionalidade
 que precise cadastrar um aluno no banco de dados, quando utilizamos o TDD
 criamos um método responsável por testar essa funcionalidade que a aplicação
-precisa.\\
+precisa antes de criar a funcionalidade de fato.\\
 
 O principal objetivo da utilização do TDD é garantir que a aplicação contenha
 menos bugs, pois ao invés de implementar a aplicação toda para depois testá-la,
@@ -423,7 +426,9 @@ segura e flexível, pois implementaremos métodos pequenos e com apenas uma
 responsabilidade, dessa forma garantimos que a funcionalidade esteja funcionando
 ,e então, permitimos que ela seja reutilizada em qualquer parte do código sem
 preocupações de falhas. Além disso, se um dia precisarmos realizar alguma
-alteração de uma funcionalidade, alteraremos apenas em um ponto do sistema. \\
+alteração de uma funcionalidade, alteraremos apenas em um ponto do sistema.
+Observe que a ideia de testes unitários e de alta coesão aparece intrinsicamente
+neste cenário.\\
 
 Como podemos ver, a prática do TDD, além de nos ajudar a garantir um sistema
 mais confiável, tende a criar diversos cenários dentro da aplicação, aumentando
@@ -435,14 +440,15 @@ ainda funciona ou se quebrou o nosso sistema.\\
 Sem a utilização do TDD, inicialmente, pensamos em \textbf{testar manualmente
 tudo novamente} para verificar se ocorreu algum problema após alguma alteração
 realizada no sistema.
-Além de ser trabalhoso, provavelmente, esqueceremos de testar todas as funcionalidades do sistema, ou seja, a chance de não garantir que tudo esteja funcionando como o esperado, é muito grande. Quando utilizamos o TDD, todos os cenários de testes que criamos
+Além de ser trabalhoso, provavelmente, esqueceremos de testar todas as funcionalidades do sistema, ou seja, a chance de não garantir que 
+tudo esteja funcionando como o esperado, é muito grande. Quando utilizamos o TDD, todos os cenários de testes que criamos
 são testados automaticamente, como uma \emph{pilha de processos}, dessa forma,
 evitamos perder tempo em verificar manualmente cada cenário e, se algum teste falhar, a
 nossa própria aplicação mostratará o que e onde falhou com muito mais precisão.
 \\
 
 Para utilizarmos o conceito de TDD em Java, podemos fazer uso da API JUnit
-que é descrita com mais detalhes no capítulo ~\ref{subsec:testes_JUnit}.
+que é descrita com mais detalhes no Capítulo~\ref{subsec:testes_JUnit}.
 
 \subsection{Aplicações cliente e servidor}
 \label{subsec:cliente_e_servidor}
@@ -450,7 +456,7 @@ que é descrita com mais detalhes no capítulo ~\ref{subsec:testes_JUnit}.
 Em aplicações Web, como por exemplo websites, é muito comum encontrarmos a
 arquitetura de aplicação conhecida como \emph{cliente e servidor}, que é
 justamente uma aplicação autônoma (servidor) que recebe diversas requisições de
-diversos usuários (cliente) e responde de acordo com o que cada cliente
+diversos usuários (clientes) e responde de acordo com o que cada cliente
 requisitou, como por exemplo, se um cliente solicita uma página de cadastro, o
 servidor recebe essa requisição, executa os passos necessários e
 responde com a página solicitada.
@@ -468,11 +474,11 @@ possível, por exemplo, receber requisições dos clientes e respondê-las
 \subsection{UML - Unified Modeling Language}
 \label{subsec:uml}
 
-O UML - Unified Modeling Language, na tradução, Linguagem Unificada de
+A UML - Unified Modeling Language, na tradução, Linguagem Unificada de
 Modelagem, é uma linguagem de modelagem que permite representarmos um sistema de
 forma padronizada utilizando o conceito de orientação a objetos. A importância
 da utilização da UML é justamente para esclarecer o comportamento da aplicação
-tanto para a equipe de desenvolvimento quanto para o cliente. No UML, tais
+tanto para a equipe de desenvolvimento quanto para o cliente. Na UML, tais
 padrões são representados a partir de diagramas, onde é possível enxerga de
 forma visual as características do sistema.
 
@@ -488,23 +494,25 @@ linguagem de programação, que será utilizada.
 \subsubsection{Diagrama de caso de uso}
 \label{subsubsec:diagrama_de_caso_de_uso}
 
-No diagrama de caso de uso, podemos demonstrar as principais funcionalidades e
-seus atores dentro da aplicação, por exemplo, dentro da
+No diagrama de caso de uso podemos demonstrar as principais
+funcionalidades e seus atores dentro da aplicação, por exemplo, dentro da
 aplicação, \textbf{realizar o login} pode ser feito tanto por um
 \textbf{professor}, quanto para um \textbf{aluno}. Seguindo esse pequeno
 exemplo, identificamos que, realizar o login é uma funcionalidade da aplicação,
-e que os atores são o aluno e o professor. 
+e que os atores são o aluno e o professor. Esta modelagem revela somente as
+funcionalidades de um ponto de vista muito superficial. Nenhum detalhe técnico é
+exibido aqui.
 
 \subsubsection{Diagrama de sequência}
 \label{subsubsec:diagrama_de_sequencia}
 
 O diagrama de sequência é utilizado para descrever com mais detalhes o fluxo de
 uma funcionalidade, por exemplo, a funcionalidade \textbf{realizar o login} dos
-autores \textbf{aluno} ou \textbf{professor}, ambos enviam suas credenciais para
+atores \textbf{aluno} ou \textbf{professor}, ambos enviam suas credenciais para
 o servidor, o servidor consulta as credenciais no banco de dados e, se tudo
 estiver correto, ele responde com as informações do aluno/professor junto com o
 um token identificador. O diagrama de sequência não é utilizado em todas as
-funcionalidade, em outras palavras, a intenção do diagrama de sequência é
+funcionalidades, em outras palavras, a intenção do diagrama de sequência é
 justamente dar mais atenção às funcionalidades mais peculiares da aplicação e
 que exigem uma certa atenção tanto para o cliente quanto para os
 desenvolvedores.
@@ -516,10 +524,10 @@ Quando desenvolvemos uma aplicação, em alguns momentos temos a necessidade de
 realizar algumas alterações na estrutura do banco de dados, como por exemplo a
 adição ou alteração ou, em casos mais delicados, a exclusão de uma coluna ou tabela. Tais
 modificações precisam ser gerenciadas e mantidas para todas as versões de
-desenvolvimento do banco de dados antes mesmo de realizar o
-deploy~\ref{subsubsec:distribuicao_da_aplicacao_deploy}, pois se uma versão for
-diferente, o desenvolvedor que realizar o deploy com a versão diferente pode
-causar diversos problemas inesperados em um ambiente de produção.\\
+desenvolvimento do banco de dados antes mesmo de realizar a
+implantação~\ref{subsubsec:distribuicao_da_aplicacao_deploy}, pois se uma versão
+for diferente, o desenvolvedor que realizar a implantação com a versão diferente
+pode causar diversos problemas inesperados em um ambiente de produção.\\
 
 Gerenciar esses eventos dentro de um projeto, isto é, a realização do controle
 para que todos mantenham a mesma versão do banco atual com as existentes em
@@ -535,7 +543,7 @@ ajustes no projeto, seja para melhorias, adição de alguma funcionalidade ou até
 mesmo correções de bugs. Entretanto, em muitos dos casos, qualquer tipo de
 alteração é arriscada, pois quando modificamos um ponto do sistema que já
 funciona, há chances das modificações afetarem esse ponto, e então, temos um
-resultado inesperado, como por exemplo, uma funcionalidade que funcionava
+resultado inesperado, como por exemplo, uma funcionalidade que operava
 corretamente e, de repente, para de funcionar.\\
 
 Para evitar esse tipo de problema, utilizamos ferramentas de versionamento, que
@@ -543,14 +551,14 @@ permitem a realização de um backup de uma instância do projeto, ou seja, podemos
 realizar diversas alterações sem nos preocupar se o ajuste será problemático ou
 não para o sistema, pois se acontecer algo inesperado, temos a possibilidade de
 retornar à instância que funcionava. Atualmente existem diversas ferramentas
-que proporcionam esse sistema de versionamento, entrentanto, para esse projeto,
+que proporcionam esse sistema de versionamento. Para esse projeto,
 utilizamos a ferramenta Git~\ref{subsec:git} que é muito utilizada na comunidade
 de desenvolvedores.
 
 \section{Tecnologia empregada}
 \label{sec:tecnologia_empregada}
 
-Está seção especifica todas as tecnologias que foram utilizadas para o
+Esta seção especifica todas as tecnologias que foram utilizadas para o
 desenvolvimento da aplicação, incluíndo APIs, bibliotecas e frameworks.
 
 \subsection{JDK - Java Development Kit}
@@ -576,10 +584,10 @@ especificação JPA.
 \subsection{Hibernate}
 \label{subsec:hibernate}
 
-O hibernate é uma das implementações da
+O Hibernate é uma das implementações da
 JPA~\ref{subsec:jpa_java_persistence_api} para o desenvolvimento de aplicações
 utilizando o conceito de ORM~\ref{subsec:orm_object_relational_mapping}. Dentre
-as diversas implementações existentes no mercado, o hibernate é a que mais se
+as diversas implementações existentes no mercado, o Hibernate é a que mais se
 destaca pela quantidade de desenvolvedores que o utilizam, ou seja, uma
 biblioteca mais estável, com maior suporte e atualizações para novas
 funcionalidades com mais frequência.
@@ -610,15 +618,15 @@ Durante o desenvolvimento da aplicação, utilizamos outras APIs
 para resolver determinados problemas, como por exemplo, o
 Spring Framework~\ref{subsec:spring_framework},
 Hibernate~\ref{subsec:hibernate}, Jackson~\ref{subsec:jackson} entre outros.
-Essas APIs são arquivos .jar que precisam ser baixados e adicionados dentro do projeto, porém, quando fazemos isso
-manualmente, nem sempre é uma tarefa simples e tende a apresentar problemas,
+Essas APIs são arquivos .jar que precisam ser baixados e adicionados ao projeto,
+porém, quando fazemos isso manualmente, nem sempre é uma tarefa simples e tende a apresentar problemas,
 como por exemplo o Hibernate que, além de precisar das bibliotecas próprias,
-ele necessita da API da JPA~\ref{subsec:jpa_java_persistence_api}. O Maven
-resolve todos esses problemas simplesmente adicionando a dependência por meio da tag \lstinline{<denpendency>} onde é
+ necessita da API da JPA~\ref{subsec:jpa_java_persistence_api}. O Maven
+resolve todos esses problemas simplesmente adicionando a dependência por meio da tag \lstinline{<dependency>} onde é
 possível visualizar o exemplo da adição da biblioteca do Hibernate a partir
 do Código~\ref{lst:dependencia_maven}:
 
-\begin {lstlisting}[caption={Adicionando o hibernate para a o projeto usando o
+\begin {lstlisting}[caption={Adicionando o Hibernate para a o projeto usando o
 pom.xml}, label = {lst:dependencia_maven}]
 <properties>
 	//outras propriedades
@@ -636,7 +644,7 @@ pom.xml}, label = {lst:dependencia_maven}]
 
 \end{lstlisting}
 
-Nesse exemplo, o maven baixa todas as bibliotecas do Hibernate e suas
+Nesse exemplo, o Maven baixa todas as bibliotecas do Hibernate e suas
 dependências, ou seja, a API da JPA e qualquer outra biblioteca
 necessária para o seu funcionamento. Dessa forma, delegamos todo o trabalho de
 adição, remoção, ou melhor, de gerenciamento de todas as bibliotecas e APIs do
@@ -648,8 +656,8 @@ projeto para o Maven.
 Todas as vezes que terminamos uma funcionalidade ou até mesmo finalizamos a
 aplicação, precisamos distribuí-la para uso, ou seja, publicá-la
 ou, tecnicamente falando, fazer o \textit{deploy}. Em muito dos casos, fazer o
-deploy da aplicação nem sempre é uma tarefa trivial, pois é necessário se preoculpar com
-ambientes diferentes, por exemplo, em ambiente de desenvolvimento, nós
+deploy da aplicação nem sempre é uma tarefa trivial, pois é necessário se preocupar com
+ambientes diferentes, por exemplo, em ambiente de desenvolvimento,
 podemos utilizar um banco de dados de teste ou então uma versão qualquer
 do JDK. Porém em um ambiente, como por exemplo, de produção, precisamos evitar o
 máximo possível de \textit{bugs}, ou seja, tomar alguns cuidados com qual tipo
@@ -721,8 +729,8 @@ Java Web.
 \label{subsubsec:modularizacao_de_projeto}
 
 Durante o desenvolvimento da aplicação, utilizamos a arquitetura de módulos, em
-outras palavras, o projeto foi divido em módulos. Cada módulo representa um
-projeto distinto que tem a apenas uma única finalidade, por exemplo, para
+outras palavras, o projeto foi dividido em módulos. Cada módulo representa um
+projeto distinto que tem apenas uma única finalidade, por exemplo, para
 representar todas as classes principais, ou seja, as classes modelos referentes
 à regra de negócio, criamos o módulo \textbf{core}, para o acesso de banco de
 dados criamos o módulo \textbf{db} e assim por diante. \\
@@ -735,15 +743,17 @@ core, nomeamos como \textit{gostoudaaula-core} e para o banco de dados
 \subsection{Testes - JUnit}
 \label{subsec:testes_JUnit}
 
-Como visto no capítulo ~\ref{subsec:tdd_test_driven_development}, para
+Como visto no Capítulo~\ref{subsec:tdd_test_driven_development}, para
 implementarmos os testes em Java utilizando o conceito de TDD, utilizamos a
 biblioteca do JUnit~\cite{junit} que fornece anotações específicas para criarmos
 os cenários de teste e testá-los. Os cenários de teste são métodos com uma assinatura que descreve de uma forma bem
 explícita o que está sendo testado, por exemplo, um cenário de teste que
-verifica se a funcionalidade de cadastrar um aluno está funcionando:
+verifica se a funcionalidade de cadastrar um aluno está funcionando é exibido no
+Código~\ref{lst:junit}.
 
-\begin{lstlisting}[caption={Exemplo de um caso de teste utilizando o JUnit}]
-	@Test
+
+\begin{lstlisting}[caption={Exemplo de um caso de teste utilizando o JUnit},
+label = {lst:junit}] @Test
 	public void deveCadastrarUmAluno(){
 		//implementação que precisa ser testada
 	}
@@ -752,12 +762,12 @@ verifica se a funcionalidade de cadastrar um aluno está funcionando:
 
 Observe que esse método possui a anotação
 \lstinline{@Test}. Essa anotação indica que esse método é testável, ou seja, no
-momento em que rodar o JUnit, ele fará parte da pilha de testes. Porém, para
+momento em que executar o JUnit, ele fará parte da pilha de testes. Porém, para
 verificar o resultado de alguma funcionalidade, precisamos fazer uso dos métodos
 da classe \lstinline{Assert} do próprio JUnit que nos fornece alguns métodos
 como o \lstinline{assertTrue} que recebe um método com retorno \emph{booleano},
 e se caso o retorno for verdadeiro passará, caso o contrário, falhará. Podemos
-ver claramente um exemplo a partir do Código~\ref{lst:asserts_junit}:
+ver um exemplo a partir do Código~\ref{lst:asserts_junit}.
 
 \begin{lstlisting}[caption={Exemplo não real de como utilizar o JUnit}, label =
 {lst:asserts_junit}] 
@@ -838,10 +848,10 @@ versão 3.0.
 \subsection{Spring framework}
 \label{subsec:spring_framework}
 
-O Spring framework é um conjunto de módulos (projetos)~\cite{spring} em que
-tem a finalidade de resolver diversos problemas que são comuns em uma aplicação web, na aplicação foi
-utilizado para resolver as questões de controle de transações e injenção de
-dependência.
+O Spring framework é um conjunto de módulos (projetos)~\cite{spring} que
+tem a finalidade de resolver diversos problemas que são comuns em uma aplicação
+web. Na aplicação desenvolvidaa, ele foi utilizado para resolver as questões de
+controle de transações e injeção de dependência.
 
 \subsection{Spring Data}
 \label{subsec:spring_data}
@@ -858,7 +868,7 @@ Durante o desenvolvimento da aplicação, foi utilizada uma grande quantidade de
 bibliotecas e APIs. Em Java, ou em qualquer tipo de aplicação orientada a
 objetos, sempre que queremos utilizar uma classe, precisamos fazer uma
 instância. Entretanto, em alguns casos, principalmente bibliotecas e APIs
-externas, é bem comum que, além de fazer uma instância da classe fornecida, aja
+externas, é bem comum que, além de fazer uma instância da classe fornecida, haja
 a necessidade de realizar certas configurações para que funcione de acordo com a
 nossa necessidade. Como por exemplo o Hibernate, que exige que configuremos
 todo o ambiente da infraestrutura do banco de dados, como por exemplo,
@@ -884,16 +894,16 @@ private Aluno aluno;
 
 Embora o objetivo da injeção de dependência~\ref{subsec:injecao_de_dependencia}
 seja permitir que o desenvolvedor peça para o Spring uma instância de um objeto
-desejado, por padrão, o Spring não sabe como instânciar os objetos! Em outras
+desejado, por padrão, o Spring não sabe como instanciar os objetos. Em outras
 palavras, inserir a annotation @Inject não é o suficiente. Portanto, para todo
 tipo de objeto que for injetado, é necessário realizar uma configuração que
-ensine o Spring a instânciar tal objeto.\\
+ensine o Spring a instanciar tal objeto.\\
 
-A partir do momento em que o Spring sabe instânciar um objeto, e então, pedimos
+A partir do momento em que o Spring sabe instanciar um objeto, e então, pedimos
 para ele injetá-lo, significa que toda a responsabilidade desde a criação da
 instância será transferida para o framework, ou seja, o próprio Spring se torna
 responsável. Esse conceito também é conhecido por \textbf{inversão de
-controle}, ou, tecnicamente, \textit{Inversion of Control} (IoC).\\
+controle}, ou, em inglês, \textit{Inversion of Control} (IoC).\\
 
 \subsection{Beans do Spring}
 \label{subsec:beans_do_spring}
@@ -905,9 +915,9 @@ no processo de transformar a classe desejada (classe que deseja injetar) em um
 \emph{Bean} do Spring.\\
 
 Os Beans do Spring são todas as classes gerenciadas por ele, ou seja, todas as
-classes que o Spring sabe instânciar.
+classes que o Spring sabe instanciar.
 Para transformarmos uma interface ou classe em um bean, basta adicionar uma
-tag \lstinline{<bean>} no arquivo XML de configuração do spring, conforme
+tag \lstinline{<bean>} no arquivo XML de configuração do spring, conforme o
 Código~\ref{lst:bean_spring_exemplo}:
 
 \begin{lstlisting}[caption = {Exemplo de criação do Bean para o EntityManager
@@ -932,7 +942,7 @@ xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org
 \end{lstlisting}
 
 A partir do momento que transformamos uma classe ou interface num Bean do
-Spring, temos a disponibilidade de utilizar todo o conceito de injeção de
+Spring, temos a possibilidade de utilizar todo o conceito de injeção de
 dependência~\ref{subsec:injecao_de_dependencia}.
 
 \subsection{Controle de transações}
@@ -945,8 +955,8 @@ precisamos saber o momento em que ela precisa ser iniciada e o momento em ela
 precisa aplicar as ações de commit/rollback e, por fim, fechá-las.\\
 
 
-Perceba que essas ações podem ser um pouco repitivas como também perigosas para
-a nossa aplicação, como por exemplo, interagir com o banco por meio de uma transação e não
+Perceba que essas ações podem ser um pouco repetitivas como também perigosas
+para a nossa aplicação, como por exemplo, interagir com o banco por meio de uma transação e não
 realizar o commit, ou então, simplesmente não fechar a conexão. Devido a esses
 detalhes, fazemos o uso da injeção de
 dependência~\ref{subsec:injecao_de_dependencia} do Spring justamente para que
@@ -961,19 +971,19 @@ todas as rotinas sem falhas.
 
 Devido a necessidade de manter a
 migration~\ref{subsec:migration_de_banco_de_dados} do banco de dados de uma
-forma mais organizada e com menos intervensão humana, nesse projeto, utilizamos
-o flyway~\cite{flyway} que é uma ferramenta simples e poderosa, capaz de
+forma mais organizada e com menos intervenção humana, nesse projeto, utilizamos
+o Flyway~\cite{flyway} que é uma ferramenta simples e poderosa, capaz de
 realizar a migration de uma maneira bem simplicada.
 
 \subsection{Jackson}
 \label{subsec:jackson}
 
-Em uma comunicação entre aplicação utilizando Web
-Services~\ref{subsec:web_services}, é muito comum convertemos classes para um
+Em uma comunicação entre aplicação utilizando web
+services~\ref{subsec:web_services}, é muito comum convertermos classes para um
 formato em que qualquer aplicação, independemente da implementação (linguagem de
 programação), entenda, como por exemplo, XML e JSON. Porém, uma conversão manual
-de uma classe passar o formato desejado, nem sempre é um trabalho fácil e por isso não é recomendável esse tipo de prática. Para
-facilitarmos essa tarefa, utilizamos a biblioteca do jackson que, com poucas
+de uma classe para o formato desejado nem sempre é um trabalho fácil e por isso
+não é recomendável esse tipo de prática. Para facilitarmos essa tarefa, utilizamos a biblioteca do Jackson que, com poucas
 configurações, consegue realizar essas conversões de forma automática.
 
 \subsection{HikariCP}
@@ -983,14 +993,14 @@ O HikariCP é uma biblioteca para melhorar o desempenho das conexões realizadas
 entre a aplicação e o banco de dados, por meio de implementações modificadas de
 pool de conexões justamente para minimizar o máximo possível de sobrecarga
 (\textit{overload}). Isso permite que, em um ambiente de produção, a aplicação 
-tenha um desempenho melhor. Nesse projeto não será detalhado informações sobre
-connection pool ou o HikariCP, para mais informações, verifique a página web do
+tenha um desempenho melhor. Nesse projeto não serão detalhadas informações sobre
+connection pool ou o HikariCP. Para mais informações, verifique a página web do
 próprio HikariCP~\cite{hikaricp} que está disponibilizada na bibliografia.
 
 \subsection{Openshift}
 \label{subsec:openshift}
 
-O openshift é uma plataforma como um serviço, também
+O Openshift é uma plataforma como um serviço, também
 conhecido como PaaS (Platform-as-a-Service), da Red Hat que permite a criação de 
 aplicações em uma infraestrutura na nuvem. Para mais imformações da plataforma consulte o web site~\cite{openshift}.
 
@@ -1003,9 +1013,9 @@ aplicação. O propósito das IDEs é justamente minimizar o tempo de
 desenvolvimento de um projeto, como por exemplo, auto preenchimento de código,
 busca de recursos, compilação instantânia, sugestão para melhores
 implementações, realização de testes entre outras características comuns entre
-as principais IDEs do mercado. O Eclipse é uma IDE ~\cite{eclipsejavaee} gratuita e pode ser
+as principais IDEs do mercado. O Eclipse é uma IDE~\cite{eclipsejavaee} gratuita e pode ser
 adquirida no link disponibilizado na bibliografia. Existem diversas versões para
-diversos fins, porém, para essa aplicação, foi utilizada a versão for Java EE
+diversos fins, porém, para essa aplicação, foi utilizada a versão Java EE
 que é justamente predefinida para o desenvolvimento de aplicações Java Web.
 
 \subsection{Android Studio}
